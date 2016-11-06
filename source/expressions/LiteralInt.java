@@ -1,3 +1,5 @@
+package source.expressions;
+
 public class LiteralInt extends Literal
 {
 	private int _value;
@@ -6,6 +8,7 @@ public class LiteralInt extends Literal
 		_value = value;
 	}
 
+	@Override
 	public String getAsText() {
 		return ("" + _value);
 	}
@@ -15,6 +18,6 @@ public class LiteralInt extends Literal
 	}
 
 	public Literal getValue() {
-		return LiteralInt(_value);
+		return new LiteralInt(_value);
 	}
 }
