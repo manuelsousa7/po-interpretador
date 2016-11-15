@@ -31,23 +31,23 @@ public class Program
 		_expressions.set(index, expressao);
 	}
 
-	public void setIdentifierValue(Identifier id, Literal value) {
+	public void setIdentifierValue(Identifier id, Expression value) {
 		
 	}
 
-	public Literal getIdentifierValue(Identifier id) {
+	public Expression getIdentifierValue(Identifier id) {
 		
 	}
 
-	public Literal execute() {
-
+	public Expression execute() {
+		
 	}
 
 	public String getAsText() {
-
+		
 	}
 
 	public Program getProgram(String name) {
-
+		
 	}
 }

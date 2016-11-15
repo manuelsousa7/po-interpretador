@@ -10,12 +10,21 @@ public class Identifier extends Expression
 		_expression = expression;
 	}
 
+	public setName(String name) {
+		_name = name;
+	}
+
+	public setExpression(Expression expression) {
+		_expression = expression;
+	}
+
 	@Override
 	public String getAsText() {
 		return _name;
 	}
 
-	public Literal evaluate() {
+	@Override
+	public Expression evaluate() {
 		return _expression.evaluate();
 	}
 }

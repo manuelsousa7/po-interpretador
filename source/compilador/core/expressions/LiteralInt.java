@@ -1,6 +1,6 @@
 package compilador.core.expressions;
 
-public class LiteralInt extends Literal
+public class LiteralInt extends Expression
 {
 	private int _value;
 
@@ -17,7 +17,7 @@ public class LiteralInt extends Literal
 		return _value;
 	}
 
-	public Literal evaluate() {
+	public Expression evaluate() {
 		return new LiteralInt(_value);
 	}
 }
