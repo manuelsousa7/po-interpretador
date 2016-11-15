@@ -3,8 +3,7 @@ package compilador.core.main;
 import compilador.core.main.Program;
 import compilador.core.main.Parser;
 
-public class Interpreter
-{
+public class Interpreter {
 	AppIO _app;
 	List<Program> _programs;
 
@@ -13,15 +12,15 @@ public class Interpreter
 	}
 
 	public void setIdentifierValue(Identifier id, Literal value) {
-		
+
 	}
 
 	public Literal getIdentifierValue(Identifier id) {
 
 	}
 
-	public void addProgram(Program) {
-		
+	public void addProgram(Program programa) {
+
 	}
 
 	public Program getProgram(String name) {
