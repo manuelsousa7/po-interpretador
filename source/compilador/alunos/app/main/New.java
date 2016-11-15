@@ -19,7 +19,6 @@ public class New extends Command<Handler> {
         super(Label.NEW, receiver);
     }
 
-    /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() {
         //FIXME implement

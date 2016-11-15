@@ -23,7 +23,6 @@ public class Open extends Command<Handler> {
         super(Label.OPEN, receiver);
     }
 
-    /** @see pt.tecnico.po.ui.Command#execute() */
     @Override
     public final void execute() throws InvalidOperation {
         //FIXME implement

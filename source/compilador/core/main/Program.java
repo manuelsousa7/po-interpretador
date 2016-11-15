@@ -1,6 +1,7 @@
 package compilador.core.main;
 
 import compilador.core.expressions.*;
+import compilador.core.main.Interpreter;
 
 import java.util.List;
 import java.util.Iterator;
@@ -13,10 +14,12 @@ public class Program
 {
 	private String _name;
 	private List<Expression> _expressions;
+	private Interpreter _interpreter;
 
-	public Program(String name) {
+	public Program(String name, Interpreter interpreter) {
 		_name = name;
 		_expressions = new ArrayList<Expression>();
+		_interpreter = interpreter;
 	}
 
 	public void add(Expression expressao) {
@@ -32,22 +35,22 @@ public class Program
 	}
 
 	public void setIdentifierValue(Identifier id, Expression value) {
-		
+		_interpreter.setIdentifierValue(id, value);
 	}
 
 	public Expression getIdentifierValue(Identifier id) {
-		
+		return _interpreter.getIdentifierValue(id);
 	}
 
 	public Expression execute() {
-		
+		return _expressions.get(0).evaluate();
 	}
 
 	public String getAsText() {
-		
+		return _name;
 	}
 
 	public Program getProgram(String name) {
-		
+		return _interpreter.getProgram(name);
 	}
 }

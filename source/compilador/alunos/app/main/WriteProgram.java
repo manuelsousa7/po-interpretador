@@ -21,7 +21,6 @@ public class WriteProgram extends Command<Handler> {
         super(Label.WRITE_PROGRAM, receiver);
     }
 
-    /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() throws InvalidOperation {
         //FIXME implement

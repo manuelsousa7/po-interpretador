@@ -24,7 +24,6 @@ public class EditProgram extends Command<Handler> {
         super(Label.MANAGE_PROGRAM, receiver);
     }
 
-    /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() {
         //FIXME implement

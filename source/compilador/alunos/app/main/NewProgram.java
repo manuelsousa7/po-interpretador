@@ -19,7 +19,6 @@ public class NewProgram extends Command<Handler> {
         super(Label.NEW_PROGRAM, receiver);
     }
 
-    /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() {
         //FIXME implement

@@ -20,7 +20,6 @@ public class Save extends Command<Handler> {
         super(Label.SAVE, receiver);
     }
 
-    /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() throws InvalidOperation {
         //FIXME implement

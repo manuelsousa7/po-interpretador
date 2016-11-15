@@ -1,6 +1,6 @@
 package compilador.core.parser;
 
-import compilador.core.main.Program;
+import compilador.core.main.*;
 import compilador.core.expressions.*;
 import compilador.core.parser.*;
 
@@ -28,9 +28,9 @@ public class Parser {
         _tokenizer.eolIsSignificant(false);
     }
 
-    public Program parseFile(String fileName, String programName /* may need aditional parameters */) throws BadSourceException, BadNumberException, InvalidExpressionException,
+    public Program parseFile(String fileName, String programName, Interpreter interpreter) throws BadSourceException, BadNumberException, InvalidExpressionException,
         MissingClosingParenthesisException, UnknownOperationException, EndOfInputException  {
-        _program = new Program(programName /* may need additional parameters */);
+        _program = new Program(programName, interpreter);
 
         try (FileReader reader = new FileReader(fileName)) {
             initTokenizer(reader);
@@ -80,7 +80,7 @@ public class Parser {
             return new LiteralString(_tokenizer.sval);
 
         case StreamTokenizer.TT_WORD:
-            return new Identifier(_tokenizer.sval /* may need aditional parameters */);
+            return new Identifier(_tokenizer.sval, new LiteralInt((int)_tokenizer.nval));
 
         case '(':
             Expression exp = parseCompositeExpression();
@@ -118,15 +118,15 @@ public class Parser {
 
         // The way each composite expression is inntanciated mey need to be changed since
         // this depends on the specific code of each group
-
+        /*
         switch (operatorName) {
 
         // process no-args expressions
         case "reads":
-            return new ReadS(/* may need additional parameters */);
+            return new ReadS();
 
         case "readi":
-            return new ReadI(/* may need additional parameters */);
+            return new ReadI();
 
         // processing unary expressions
         case "neg":
@@ -137,7 +137,7 @@ public class Parser {
 
         case "call":
             try {
-                return new Call((StringLiteral)parseArgument() /* may need additional parameter */);
+                return new Call((StringLiteral)parseArgument());
             } catch (ClassCastException cce) { // it is not a StringLiteral
                 throw new InvalidExpressionException(_tokenizer.lineno());
             }
@@ -183,7 +183,7 @@ public class Parser {
             return new Or(parseArgument(), parseArgument());
 
         case "set":
-            return new Set(parseArgument(), parseArgument() /* may need additional parameters */);
+            return new Set(parseArgument(), parseArgument());
 
         case "while":
             return new While(parseArgument(), parseArgument());
@@ -213,10 +213,12 @@ public class Parser {
             if (operatorName.equals("seq"))
                 return new Seq(args);
             else
-                return new Print(args /* may need additional parameters */);
+                return new Print(args);
 
         default:
             throw new UnknownOperationException(_tokenizer.sval);
         }
+        */
+        throw new UnknownOperationException(_tokenizer.sval);
     }
 }

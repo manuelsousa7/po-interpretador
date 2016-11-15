@@ -9,11 +9,11 @@ public class Identifier extends Expression {
 		_expression = expression;
 	}
 
-	public setName(String name) {
+	public void setName(String name) {
 		_name = name;
 	}
 
-	public setExpression(Expression expression) {
+	public void setExpression(Expression expression) {
 		_expression = expression;
 	}
 
