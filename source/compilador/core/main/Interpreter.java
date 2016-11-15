@@ -1,5 +1,11 @@
 package compilador.core.main;
 
+import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Collections;
+
 import compilador.core.main.Program;
 import compilador.core.main.Parser;
 
@@ -20,7 +26,7 @@ public class Interpreter
 
 	}
 
-	public void addProgram(Program) {
+	public void addProgram(Program program) {
 		
 	}
 
