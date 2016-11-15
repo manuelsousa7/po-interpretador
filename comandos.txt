@@ -1,0 +1,7 @@
+export CLASSPATH=$CLASSPATH:/Users/mvs/repo/po-labs/aula7/ep8/po-uilib.jar:/Users/mvs/repo/po-labs/aula7/ep8/po-uilib.jar
+
+
+
+
+
+javac -cp .:po-uilib.jar: `find compilador -name "*.java"`

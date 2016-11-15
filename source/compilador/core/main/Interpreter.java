@@ -26,7 +26,7 @@ public class Interpreter {
 	}
 
 	public void addProgram(Program program) {
-		
+
 	}
 
 	public Program getProgram(String name) {
