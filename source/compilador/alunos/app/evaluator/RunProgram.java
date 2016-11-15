@@ -1,6 +1,7 @@
 package compilador.alunos.app.evaluator;
 
 import compilador.core.main.Program;
+import compilador.support.app.evaluator.Label;
 
 /**
  * Run program.

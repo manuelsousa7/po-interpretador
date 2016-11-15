@@ -4,6 +4,7 @@ import compilador.alunos.app.BadExpressionException;
 import compilador.alunos.app.BadPositionException;
 
 import compilador.core.main.Program;
+import compilador.support.app.evaluator.Label;
 
 import pt.utl.ist.po.ui.Form;
 import pt.utl.ist.po.ui.InputString;

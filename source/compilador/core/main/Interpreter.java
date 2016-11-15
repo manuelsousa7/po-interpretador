@@ -3,6 +3,8 @@ package compilador.core.main;
 import compilador.core.main.Program;
 import compilador.core.expressions.*;
 
+import compilador.alunos.AppIO;
+
 import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ import java.util.Comparator;
 import java.util.Collections;
 
 import compilador.core.main.Program;
-import compilador.core.main.Parser;
+import compilador.core.parser.Parser;
 
 public class Interpreter {
 	AppIO _app;

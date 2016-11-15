@@ -1,6 +1,6 @@
 package compilador.alunos.app.main;
 
-//FIXME import receiver(s) class(es)
+import compilador.core.main.Handler;
 
 import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Menu;

@@ -1,8 +1,8 @@
 package compilador.alunos.app.main;
 
 import java.io.IOException;
+import compilador.core.main.Handler;
 
-//FIXME import used core classes
 import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Form;
 import pt.utl.ist.po.ui.InputString;

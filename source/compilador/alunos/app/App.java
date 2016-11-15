@@ -2,7 +2,7 @@ package compilador.alunos.app;
 
 // import core entities;
 import compilador.alunos.AppIO;
-import compilador.alunos.parser.ParserException;
+import compilador.core.parser.ParserException;
 import compilador.alunos.app.main.MainMenu;
 
 import pt.utl.ist.po.ui.Form;

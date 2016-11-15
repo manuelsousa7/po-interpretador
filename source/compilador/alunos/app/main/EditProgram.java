@@ -1,7 +1,9 @@
 package compilador.alunos.app.main;
 
-//FIXME import used core classes
+import compilador.core.main.Handler;
+
 import compilador.alunos.app.evaluator.EvaluatorMenu;
+
 import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.InputString;
 import pt.utl.ist.po.ui.Menu;

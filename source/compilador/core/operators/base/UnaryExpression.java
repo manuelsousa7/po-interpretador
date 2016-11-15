@@ -1,6 +1,8 @@
 package compilador.core.operators.base;
 
-abstract class UnaryExpression extends Expression
+import compilador.core.expressions.Expression;
+
+public abstract class UnaryExpression extends Expression
 {
 	private Expression _expression_1;
 

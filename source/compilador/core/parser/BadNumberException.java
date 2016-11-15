@@ -1,5 +1,5 @@
 /* $Id: $ */
-package compilador.alunos.parser;
+package compilador.core.parser;
 
 /**
  * Exception for representing errors concerning invalid integer literals.

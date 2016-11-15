@@ -1,6 +1,6 @@
 package compilador.core.expressions;
 
-abstract class Expression
+public abstract class Expression
 {
 	abstract String getAsText();
 

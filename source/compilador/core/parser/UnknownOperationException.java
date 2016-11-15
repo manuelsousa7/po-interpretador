@@ -1,4 +1,4 @@
-package compilador.alunos.parser;
+package compilador.core.parser;
 
 /**
  * Exception for representing unknown operation errors.

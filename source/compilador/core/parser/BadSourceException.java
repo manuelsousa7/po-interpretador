@@ -1,4 +1,4 @@
-package compilador.alunos.parser;
+package compilador.core.parser;
 
 /**
  * Exception for representing errors on the source of the expressions to parse.

@@ -1,6 +1,8 @@
 package compilador.core.operators.base;
 
-abstract class TrenaryExpression extends Expression
+import compilador.core.expressions.Expression;
+
+public abstract class TrenaryExpression extends Expression
 {
 	private Expression _expression_1;
 	private Expression _expression_2;

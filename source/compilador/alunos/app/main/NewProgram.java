@@ -1,6 +1,7 @@
 package compilador.alunos.app.main;
 
-//FIXME import used core classes
+import compilador.core.main.Handler;
+
 import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Form;
 import pt.utl.ist.po.ui.InputString;

@@ -1,6 +1,8 @@
 package compilador.core.operators.base;
 
-abstract class VariadicExpression extends Expression
+import compilador.core.expressions.Expression;
+
+public abstract class VariadicExpression extends Expression
 {
 	private Expression[] _expressions;
 

@@ -1,8 +1,8 @@
-package compilador.core.main;
+package compilador.core.parser;
 
 import compilador.core.main.Program;
 import compilador.core.expressions.*;
-
+import compilador.core.parser.*;
 
 import java.io.IOException;
 import java.io.StreamTokenizer;
@@ -13,16 +13,14 @@ import java.io.Reader;
 import java.util.Collection;
 import java.util.ArrayList;
 
-import source.core.*;
-
-public class NewParser {
+public class Parser {
 
     private Program _program;
     private StreamTokenizer _tokenizer;
 
     // may need aditional fields
 
-    public NewParser() {
+    public Parser() {
     }
 
     private void initTokenizer(Reader reader) {
@@ -109,7 +107,7 @@ public class NewParser {
     }
 
     // the opening '(' was already processed
-    private CompositeExpression parseCompositeExpression() throws IOException, BadNumberException, UnknownOperationException, MissingClosingParenthesisException,
+    private Expression parseCompositeExpression() throws IOException, BadNumberException, UnknownOperationException, MissingClosingParenthesisException,
                                                                   EndOfInputException, InvalidExpressionException {
         int token = _tokenizer.nextToken();
 

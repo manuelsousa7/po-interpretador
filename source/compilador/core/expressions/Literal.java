@@ -1,6 +1,6 @@
 package compilador.core.expressions;
 
-abstract class Literal extends Expression
+public abstract class Literal extends Expression
 {
 	@Override
 	public String getAsText();

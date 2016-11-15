@@ -1,4 +1,4 @@
-package compilador.alunos.parser;
+package compilador.core.parser;
 
 /**
  * Class for representing a syntax error problem.
