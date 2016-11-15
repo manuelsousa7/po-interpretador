@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Collections;
+import java.util.Collection;	
 
 public class Program
 {
@@ -22,8 +23,12 @@ public class Program
 		_expressions.add(expressao);
 	}
 
+	public void set(Collection<Expression> expressoes) {
+		_expressions.addAll(expressoes);
+	}
+
 	public void replace(int index, Expression expressao) {
-		_expressions.get(index) = Expressao;
+		_expressions.set(index, expressao);
 	}
 
 	public void setIdentifierValue(Identifier id, Literal value) {
@@ -31,7 +36,7 @@ public class Program
 	}
 
 	public Literal getIdentifierValue(Identifier id) {
-
+		
 	}
 
 	public Literal execute() {

@@ -1,6 +1,7 @@
 package compilador.alunos.app.main;
 
 import compilador.core.main.Handler;
+import compilador.support.app.main.Label;
 
 import compilador.alunos.app.evaluator.EvaluatorMenu;
 

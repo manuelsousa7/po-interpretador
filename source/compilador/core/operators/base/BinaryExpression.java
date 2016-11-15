@@ -7,11 +7,11 @@ public abstract class BinaryExpression extends Expression
 	private Expression _expression_1;
 	private Expression _expression_2;
 	
-	public Expression getFirstArgument();
+	public abstract Expression getFirstArgument();
 
-	public Expression getSecondArgument();
+	public abstract Expression getSecondArgument();
 
-	public void setArguments(Expression expression_1, Expression expression_2);
+	public abstract void setArguments(Expression expression_1, Expression expression_2);
 
-	public boolean verifyArguments();
+	public abstract boolean verifyArguments();
 }

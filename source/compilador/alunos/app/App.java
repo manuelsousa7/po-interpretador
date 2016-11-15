@@ -4,6 +4,7 @@ package compilador.alunos.app;
 import compilador.alunos.AppIO;
 import compilador.core.parser.ParserException;
 import compilador.alunos.app.main.MainMenu;
+import compilador.core.main.Handler;
 
 import pt.utl.ist.po.ui.Form;
 import pt.utl.ist.po.ui.InputString;

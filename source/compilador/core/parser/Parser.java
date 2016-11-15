@@ -74,10 +74,10 @@ public class Parser {
                 if (_tokenizer.nval < 0 || _tokenizer.nval - (int)_tokenizer.nval != 0)
                     throw new BadNumberException("" + _tokenizer.nval);
 
-                return new IntegerLiteral((int)_tokenizer.nval);
+                return new LiteralInt((int)_tokenizer.nval);
 
             case '"':
-                return new StringLiteral(_tokenizer.sval);
+                return new LiteralString(_tokenizer.sval);
 
             case StreamTokenizer.TT_WORD:
                 return new Identifier(_tokenizer.sval /* may need aditional parameters */);

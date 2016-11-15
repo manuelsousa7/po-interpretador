@@ -17,7 +17,7 @@ public class LiteralInt extends Literal
 		return _value;
 	}
 
-	public Literal getValue() {
+	public Literal evaluate() {
 		return new LiteralInt(_value);
 	}
 }

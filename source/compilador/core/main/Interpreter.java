@@ -39,6 +39,6 @@ public class Interpreter {
 	}
 
 	public AppIO getAppIO() {
-		return app;
+		return _app;
 	}
 }
