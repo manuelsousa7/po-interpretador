@@ -20,7 +20,7 @@ public class AddExpression extends ProgramCommand {
     public AddExpression(Program receiver) {
         super(Label.ADD_EXPRESSION, receiver);
     }
-    
+
     /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() throws BadExpressionException, BadPositionException {

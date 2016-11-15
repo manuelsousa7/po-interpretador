@@ -19,7 +19,7 @@ public class App implements AppIO {
     // Add fileds here if needed
 
     public App() {
-	// add core here if needed
+        // add core here if needed
     }
 
     /**
@@ -54,7 +54,7 @@ public class App implements AppIO {
      */
     public static void main(String[] args) {
         //FIXME create main core object
-        
+
         String datafile = System.getProperty("import"); //$NON-NLS-1$
         if (datafile != null) {
             try {
@@ -64,7 +64,7 @@ public class App implements AppIO {
                 e.printStackTrace();
             }
         }
-        
+
         Handler app = new Handler();
         MainMenu menu = new MainMenu(app);
         menu.open();

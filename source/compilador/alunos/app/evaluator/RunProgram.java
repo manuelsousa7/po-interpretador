@@ -7,7 +7,7 @@ import compilador.support.app.evaluator.Label;
  * Run program.
  */
 public class RunProgram extends ProgramCommand {
-  
+
     /**
      * @param receiver
      */
