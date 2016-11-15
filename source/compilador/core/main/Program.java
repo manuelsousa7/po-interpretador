@@ -23,7 +23,7 @@ public class Program
 	}
 
 	public void replace(int index, Expression expressao) {
-		_expressions[index] = Expressao;
+		_expressions.get(index) = Expressao;
 	}
 
 	public void setIdentifierValue(Identifier id, Literal value) {
