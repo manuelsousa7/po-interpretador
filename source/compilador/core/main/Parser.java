@@ -1,5 +1,9 @@
 package compilador.core.main;
 
+import compilador.core.main.Program;
+import compilador.core.expressions.*;
+
+
 import java.io.IOException;
 import java.io.StreamTokenizer;
 import java.io.FileReader;

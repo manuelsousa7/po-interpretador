@@ -1,5 +1,7 @@
 package compilador.core.main;
 
+import compilador.core.expressions.*;
+
 import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
