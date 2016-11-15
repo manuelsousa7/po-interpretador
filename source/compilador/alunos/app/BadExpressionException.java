@@ -7,10 +7,10 @@ import pt.utl.ist.po.ui.InvalidOperation;
  */
 @SuppressWarnings("nls")
 public class BadExpressionException extends InvalidOperation {
-  
+
   /** Serial number for serialization. */
   private static final long serialVersionUID = 201608241029L;
-  
+
   /** Original leaf expression. */
   String _description;
 
@@ -20,7 +20,7 @@ public class BadExpressionException extends InvalidOperation {
   public BadExpressionException(String description) {
     _description = description;
   }
-  
+
   /**
    * @return the description
    */

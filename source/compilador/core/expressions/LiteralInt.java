@@ -1,7 +1,6 @@
 package compilador.core.expressions;
 
-public class LiteralInt extends Literal
-{
+public class LiteralInt extends Literal {
 	private int _value;
 
 	public LiteralInt(int value) {

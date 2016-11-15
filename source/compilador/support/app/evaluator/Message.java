@@ -17,7 +17,7 @@ public interface Message {
     static String requestNewId() {
         return "Novo identificador: ";
     }
-    
+
     /**
      * @param name
      * @return return error message for unknown section

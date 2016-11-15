@@ -1,7 +1,6 @@
 package compilador.core.expressions;
 
-public class Identifier extends Expression
-{
+public class Identifier extends Expression {
 	private String _name;
 	private Expression _expression;
 

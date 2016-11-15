@@ -19,8 +19,8 @@ public class ParserException extends Exception {
    * @param description
    * @param cause
    */
-    public ParserException(String description, Exception cause) {
-        super(description, cause);
+  public ParserException(String description, Exception cause) {
+    super(description, cause);
   }
 
   /**
