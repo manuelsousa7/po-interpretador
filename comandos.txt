@@ -1,7 +1,7 @@
 export CLASSPATH=$CLASSPATH:/home/goncalao/po-interpretador/source/po-uilib.jar:/home/goncalao/po-interpretador/source/po-uilib.jar
 
+export CLASSPATH=$CLASSPATH:/Users/mvs/repo/po-interpretador/source/po-uilib.jar:/Users/mvs/repo/po-interpretador/source/po-uilib.jar
 
-
-
+find . -name "*.class" -exec rm {} \;
 
 javac -cp .:po-uilib.jar: `find compilador -name "*.java"`

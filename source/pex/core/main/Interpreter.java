@@ -3,7 +3,7 @@ package pex.core.main;
 import pex.core.main.Program;
 import pex.core.expressions.*;
 
-import pex.alunos.AppIO;
+import pex.AppIO;
 
 import java.util.List;
 import java.util.Iterator;
