@@ -48,7 +48,7 @@ public class App implements AppIO {
      * @return the number written by the user.
      **/
     public int readInteger() {
-       return 0;
+        return 0;
     }
 
     /**

@@ -1,0 +1,29 @@
+*** tests/A-006-001-M-ok.out	Wed Nov  9 22:45:56 2016
+--- tests/A-006-001-M-ok.outhyp	Wed Nov 16 13:35:30 2016
+***************
+*** 7,14 ****
+  6 - Escrever Programa
+  7 - Manipular Programa
+  0 - Sair
+! Escolha uma opção: Nome do program: O programa asd não existe.
+! Menu Principal
+  1 - Criar
+  2 - Abrir
+  3 - Guardar
+--- 7,13 ----
+  6 - Escrever Programa
+  7 - Manipular Programa
+  0 - Sair
+! Escolha uma opção: Menu Principal
+  1 - Criar
+  2 - Abrir
+  3 - Guardar
+***************
+*** 17,20 ****
+--- 16,20 ----
+  6 - Escrever Programa
+  7 - Manipular Programa
+  0 - Sair
++ Escolha uma opção: Número inválido!
+  Escolha uma opção: 
+\ No newline at end of file

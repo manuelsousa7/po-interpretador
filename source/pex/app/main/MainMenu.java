@@ -17,15 +17,15 @@ public class MainMenu extends Menu {
      * @param receiver
      */
     public MainMenu(Handler receiver) {
-        super("Compilador XPTO",
-          	new Command<?>[] { //
-            new New(receiver), //
-            new Open(receiver), //
-            new Save(receiver), //
-            new NewProgram(receiver), //
-            new ReadProgram(receiver), //
-            new WriteProgram(receiver), //
-            new EditProgram(receiver), //
-            });
+        super("Menu Principal",
+              new Command<?>[] { //
+                  new New(receiver), //
+                  new Open(receiver), //
+                  new Save(receiver), //
+                  new NewProgram(receiver), //
+                  new ReadProgram(receiver), //
+                  new WriteProgram(receiver), //
+                  new EditProgram(receiver), //
+              });
     }
 }

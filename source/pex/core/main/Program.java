@@ -8,10 +8,9 @@ import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Collections;
-import java.util.Collection;	
+import java.util.Collection;
 
-public class Program
-{
+public class Program {
 	private String _name;
 	private List<Expression> _expressions;
 	private Interpreter _interpreter;

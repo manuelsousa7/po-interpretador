@@ -11,6 +11,10 @@ import pt.utl.ist.po.ui.Menu;
 import pt.utl.ist.po.ui.Display;
 import pt.utl.ist.po.ui.Form;
 
+import pex.core.main.Program;
+import pex.core.main.Interpreter;
+import pex.core.main.Interpreter;
+import pex.AppIO;
 
 /**
  * Open menu for managing programs.
@@ -26,7 +30,7 @@ public class EditProgram extends Command<Handler> {
 
     @Override
     public final void execute() {
-        //FIXME implement
+
     }
 
 }
