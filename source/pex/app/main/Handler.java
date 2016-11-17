@@ -44,29 +44,49 @@ public class Handler implements AppIO {
 		_interpretador = new Interpreter(this);
 	}
 
-	public Interpreter openInterpreter(String file) throws IOException, ClassNotFoundException  {
-		ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
+	public void openInterpreter(String file) throws IOException, ClassNotFoundException  {
+		try {
+			FileInputStream fileIn = new FileInputStream(file);
+			ObjectInputStream in = new ObjectInputStream(fileIn);
+			_interpretador = (Interpreter)in.readObject();
+			System.out.println("Cast successful");
+			in.close();
+			fileIn.close();
 
-		Interpreter interpretador = (Interpreter)in.readObject();
-		in.close();
+		}
+		
+		catch (ClassNotFoundException cnfe) {
+			System.out.println("Class not found");
+		}
 
-		return interpretador;
+		catch (IOException ioe) {
+			System.out.println("I/O error");
+		}
+
+		catch (Exception e) {
+			System.out.println("Generic exception");
+		}
+		
 	}
 
 	public void saveInterpreter(String file) throws IOException {
 		_interpretador.setSaved();
 		_interpretador.setFileName(file);
-		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
+		FileOutputStream fileOut = new FileOutputStream(file);
+		ObjectOutputStream out = new ObjectOutputStream(fileOut);
 
 		out.writeObject(_interpretador);
 		out.close();
+		fileOut.close();
 	}
 
 	public void saveInterpreter() throws IOException {
-		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(_interpretador.getFileName()));
+		FileOutputStream fileOut = new FileOutputStream(_interpretador.getFileName());
+		ObjectOutputStream out = new ObjectOutputStream(fileOut);
 
 		out.writeObject(_interpretador);
 		out.close();
+		fileOut.close();
 	}
 
 	public boolean checkSaved() {

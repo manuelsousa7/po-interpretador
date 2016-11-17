@@ -28,10 +28,20 @@ public class Save extends Command<Handler> {
             InputString inS = new InputString(f, "Nome do ficheiro: ");
             f.parse();
 
-            //entity().saveInterpreter(inS.toString());
+            try {
+                entity().saveInterpreter(inS.toString());
+            }
+            catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
         else {
-            //entity().saveInterpreter();
+            try {
+                entity().saveInterpreter();
+            }
+            catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 }
