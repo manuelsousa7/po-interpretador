@@ -28,9 +28,13 @@ public class Open extends Command<Handler> {
     @Override
     public final void execute() throws InvalidOperation,IOException {
         Form f = new Form();
-        InputString inS = new InputString(f, "Indique o nome do interpretador : ");
+        InputString inS = new InputString(f, "Indique o nome do ficheiro: ");
         f.parse();
-
-        entity().openInterpreter(inS.value());
+        try {
+            entity().openInterpreter(inS.value());
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

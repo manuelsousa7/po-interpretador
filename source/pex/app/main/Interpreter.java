@@ -3,6 +3,7 @@ package pex.app.main;
 import pex.app.main.Interpreter;
 import pex.app.main.Program;
 import pex.core.expressions.*;
+import pex.core.parser.Parser;
 
 import pex.AppIO;
 
@@ -11,10 +12,10 @@ import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Collections;
+import java.io.Serializable;
 
-import pex.core.parser.Parser;
 
-public class Interpreter {
+public class Interpreter implements Serializable {
 	private AppIO _app;
 	private List<Program> _programs;
 	private List<Identifier> _identifiers;
