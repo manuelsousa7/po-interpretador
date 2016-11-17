@@ -28,8 +28,13 @@ public class Interpreter {
 	}
 
 	public void setIdentifierValue(Identifier id, Expression value) {
-		_identifiers.add(id);
-		_values.add(value);
+		if (!_identifiers.contains(id)) {
+			_identifiers.add(id);			
+			_values.add(value);
+		}
+		else {
+			_values.set(_identifiers.indexOf(id), value);
+		}
 	}
 
 	public Expression getIdentifierValue(Identifier id) {
@@ -37,6 +42,7 @@ public class Interpreter {
 		if (index != -1) {
 			return _values.get(index);
 		}
+		//Erro a encontrar identificador
 		return new LiteralInt(5);
 	}
 
@@ -50,6 +56,7 @@ public class Interpreter {
 				return program;
 			}
 		}
+		//Erro a encontrar programa
 		return new Program("Erro", this);
 	}
 

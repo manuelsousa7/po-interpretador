@@ -21,6 +21,7 @@ public class Parser {
     // may need aditional fields
 
     public Parser() {
+        
     }
 
     private void initTokenizer(Reader reader) {

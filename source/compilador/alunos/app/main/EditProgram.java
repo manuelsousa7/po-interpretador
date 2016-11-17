@@ -26,7 +26,29 @@ public class EditProgram extends Command<Handler> {
 
     @Override
     public final void execute() {
-        //FIXME implement
+        Form f = new Form();
+        InputString inI = new InputString(f, "Indique interpretador a executar: ");
+        f.parse();
+
+        Program prog = new Program(f);
+        EvaluatorMenu menu = new EvaluatorMenu(prog);
+        menu.open();
+
+        /*
+
+        Command<?>[] commands = {
+            new HumanPlayer(jogo, true),
+            new HumanPlayer(jogo, false),
+        };
+
+        Menu jogoMenu = new Menu("Jogar", commands);
+        jogoMenu.entry(1).invisible();
+        jogoMenu.open();
+
+        if (jogo.obtemResultado() != ResultadoJogo.NAO_FINALIZADO) {
+            entity().guarda(jogo);
+        }
+        */
     }
 
 }
