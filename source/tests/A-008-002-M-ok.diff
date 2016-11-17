@@ -1,5 +1,5 @@
-*** tests/A-008-002-M-ok.out	2016-11-17 12:28:06.339004920 +0000
---- tests/A-008-002-M-ok.outhyp	2016-11-17 16:20:11.665365841 +0000
+*** tests/A-008-002-M-ok.out	Thu Nov 17 14:55:36 2016
+--- tests/A-008-002-M-ok.outhyp	Thu Nov 17 23:12:32 2016
 ***************
 *** 7,13 ****
   6 - Escrever Programa
@@ -13,7 +13,7 @@
   6 - Escrever Programa
   7 - Manipular Programa
   0 - Sair
-! Escolha uma opção: Indique o nome do interpretador : Menu Principal
+! Escolha uma opção: Indique o nome do ficheiro: Menu Principal
   1 - Criar
   2 - Abrir
   3 - Guardar

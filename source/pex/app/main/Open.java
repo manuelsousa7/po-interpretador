@@ -26,10 +26,11 @@ public class Open extends Command<Handler> {
     }
 
     @Override
-    public final void execute() throws InvalidOperation,IOException {
+    public final void execute() throws InvalidOperation {
         Form f = new Form();
         InputString inS = new InputString(f, "Indique o nome do ficheiro: ");
         f.parse();
+
         try {
             entity().openInterpreter(inS.value());
         }

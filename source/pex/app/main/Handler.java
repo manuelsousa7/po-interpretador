@@ -56,14 +56,14 @@ public class Handler implements AppIO, Serializable  {
 		catch (WriteAbortedException eofe) {
 			System.out.println("Nao escreveu como deve de set");
 		}
-
+		
 		catch (ClassNotFoundException cnfe) {
 			System.out.println("Class not found");
 		}
 
 		catch (IOException ioe) {
 			System.out.println("I/O error");
-		}
+		}		
 	}
 
 	public void saveInterpreter(String file) throws IOException {
@@ -77,7 +77,8 @@ public class Handler implements AppIO, Serializable  {
 			out.flush();
 			out.close();
 			fileOut.close();
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			System.out.println("Erro a guardar");
 		}
 	}
