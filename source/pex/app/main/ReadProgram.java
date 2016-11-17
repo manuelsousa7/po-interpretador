@@ -22,6 +22,10 @@ public class ReadProgram extends Command<Handler> {
 
     @Override
     public final void execute() {
-        entity().readProgram();
+        Form f = new Form();
+        InputString inS = new InputString(f, "Indique o nome do programa : ");
+        f.parse();
+
+        entity().readProgram(inS.toString());
     }
 }

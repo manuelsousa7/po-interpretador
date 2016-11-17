@@ -56,18 +56,20 @@ public class Handler implements AppIO {
 	}
 
 	public void createProgram(String name) {
-		//Procurar programa
+		Program prog = new Program(name, _interpretador);
+		_interpretador.addProgram(prog);
 	}
 
-	public void readProgram() {
-		//programFileNameFromFile()
+	public void readProgram(String name) {
+		_interpretador.getProgram(name);
+		//readProgramAsFile()
 	}
 
-	public void writeProgram() {
+	public void writeProgram(String name, String file) {
 		//saveProgramAsFile()
 	}
 
-	public void editProgram() {
+	public void editProgram(String name) {
 		//
 	}
 }

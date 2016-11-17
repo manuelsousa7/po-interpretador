@@ -29,10 +29,10 @@ public class EditProgram extends Command<Handler> {
     @Override
     public final void execute() {
     	Form f = new Form();
-        InputString inI = new InputString(f, "Indique interpretador a executar: ");
+        InputString inS = new InputString(f, "Indique o nome do programa : ");
         f.parse();
 
-        entity().editProgram();
+        entity().editProgram(inS.toString());
     }
 
 }
