@@ -12,10 +12,10 @@ import java.util.Map;
  * Classe Banco que, para alem de permitir a criacao de bancos (identificados
  * pelo nome), e' responsavel pela gestao de Contas e Titulares atraves de dois
  * HashMaps
- * 
+ *
  * Esta classe apresenta ainda a interface com o utilizador e o metodo inicial
  * main da aplicacao bancaria.
- * 
+ *
  * @author Programação com Objectos
  * @version 2.1
  */
@@ -40,7 +40,7 @@ public class Bank implements Serializable {
 
 	/**
 	 * Constructor.
-	 * 
+	 *
 	 * @param name
 	 *            bank name.
 	 */
@@ -50,7 +50,7 @@ public class Bank implements Serializable {
 
 	/**
 	 * Returns the name of the bank.
-	 * 
+	 *
 	 * @return the name of the bank.
 	 */
 	public final String getName() {
@@ -59,7 +59,7 @@ public class Bank implements Serializable {
 
 	/**
 	 * Dois objectos Banco sao iguais se ambos tiverem o mesmo nome.
-	 * 
+	 *
 	 * @return true se ambos os objectos Banco tem o mesmo nome, false caso
 	 *         contrario.
 	 */
@@ -70,10 +70,10 @@ public class Bank implements Serializable {
 
 	/**
 	 * Register account.
-	 * 
+	 *
 	 * @param account
 	 *            the account.
-	 * 
+	 *
 	 * @return the number for the registered account.
 	 */
 	public int addAccount(BankAccount account) {
@@ -85,13 +85,13 @@ public class Bank implements Serializable {
 	/**
 	 * Remove an account. An account can only be removed if its total balance is
 	 * zero. If it is not possible to remove an account, an exception is thrown.
-	 * 
+	 *
 	 * @param account
 	 *            the account to be removed.
 	 * @throws InvalidRemoval
 	 */
 	public final void removeAccount(BankAccount account)
-			throws InvalidRemoval {
+	throws InvalidRemoval {
 		if (account.canBeRemoved())
 			_accounts.remove(account.getId());
 		else
@@ -100,10 +100,10 @@ public class Bank implements Serializable {
 
 	/**
 	 * Get the account with the given number.
-	 * 
+	 *
 	 * @param id
 	 *            the account number.
-	 * 
+	 *
 	 * @return the account or null if the number does not correspond to a valid
 	 *         account.
 	 */
@@ -113,7 +113,7 @@ public class Bank implements Serializable {
 
 	/**
 	 * Return all the accounts as an unmodifiable collection.
-	 * 
+	 *
 	 * @return a collection with all the accounts.
 	 */
 	public Collection<BankAccount> getAccounts() {
@@ -122,26 +122,26 @@ public class Bank implements Serializable {
 
 	/**
 	 * Register an account holder.
-	 * 
+	 *
 	 * @param holder
 	 *            the account holder.
-	 * 
+	 *
 	 * @return true if registered,
 	 * 	   false if another holder with the same Id exists.
 	 */
 	public void addHolder(Holder holder)
-			throws InvalidHolder {
-	  	if (_holders.containsKey(holder.getId()))
-		     throw new InvalidHolder(holder.getId());
+	throws InvalidHolder {
+		if (_holders.containsKey(holder.getId()))
+			throw new InvalidHolder(holder.getId());
 		_holders.put(holder.getId(), holder);
 	}
 
 	/**
 	 * Remove an account holder.
-	 * 
+	 *
 	 * @param id
 	 *            the account holder's id.
-	 * 
+	 *
 	 * @return true, if the holder was removed; false, otherwise.
 	 */
 	public final boolean removeHolder(int id) {
@@ -155,7 +155,7 @@ public class Bank implements Serializable {
 
 	/**
 	 * Return all the account holders as an unmodifiable collection.
-	 * 
+	 *
 	 * @return a collection with all the account holders.
 	 */
 	public Collection<Holder> getHolders() {
@@ -164,10 +164,10 @@ public class Bank implements Serializable {
 
 	/**
 	 * Get the account holder with the given number.
-	 * 
+	 *
 	 * @param id
 	 *            the account holder's number.
-	 * 
+	 *
 	 * @return the account holder or null if the number does not correspond to a
 	 *         valid account holder.
 	 */
@@ -177,39 +177,39 @@ public class Bank implements Serializable {
 
 	/**
 	 * Get the account holder with the given number.
-	 * 
+	 *
 	 * @param id
 	 *            the account holder's number.
-	 * 
+	 *
 	 * @return the account holder or null if the number does not correspond to a
 	 *         valid account holder.
 	 */
 	public void parseInputFile(String file) {
-	      int lineno = 0;
-	      try {
-		// Reader in = new InputStreamReader(new FileInputStream("file"), "UTF-8"));
-		BufferedReader in = new BufferedReader(new FileReader(file));
-		String s;
+		int lineno = 0;
+		try {
+			// Reader in = new InputStreamReader(new FileInputStream("file"), "UTF-8"));
+			BufferedReader in = new BufferedReader(new FileReader(file));
+			String s;
 
-		while ((s = in.readLine()) != null) {
-		  String line = new String(s.getBytes(), "UTF-8");
-		  lineno++;
-		  if (line.charAt(0) == '#') continue;
-		  String[] split = line.split(":");
-		  if (split[0].equals(Messages.holderKey()))
-		    try {
-		      new Holder(this, split);
-		    } catch (InvalidHolder ih) { System.err.println(ih); }
-		  else if (split[0].equals(Messages.accountKey()))
-		    new BankAccount(this, split);
+			while ((s = in.readLine()) != null) {
+				String line = new String(s.getBytes(), "UTF-8");
+				lineno++;
+				if (line.charAt(0) == '#') continue;
+				String[] split = line.split(":");
+				if (split[0].equals(Messages.holderKey()))
+					try {
+						new Holder(this, split);
+					} catch (InvalidHolder ih) { System.err.println(ih); }
+				else if (split[0].equals(Messages.accountKey()))
+					new BankAccount(this, split);
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println("Erro (file not found):" + file + ": " + e);
+		} catch (IOException e) {
+			System.out.println("Erro (IO):" + file + ":" + lineno + ": line " + e);
 		}
-	      } catch (FileNotFoundException e) {
-		System.out.println("Erro (file not found):"+file+": "+e);
-	      } catch (IOException e) {
-		System.out.println("Erro (IO):"+file+":"+lineno+": line "+e);
-	      }
 	}
-	
+
 	/**
 	 * Carrega o estado anterior da aplicacao que estava guardado num
 	 * dado ficheiro.
@@ -221,13 +221,13 @@ public class Bank implements Serializable {
 	 * @return um objecto Telele com dados os recuperados do file.
 	 **/
 	public static Bank load(String file)
-	  throws IOException, ClassNotFoundException{
-	  ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
+	throws IOException, ClassNotFoundException {
+		ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
 
-	  Bank bank = (Bank)in.readObject();
-	  in.close();
+		Bank bank = (Bank)in.readObject();
+		in.close();
 
-	  return bank;
+		return bank;
 	}
 
 	/**
@@ -239,10 +239,10 @@ public class Bank implements Serializable {
 	 * do estado.
 	 **/
 	public void save(String file) throws IOException {
-	  ObjectOutputStream out =
-	    new ObjectOutputStream(new FileOutputStream(file));
-	  
-	  out.writeObject(this);
-	  out.close();
+		ObjectOutputStream out =
+		    new ObjectOutputStream(new FileOutputStream(file));
+
+		out.writeObject(this);
+		out.close();
 	}
 }
