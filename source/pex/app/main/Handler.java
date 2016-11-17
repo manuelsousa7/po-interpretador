@@ -58,6 +58,7 @@ public class Handler implements AppIO {
 
 		out.writeObject(this);
 		out.close();
+		System.out.println("asdasdsasadasdasdas");
 	}
 
 
