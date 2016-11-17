@@ -26,11 +26,11 @@ public class Open extends Command<Handler> {
     }
 
     @Override
-    public final void execute() throws InvalidOperation {
+    public final void execute() throws InvalidOperation,IOException {
         Form f = new Form();
         InputString inS = new InputString(f, "Indique o nome do interpretador : ");
         f.parse();
 
-        //entity().openInterpreter(inS.value());
+        entity().openInterpreter(inS.value());
     }
 }
