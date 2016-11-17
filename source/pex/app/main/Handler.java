@@ -11,7 +11,7 @@ import java.util.Comparator;
 import java.util.Collections;
 
 public class Handler implements AppIO {
-	Interpreter _interpretador;
+	private Interpreter _interpretador;
 
 	public Handler() {
 		_interpretador = new Interpreter(this);
@@ -42,16 +42,21 @@ public class Handler implements AppIO {
 		_interpretador = new Interpreter(this);
 	}
 
-	public void openInterpreter() {
-		//Ler objeto
+	public void openInterpreter(String name) {
+		//Procurar interpretador por serializacao
 	}
 
 	public void saveInterpreter() {
-		//Guardar objeto
+		if (_interpretador.getSaved()) {
+			//Guardar no mesmo ficheiro (serializacao)
+		}
+		else {
+			//Guardar num novo ficheiro (serializacao)
+		}
 	}
 
-	public void createProgram() {
-		//requestProgramID()
+	public void createProgram(String name) {
+		//Procurar programa
 	}
 
 	public void readProgram() {

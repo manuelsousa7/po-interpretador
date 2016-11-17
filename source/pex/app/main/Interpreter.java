@@ -15,16 +15,18 @@ import java.util.Collections;
 import pex.core.parser.Parser;
 
 public class Interpreter {
-	AppIO _app;
-	List<Program> _programs;
-	List<Identifier> _identifiers;
-	List<Expression> _values;
+	private AppIO _app;
+	private List<Program> _programs;
+	private List<Identifier> _identifiers;
+	private List<Expression> _values;
+	private boolean _saved;
 
 	public Interpreter(AppIO app) {
 		_app = app;
 		_programs = new ArrayList<Program>();
 		_identifiers = new ArrayList<Identifier>();
 		_values = new ArrayList<Expression>();
+		_saved = false;
 	}
 
 	public void setIdentifierValue(Identifier id, Expression value) {
@@ -62,5 +64,13 @@ public class Interpreter {
 
 	public AppIO getAppIO() {
 		return _app;
+	}
+
+	public boolean getSaved() {
+		return _saved;
+	}
+
+	public void setSaved() {
+		_saved = true;
 	}
 }

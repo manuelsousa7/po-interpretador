@@ -22,6 +22,10 @@ public class NewProgram extends Command<Handler> {
 
     @Override
     public final void execute() {
-        entity().createProgram();
+        Form f = new Form();
+        InputString inI = new InputString(f, "Indique o nome do programa : ");
+        f.parse();
+
+        entity().createProgram(f);
     }
 }
