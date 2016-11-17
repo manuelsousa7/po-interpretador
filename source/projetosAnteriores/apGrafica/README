@@ -1,0 +1,18 @@
+
+   Graphics Editor (in text mode)
+
+Considere um editor gráfico que mantém informação sobre várias formas. O editor coloca à disposição do utilizador um conjunto de operações:
+
+Criação de um quadrado, círculo ou linha: cada forma é identificada por um identificador único (inteiro), determinado no momento da criação pelo construtor da classe base dos objectos gráficos, a classe Form ;
+Remoção de uma forma: o utilizador deve indicar o identificador da forma a remover;
+Deslocamento de uma forma: o utilizador deve indicar o identificador da forma a mover, assim como o deslocamento, nos eixos x e y, a aplicar à forma seleccionada.
+Desenhar todas as formas: consiste em desenhar todas as formas mantidas pelo editor;
+Sair da aplicação.
+O conjunto de formas existentes no editor são guardados pelo objecto que representa o editor gráfico (uma instância da classe Editor ).
+
+Cada forma tem estado próprio e funcionalidade que são caracterizados pela classe de que são instâncias. Assim, é possível desenhar e mover cada forma, mas cada classe específica determina a concretização da acção abstracta:
+
+Um quadrado (classe Square ) é cartacterizado por um ponto (canto inferior esquerdo) e pelo tamanho do lado. Desenhar um quadrado corresponde a escrever o valor do canto e o tamanho do lado. Mover um quadrado corresponde a deslocar o canto;
+Um círculo (classe Circle ) é caracterizado por um ponto (centro do círculo) e pelo raio. Desenhar um círculo corresponde a escrever os valores do centro e do raio. Mover um círculo corresponde a deslocar o centro;
+Uma linha (classe Line ) é caracterizada por dois pontos (as extremidades da linha). Desenhar uma linha corresponde a escrever os pontos. Mover uma linha corresponde a deslocar os dois pontos.
+
