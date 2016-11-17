@@ -1,5 +1,7 @@
 package pex.app.main;
 
+import java.io.*;
+
 import pex.AppIO;
 
 import pex.app.main.Interpreter;
@@ -42,18 +44,23 @@ public class Handler implements AppIO {
 		_interpretador = new Interpreter(this);
 	}
 
-	public void openInterpreter(String name) {
-		//Procurar interpretador por serializacao
+	public Interpreter openInterpreter(String file) throws IOException, ClassNotFoundException  {
+		ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
+
+		Interpreter interpretador = (Interpreter)in.readObject();
+		in.close();
+
+		return interpretador;
 	}
 
-	public void saveInterpreter() {
-		if (_interpretador.getSaved()) {
-			//Guardar no mesmo ficheiro (serializacao)
-		}
-		else {
-			//Guardar num novo ficheiro (serializacao)
-		}
+	public void saveInterpreter(String file) throws IOException{
+		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
+
+		out.writeObject(this);
+		out.close();
 	}
+
+
 
 	public void createProgram(String name) {
 		Program prog = new Program(name, _interpretador);

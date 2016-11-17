@@ -23,6 +23,6 @@ public class Save extends Command<Handler> {
 
     @Override
     public final void execute() throws InvalidOperation {
-        entity().saveInterpreter();
+        //entity().saveInterpreter("data.txt");
     }
 }

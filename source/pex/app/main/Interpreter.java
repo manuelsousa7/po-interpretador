@@ -31,10 +31,9 @@ public class Interpreter {
 
 	public void setIdentifierValue(Identifier id, Expression value) {
 		if (!_identifiers.contains(id)) {
-			_identifiers.add(id);			
+			_identifiers.add(id);
 			_values.add(value);
-		}
-		else {
+		} else {
 			_values.set(_identifiers.indexOf(id), value);
 		}
 	}

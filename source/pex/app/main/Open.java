@@ -31,6 +31,6 @@ public class Open extends Command<Handler> {
         InputString inS = new InputString(f, "Indique o nome do interpretador : ");
         f.parse();
 
-        entity().openInterpreter(inS.toString());
+        //entity().openInterpreter(inS.value());
     }
 }
