@@ -53,15 +53,26 @@ public class Handler implements AppIO {
 		return interpretador;
 	}
 
-	public void saveInterpreter(String file) throws IOException{
+	public void saveInterpreter(String file) throws IOException {
+		_interpretador.setSaved();
+		_interpretador.setFileName(file);
 		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
 
-		out.writeObject(this);
+		out.writeObject(_interpretador);
 		out.close();
 		System.out.println("asdasdsasadasdasdas");
 	}
 
+	public void saveInterpreter() throws IOException {
+		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(_interpretador.getFileName()));
 
+		out.writeObject(_interpretador);
+		out.close();
+	}
+
+	public boolean checkSaved() {
+		return _interpretador.getSaved();
+	}
 
 	public void createProgram(String name) {
 		Program prog = new Program(name, _interpretador);

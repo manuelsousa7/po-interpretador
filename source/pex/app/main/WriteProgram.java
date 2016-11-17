@@ -25,7 +25,7 @@ public class WriteProgram extends Command<Handler> {
     @Override
     public final void execute() throws InvalidOperation {
         Form f = new Form();
-        InputString inS = new InputString(f, "Indique o nome do programa : ");
+        InputString inS = new InputString(f, "Nome do program: ");
         f.parse();
 
         Form g = new Form();

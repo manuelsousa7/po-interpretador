@@ -29,7 +29,7 @@ public class EditProgram extends Command<Handler> {
     @Override
     public final void execute() {
     	Form f = new Form();
-        InputString inS = new InputString(f, "Indique o nome do programa : ");
+        InputString inS = new InputString(f, "Nome do program: ");
         f.parse();
 
         Program prog = entity().editProgram(inS.toString());
