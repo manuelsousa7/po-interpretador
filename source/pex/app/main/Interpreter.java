@@ -44,7 +44,7 @@ public class Interpreter {
 		if (index != -1) {
 			return _values.get(index);
 		}
-		//Erro a encontrar identificador
+		//FIX ME : Erro a encontrar identificador
 		return new LiteralInt(5);
 	}
 
@@ -58,7 +58,7 @@ public class Interpreter {
 				return program;
 			}
 		}
-		//Erro a encontrar programa
+		//FIX ME : Erro a encontrar programa
 		return new Program("Erro", this);
 	}
 

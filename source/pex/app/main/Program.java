@@ -52,4 +52,10 @@ public class Program {
 	public Program getProgram(String name) {
 		return _interpreter.getProgram(name);
 	}
+
+	public void listExpressions() {
+		for (Expression exp : _expressions) {
+			//Imprimir expressao
+		}
+	}
 }

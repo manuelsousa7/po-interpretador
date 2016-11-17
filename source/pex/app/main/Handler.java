@@ -42,6 +42,7 @@ public class Handler implements AppIO {
 		_interpretador = new Interpreter(this);
 	}
 
+
 	public void openInterpreter(String name) {
 		//Procurar interpretador por serializacao
 	}
@@ -69,7 +70,7 @@ public class Handler implements AppIO {
 		//saveProgramAsFile()
 	}
 
-	public void editProgram(String name) {
-		//
+	public Program editProgram(String name) {
+		return _interpretador.getProgram(name);
 	}
 }

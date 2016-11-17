@@ -32,7 +32,10 @@ public class EditProgram extends Command<Handler> {
         InputString inS = new InputString(f, "Indique o nome do programa : ");
         f.parse();
 
-        entity().editProgram(inS.toString());
+        Program prog = entity().editProgram(inS.toString());
+
+        EvaluatorMenu menu = new EvaluatorMenu(prog);
+        menu.open();
     }
 
 }
