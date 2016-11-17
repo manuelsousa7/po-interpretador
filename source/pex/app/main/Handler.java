@@ -1,7 +1,8 @@
 package pex.app.main;
 
+import pex.AppIO;
+
 import pex.app.main.Interpreter;
-import pex.core.parser.Parser;
 
 import java.util.List;
 import java.util.Iterator;
@@ -16,47 +17,52 @@ public class Handler implements AppIO {
 		_interpretador = new Interpreter(this);
 	}
 
-	void println(String str) {
+	@Override
+	public void println(String str) {
 		System.out.println(str);
 	}
 
-	String readString() {
-		return Parser.parseString();
+	@Override
+	public String readString() {
+		//FIX ME
+		return "ola";
 	}
 
-	int readInteger() {
-		return Integer.valueOf(Parser.parseString());
+	@Override
+	public int readInteger() {
+		//FIX ME
+		return -1;
 	}
 
 	/**
 	*	COMANDOS
 	*/
 
-	void newInterpreter() {
+	public void newInterpreter() {
 		_interpretador = new Interpreter(this);
 	}
 
-	void saveInterpreter() {
+	public void saveInterpreter() {
 		//Guardar objeto
 	}
 
-	void openInterpreter() {
+	public void openInterpreter() {
 		//Ler objeto
 	}
 
-	void createProgram() {
+	public void createProgram() {
 		//requestProgramID()
 	}
 
-	void readProgram() {
+	public void readProgram() {
 		//programFileNameFromFile()
 	}
 
-	void writeProgram() {
+	public void writeProgram() {
 		//saveProgramAsFile()
 	}
 
-	void editProgram() {
+	public void editProgram() {
 		//
 	}
 }
