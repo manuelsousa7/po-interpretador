@@ -22,6 +22,6 @@ public class ReadProgram extends Command<Handler> {
 
     @Override
     public final void execute() {
-        //FIXME implement
+        entity().readProgram();
     }
 }

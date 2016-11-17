@@ -1,4 +1,9 @@
+portatil:
 export CLASSPATH=$CLASSPATH:/home/goncalao/po-interpretador/source/po-uilib.jar:/home/goncalao/po-interpretador/source/po-uilib.jar
+
+desktop:
 export CLASSPATH=$CLASSPATH:/home/goncasmage/po-interpretador/source/po-uilib.jar:/home/goncasmage/po-interpretador/source/po-uilib.jar
 
 javac -cp .:po-uilib.jar: `find compilador -name "*.java"`
+
+java pex.app.App

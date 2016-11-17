@@ -22,6 +22,6 @@ public class New extends Command<Handler> {
 
     @Override
     public final void execute() {
-        //FIXME implement
+        entity().newInterpreter();
     }
 }

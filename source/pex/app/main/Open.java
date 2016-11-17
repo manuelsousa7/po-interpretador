@@ -27,6 +27,6 @@ public class Open extends Command<Handler> {
 
     @Override
     public final void execute() throws InvalidOperation {
-        //FIXME implement
+        entity().openInterpreter();
     }
 }

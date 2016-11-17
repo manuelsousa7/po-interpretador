@@ -32,9 +32,7 @@ public class EditProgram extends Command<Handler> {
         InputString inI = new InputString(f, "Indique interpretador a executar: ");
         f.parse();
 
-        //Program prog = new Program(f);
-        //EvaluatorMenu menu = new EvaluatorMenu(prog);
-        //menu.open();
+        entity().editProgram();
     }
 
 }

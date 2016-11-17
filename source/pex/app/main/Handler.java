@@ -42,12 +42,12 @@ public class Handler implements AppIO {
 		_interpretador = new Interpreter(this);
 	}
 
-	public void saveInterpreter() {
-		//Guardar objeto
-	}
-
 	public void openInterpreter() {
 		//Ler objeto
+	}
+
+	public void saveInterpreter() {
+		//Guardar objeto
 	}
 
 	public void createProgram() {
