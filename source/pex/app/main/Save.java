@@ -23,6 +23,15 @@ public class Save extends Command<Handler> {
 
     @Override
     public final void execute() throws InvalidOperation {
-        //entity().saveInterpreter("data.txt");
+        if (!(entity().checkSaved())) {
+            Form f = new Form();
+            InputString inS = new InputString(f, "Nome do ficheiro: ");
+            f.parse();
+
+            //entity().saveInterpreter(inS.toString());
+        }
+        else {
+            //entity().saveInterpreter();
+        }
     }
 }

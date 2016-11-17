@@ -20,6 +20,7 @@ public class Interpreter {
 	private List<Identifier> _identifiers;
 	private List<Expression> _values;
 	private boolean _saved;
+	private String _fileName;
 
 	public Interpreter(AppIO app) {
 		_app = app;
@@ -27,6 +28,8 @@ public class Interpreter {
 		_identifiers = new ArrayList<Identifier>();
 		_values = new ArrayList<Expression>();
 		_saved = false;
+		_fileName = "";
+
 	}
 
 	public void setIdentifierValue(Identifier id, Expression value) {
@@ -71,5 +74,13 @@ public class Interpreter {
 
 	public void setSaved() {
 		_saved = true;
+	}
+
+	public String getFileName() {
+		return _fileName;
+	}
+
+	public void setFileName(String file) {
+		_fileName = file;
 	}
 }
