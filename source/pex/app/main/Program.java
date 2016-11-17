@@ -9,8 +9,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Collections;
 import java.util.Collection;
+import java.io.Serializable;
 
-public class Program {
+public class Program implements Serializable {
 	private String _name;
 	private List<Expression> _expressions;
 	private Interpreter _interpreter;

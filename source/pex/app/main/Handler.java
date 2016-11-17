@@ -3,7 +3,6 @@ package pex.app.main;
 import java.io.*;
 
 import pex.AppIO;
-
 import pex.app.main.Interpreter;
 
 import java.util.List;
@@ -11,8 +10,9 @@ import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Collections;
+import java.io.Serializable;
 
-public class Handler implements AppIO {
+public class Handler implements AppIO, Serializable  {
 	private Interpreter _interpretador;
 
 	public Handler() {
@@ -44,15 +44,17 @@ public class Handler implements AppIO {
 		_interpretador = new Interpreter(this);
 	}
 
-	public void openInterpreter(String file) throws IOException, ClassNotFoundException  {
+	public void openInterpreter(String file) throws WriteAbortedException, IOException, ClassNotFoundException  {
 		try {
 			FileInputStream fileIn = new FileInputStream(file);
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 			_interpretador = (Interpreter)in.readObject();
-			System.out.println("Cast successful");
 			in.close();
 			fileIn.close();
+		}
 
+		catch (WriteAbortedException eofe) {
+			System.out.println("Nao escreveu como deve de set");
 		}
 		
 		catch (ClassNotFoundException cnfe) {
@@ -61,23 +63,24 @@ public class Handler implements AppIO {
 
 		catch (IOException ioe) {
 			System.out.println("I/O error");
-		}
-
-		catch (Exception e) {
-			System.out.println("Generic exception");
-		}
-		
+		}		
 	}
 
 	public void saveInterpreter(String file) throws IOException {
-		_interpretador.setSaved();
-		_interpretador.setFileName(file);
-		FileOutputStream fileOut = new FileOutputStream(file);
-		ObjectOutputStream out = new ObjectOutputStream(fileOut);
+		try {
+			_interpretador.setSaved();
+			_interpretador.setFileName(file);
+			FileOutputStream fileOut = new FileOutputStream(file);
+			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 
-		out.writeObject(_interpretador);
-		out.close();
-		fileOut.close();
+			out.writeObject(_interpretador);
+			out.flush();
+			out.close();
+			fileOut.close();
+		}
+		catch (Exception e) {
+			System.out.println("Erro a guardar");
+		}
 	}
 
 	public void saveInterpreter() throws IOException {

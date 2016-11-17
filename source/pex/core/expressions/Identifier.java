@@ -1,6 +1,8 @@
 package pex.core.expressions;
 
-public class Identifier extends Expression {
+import java.io.Serializable;
+
+public class Identifier extends Expression implements Serializable {
 	private String _name;
 	private Expression _expression;
 
