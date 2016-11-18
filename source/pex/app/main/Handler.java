@@ -126,7 +126,7 @@ public class Handler implements AppIO, Serializable  {
 		try {
 			FileInputStream fileIn = new FileInputStream(file);
 			ObjectInputStream in = new ObjectInputStream(fileIn);
-			// = (Program)in.readObject();
+			_interpretador.addProgram((Program)in.readObject());
 			in.close();
 			fileIn.close();
 			_changed = true;

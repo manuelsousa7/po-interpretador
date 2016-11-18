@@ -51,7 +51,16 @@ public class Interpreter implements Serializable {
 	}
 
 	public void addProgram(Program program) {
-		_programs.add(program);
+		boolean found = false;
+		for (Program programa : _programs) {
+			if (programa.getAsText().equals(program.getAsText())) {
+				found = true;
+				_programs.set(_programs.indexOf(programa), program);
+			}
+		}
+		if (!found) {
+			_programs.add(program);
+		}
 	}
 
 	public Program getProgram(String name) {
