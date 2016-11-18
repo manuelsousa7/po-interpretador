@@ -2,6 +2,7 @@ package pex.core.parser;
 
 import pex.app.main.*;
 import pex.core.expressions.*;
+import pex.core.expressions.operators.*;
 import pex.core.parser.*;
 
 import java.io.IOException;
@@ -118,7 +119,7 @@ public class Parser {
 
         // The way each composite expression is inntanciated mey need to be changed since
         // this depends on the specific code of each group
-        /*
+        
         switch (operatorName) {
 
         // process no-args expressions
@@ -137,8 +138,8 @@ public class Parser {
 
         case "call":
             try {
-                return new Call((StringLiteral)parseArgument());
-            } catch (ClassCastException cce) { // it is not a StringLiteral
+                return new Call((LiteralString)parseArgument());
+            } catch (ClassCastException cce) { // it is not a LiteralString
                 throw new InvalidExpressionException(_tokenizer.lineno());
             }
 
@@ -218,7 +219,5 @@ public class Parser {
         default:
             throw new UnknownOperationException(_tokenizer.sval);
         }
-        */
-        throw new UnknownOperationException(_tokenizer.sval);
     }
 }
