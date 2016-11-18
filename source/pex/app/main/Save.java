@@ -25,21 +25,18 @@ public class Save extends Command<Handler> {
     public final void execute() throws InvalidOperation {
         if (!(entity().checkSaved())) {
             Form f = new Form();
-            InputString inS = new InputString(f, "Nome do ficheiro: ");
+            InputString inS = new InputString(f, Message.newSaveAs());
             f.parse();
 
             try {
                 entity().saveInterpreter(inS.toString());
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-        }
-        else {
+        } else {
             try {
                 entity().saveInterpreter();
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }

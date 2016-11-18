@@ -23,7 +23,7 @@ public class ReadProgram extends Command<Handler> {
     @Override
     public final void execute() {
         Form f = new Form();
-        InputString inS = new InputString(f, "Nome do program: ");
+        InputString inS = new InputString(f, Message.programFileName());
         f.parse();
 
         entity().readProgram(inS.toString());

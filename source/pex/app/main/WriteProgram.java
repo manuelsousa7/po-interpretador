@@ -25,11 +25,11 @@ public class WriteProgram extends Command<Handler> {
     @Override
     public final void execute() throws InvalidOperation {
         Form f = new Form();
-        InputString inS = new InputString(f, "Nome do program: ");
+        InputString inS = new InputString(f, Message.requestProgramId());
         f.parse();
 
         Form g = new Form();
-        InputString inS_2 = new InputString(g, "Indique o nome do ficheiro : ");
+        InputString inS_2 = new InputString(g, Message.programFileName());
         g.parse();
 
         entity().writeProgram(inS.toString(), inS_2.toString());

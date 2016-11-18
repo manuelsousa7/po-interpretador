@@ -119,7 +119,7 @@ public class Parser {
 
         // The way each composite expression is inntanciated mey need to be changed since
         // this depends on the specific code of each group
-        
+
         switch (operatorName) {
 
         // process no-args expressions

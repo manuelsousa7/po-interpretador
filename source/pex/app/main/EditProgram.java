@@ -28,8 +28,8 @@ public class EditProgram extends Command<Handler> {
 
     @Override
     public final void execute() {
-    	Form f = new Form();
-        InputString inS = new InputString(f, "Nome do program: ");
+        Form f = new Form();
+        InputString inS = new InputString(f, Message.requestProgramId());
         f.parse();
 
         Program prog = entity().editProgram(inS.toString());
