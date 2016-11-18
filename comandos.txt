@@ -4,6 +4,6 @@ export CLASSPATH=$CLASSPATH:/Users/mvs/repo/po-interpretador/source/po-uilib.jar
 
 find . -name "*.class" -exec rm {} \;
 
-javac -cp .:po-uilib.jar: `find compilador -name "*.java"`
+javac -cp .:po-uilib.jar: `find pex -name "*.java"`
 
 jar cvf ep.jar pex
