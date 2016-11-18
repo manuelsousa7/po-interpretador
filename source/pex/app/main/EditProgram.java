@@ -3,7 +3,7 @@ package pex.app.main;
 import pex.app.main.Handler;
 import pex.app.main.Program;
 import pex.app.main.Interpreter;
-import pex.support.app.main.Label;
+import pex.support.app.main.*;
 
 import pex.app.evaluator.EvaluatorMenu;
 
@@ -32,10 +32,14 @@ public class EditProgram extends Command<Handler> {
         InputString inS = new InputString(f, Message.requestProgramId());
         f.parse();
 
-        Program prog = entity().editProgram(inS.toString());
-
-        EvaluatorMenu menu = new EvaluatorMenu(prog);
-        menu.open();
+        if (entity().checkProgram(inS.toString())) {
+            Program prog = entity().editProgram(inS.toString());
+            EvaluatorMenu menu = new EvaluatorMenu(prog);
+            menu.open();
+        }
+        else {
+            //System.out.print(Message.noSuchProgram(inS.toString()));
+        }
     }
 
 }

@@ -63,8 +63,7 @@ public class App implements AppIO {
         String datafile = System.getProperty("import");
         if (datafile != null) {
             try {
-                Program programa = new Program("import", app.getInterperter());
-                parser.parseFile("import", "import", app.getInterperter());
+                Program programa = parser.parseFile("import", "import", app.getInterperter());
                 app.addProgram(programa);
             } catch (ParserException e) {
                 e.printStackTrace();

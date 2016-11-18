@@ -3,7 +3,7 @@ package pex.app.main;
 import java.io.IOException;
 import pex.app.main.Interpreter;
 import pex.app.main.Handler;
-import pex.support.app.main.Label;
+import pex.support.app.main.*;
 
 import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Form;
@@ -30,14 +30,16 @@ public class Save extends Command<Handler> {
 
             try {
                 entity().saveInterpreter(inS.toString());
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
+            }
+            catch (Exception e) {
+                System.out.println("Erro a guardar o interpretador");
             }
         } else {
             try {
                 entity().saveInterpreter();
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
+            }
+            catch (Exception e) {
+                System.out.println("Erro a guardar o interpretador");
             }
         }
     }

@@ -1,22 +1,5 @@
-*** tests/A-008-002-M-ok.out	Thu Nov 17 14:55:36 2016
---- tests/A-008-002-M-ok.outhyp	Fri Nov 18 12:00:53 2016
-***************
-*** 7,13 ****
-  6 - Escrever Programa
-  7 - Manipular Programa
-  0 - Sair
-! Escolha uma opção: Ficheiro a abrir: Menu Principal
-  1 - Criar
-  2 - Abrir
-  3 - Guardar
---- 7,13 ----
-  6 - Escrever Programa
-  7 - Manipular Programa
-  0 - Sair
-! Escolha uma opção: Indique o nome do ficheiro: Menu Principal
-  1 - Criar
-  2 - Abrir
-  3 - Guardar
+*** tests/A-008-002-M-ok.out	2016-11-18 18:15:32.004870782 +0000
+--- tests/A-008-002-M-ok.outhyp	2016-11-18 20:37:09.546965175 +0000
 ***************
 *** 24,31 ****
   5 - Mostrar os identificadores presentes no programa

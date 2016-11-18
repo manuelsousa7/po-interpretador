@@ -47,8 +47,7 @@ public class Interpreter implements Serializable {
 		if (index != -1) {
 			return _values.get(index);
 		}
-		//FIX ME : Erro a encontrar identificador
-		return new LiteralInt(5);
+		return null;
 	}
 
 	public void addProgram(Program program) {
@@ -57,12 +56,11 @@ public class Interpreter implements Serializable {
 
 	public Program getProgram(String name) {
 		for (Program program : _programs) {
-			if (program.getAsText() == name) {
+			if (program.getAsText().equals(name)) {
 				return program;
 			}
 		}
-		//FIX ME : Erro a encontrar programa
-		return new Program("Erro", this);
+		return null;
 	}
 
 	public AppIO getAppIO() {

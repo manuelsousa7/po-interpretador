@@ -56,7 +56,7 @@ public class Program implements Serializable {
 
 	public void listExpressions() {
 		for (Expression exp : _expressions) {
-			//Imprimir expressao
+			exp.getAsText();
 		}
 	}
 }

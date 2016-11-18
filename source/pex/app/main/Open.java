@@ -6,7 +6,7 @@ import java.io.IOException;
 import pex.app.main.Interpreter;
 import pex.app.main.Handler;
 
-import pex.support.app.main.Label;
+import pex.support.app.main.*;
 
 import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Display;
@@ -28,14 +28,14 @@ public class Open extends Command<Handler> {
     @Override
     public final void execute() throws InvalidOperation {
         Form f = new Form();
-        InputString inS = new InputString(f, "Indique o nome do ficheiro: ");
+        InputString inS = new InputString(f, Message.openFile());
         f.parse();
 
         try {
             entity().openInterpreter(inS.value());
-        }
+        } 
         catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(Message.fileNotFound(inS.value()));
         }
     }
 }

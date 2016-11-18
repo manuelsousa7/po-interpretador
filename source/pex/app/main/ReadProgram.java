@@ -2,7 +2,7 @@ package pex.app.main;
 
 import pex.app.main.Interpreter;
 import pex.app.main.Handler;
-import pex.support.app.main.Label;
+import pex.support.app.main.*;
 
 import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Display;
@@ -26,6 +26,11 @@ public class ReadProgram extends Command<Handler> {
         InputString inS = new InputString(f, Message.programFileName());
         f.parse();
 
-        entity().readProgram(inS.toString());
+        try {
+            entity().readProgram(inS.toString());
+        }
+        catch (Exception e) {
+            System.out.println(Message.fileNotFound(inS.value()));
+        }
     }
 }

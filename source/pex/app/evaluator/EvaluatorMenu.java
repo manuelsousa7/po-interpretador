@@ -18,13 +18,13 @@ public class EvaluatorMenu extends Menu {
     public EvaluatorMenu(Program receiver) {
         super(Label.TITLE,
               new Command<?>[] { //
-                  new ShowProgram(receiver), //
-                      new RunProgram(receiver), //
-                      new AddExpression(receiver), //
-                      new ReplaceExpression(receiver), //
-                      new ShowAllIdentifiers(receiver), //
-                      new ShowUninitializedIdentifiers(receiver), //
-                      });
+                    new ShowProgram(receiver), //
+                    new RunProgram(receiver), //
+                    new AddExpression(receiver), //
+                    new ReplaceExpression(receiver), //
+                    new ShowAllIdentifiers(receiver), //
+                    new ShowUninitializedIdentifiers(receiver), //
+                    });
     }
 
 }

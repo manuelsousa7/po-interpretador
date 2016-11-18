@@ -2,7 +2,7 @@ package pex.app.main;
 
 import pex.app.main.Interpreter;
 import pex.app.main.Handler;
-import pex.support.app.main.Label;
+import pex.support.app.main.*;
 
 import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Form;
