@@ -44,6 +44,10 @@ public class Handler implements AppIO, Serializable  {
 		_interpretador = new Interpreter(this);
 	}
 
+	public Interpreter getInterperter() {
+		return _interpretador;
+	}
+
 	public void openInterpreter(String file) throws WriteAbortedException, IOException, ClassNotFoundException  {
 		try {
 			FileInputStream fileIn = new FileInputStream(file);
@@ -56,14 +60,14 @@ public class Handler implements AppIO, Serializable  {
 		catch (WriteAbortedException eofe) {
 			System.out.println("Nao escreveu como deve de set");
 		}
-		
+
 		catch (ClassNotFoundException cnfe) {
 			System.out.println("Class not found");
 		}
 
 		catch (IOException ioe) {
 			System.out.println("I/O error");
-		}		
+		}
 	}
 
 	public void saveInterpreter(String file) throws IOException {
@@ -77,8 +81,7 @@ public class Handler implements AppIO, Serializable  {
 			out.flush();
 			out.close();
 			fileOut.close();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println("Erro a guardar");
 		}
 	}
@@ -100,6 +103,10 @@ public class Handler implements AppIO, Serializable  {
 		Program prog = new Program(name, _interpretador);
 		_interpretador.addProgram(prog);
 	}
+	public void addProgram(Program programa) {
+		_interpretador.addProgram(programa);
+	}
+
 
 	public void readProgram(String name) {
 		_interpretador.getProgram(name);

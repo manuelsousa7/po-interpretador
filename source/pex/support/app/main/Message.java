@@ -51,7 +51,7 @@ public interface Message {
 
     /** @return prompt for program name */
     static String requestProgramId() {
-        return "Nome do program: ";
+        return "Nome do progra: ";
     }
 
     /**

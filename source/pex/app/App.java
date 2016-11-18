@@ -2,11 +2,12 @@ package pex.app;
 
 // import core entities;
 import pex.AppIO;
-import pex.core.parser.ParserException;
+import pex.core.parser.*;
 
 import pex.app.main.MainMenu;
 import pex.app.main.Interpreter;
 import pex.app.main.Handler;
+import pex.app.main.Program;
 
 import pt.utl.ist.po.ui.Form;
 import pt.utl.ist.po.ui.InputString;
@@ -56,21 +57,19 @@ public class App implements AppIO {
     /**
      * @param args
      */
-    public static void main(String[] args) {
-
-        String datafile = System.getProperty("import"); //$NON-NLS-1$
+    public static void main(String[] args){
+        Parser parser = new Parser();
+        Handler app = new Handler();
+        String datafile = System.getProperty("import");
         if (datafile != null) {
-            /*
             try {
-                //FIXME read import file into core object (use Parser instance)
-            }
-            catch (ParserException e) {
+                Program programa = new Program("import", app.getInterperter());
+                parser.parseFile("import", "import", app.getInterperter());
+                app.addProgram(programa);
+            } catch (ParserException e) {
                 e.printStackTrace();
             }
-            */
         }
-
-        Handler app = new Handler();
         MainMenu menu = new MainMenu(app);
         menu.open();
     }
