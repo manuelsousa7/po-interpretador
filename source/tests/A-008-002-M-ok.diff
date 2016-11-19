@@ -1,20 +1,19 @@
 *** tests/A-008-002-M-ok.out	2016-11-19 11:18:47.722208219 +0000
---- tests/A-008-002-M-ok.outhyp	2016-11-19 12:32:23.407808090 +0000
+--- tests/A-008-002-M-ok.outhyp	2016-11-19 19:27:09.988277674 +0000
 ***************
-*** 24,31 ****
+*** 24,30 ****
   5 - Mostrar os identificadores presentes no programa
   6 - Mostrar os identificadores do programa sem inicialização explícita
   0 - Sair
 ! Escolha uma opção: 12
-! Menu de Edição
+  Menu de Edição
   1 - Listar programa
   2 - Executar programa
-  3 - Adicionar expressão ao programa
 --- 24,30 ----
   5 - Mostrar os identificadores presentes no programa
   6 - Mostrar os identificadores do programa sem inicialização explícita
   0 - Sair
-! Escolha uma opção: Menu de Edição
+! Escolha uma opção: Sub
+  Menu de Edição
   1 - Listar programa
   2 - Executar programa
-  3 - Adicionar expressão ao programa

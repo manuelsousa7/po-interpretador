@@ -1,6 +1,5 @@
 package pex.app;
 
-// import core entities;
 import pex.AppIO;
 import pex.core.parser.*;
 

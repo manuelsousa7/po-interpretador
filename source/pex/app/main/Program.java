@@ -3,6 +3,9 @@ package pex.app.main;
 import pex.core.expressions.*;
 import pex.app.main.Interpreter;
 
+import pt.utl.ist.po.ui.Display;
+import pex.support.app.main.*;
+
 import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -54,9 +57,9 @@ public class Program implements Serializable {
 		return _interpreter.getProgram(name);
 	}
 
-	public void listExpressions() {
+	public void listExpressions(String title) {
 		for (Expression exp : _expressions) {
-			exp.getAsText();
+			(new Display(title)).add(exp.getAsText()).display();
 		}
 	}
 }

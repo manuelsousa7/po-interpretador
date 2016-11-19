@@ -24,7 +24,8 @@ Escolha uma opção: Nome do program: Menu de Edição
 5 - Mostrar os identificadores presentes no programa
 6 - Mostrar os identificadores do programa sem inicialização explícita
 0 - Sair
-Escolha uma opção: Menu de Edição
+Escolha uma opção: Sub
+Menu de Edição
 1 - Listar programa
 2 - Executar programa
 3 - Adicionar expressão ao programa
