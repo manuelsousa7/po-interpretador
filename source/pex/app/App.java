@@ -33,7 +33,7 @@ public class App implements AppIO {
      * @param str the string to write
      **/
     public void println(String str) {
-        System.out.println(str);
+        (new Display()).add(str).display();
     }
 
     /**

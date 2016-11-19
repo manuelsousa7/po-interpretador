@@ -19,7 +19,7 @@ public class MainMenu extends Menu {
    */
   public MainMenu(Handler receiver) {
     super("Menu Principal",
-          new Command<?>[] { //
+          new Command<?>[] {
             new New(receiver), //
             new Open(receiver), //
             new Save(receiver), //

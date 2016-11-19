@@ -1,5 +1,5 @@
-*** tests/A-008-002-M-ok.out	Thu Nov 17 14:55:36 2016
---- tests/A-008-002-M-ok.outhyp	Sat Nov 19 00:33:21 2016
+*** tests/A-008-002-M-ok.out	2016-11-19 11:18:47.722208219 +0000
+--- tests/A-008-002-M-ok.outhyp	2016-11-19 12:32:23.407808090 +0000
 ***************
 *** 24,31 ****
   5 - Mostrar os identificadores presentes no programa

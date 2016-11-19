@@ -5,6 +5,8 @@ import java.io.*;
 import pex.AppIO;
 import pex.app.main.Interpreter;
 
+import pt.utl.ist.po.ui.Display;
+
 import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -14,20 +16,16 @@ import java.io.Serializable;
 
 public class Handler implements AppIO, Serializable  {
 	private Interpreter _interpretador;
-	private String _interpreterExtension;
-	private String _programExtension;
 	private boolean _changed;
 
 	public Handler() {
 		_interpretador = new Interpreter(this);
-		_interpreterExtension = ".itr";
-		_programExtension = ".prg";
 		_changed = true;
 	}
 
 	@Override
 	public void println(String str) {
-		System.out.println(str);
+		(new Display()).add(str).display();
 	}
 
 	@Override
@@ -57,7 +55,7 @@ public class Handler implements AppIO, Serializable  {
 
 	public void openInterpreter(String file) throws WriteAbortedException, IOException, ClassNotFoundException {
 		try {
-			FileInputStream fileIn = new FileInputStream(file + _interpreterExtension);
+			FileInputStream fileIn = new FileInputStream(file);
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 			_interpretador = (Interpreter)in.readObject();
 			in.close();
@@ -72,7 +70,7 @@ public class Handler implements AppIO, Serializable  {
 	public void saveInterpreter(String file) throws IOException {
 		if (_changed) {
 			try {
-				FileOutputStream fileOut = new FileOutputStream(file + _interpreterExtension);
+				FileOutputStream fileOut = new FileOutputStream(file);
 				ObjectOutputStream out = new ObjectOutputStream(fileOut);
 				_interpretador.setSaved();
 				_interpretador.setFileName(file);
@@ -93,7 +91,7 @@ public class Handler implements AppIO, Serializable  {
 	public void saveInterpreter() throws IOException {
 		if (_changed) {
 			try {
-				FileOutputStream fileOut = new FileOutputStream(_interpretador.getFileName() + _interpreterExtension);
+				FileOutputStream fileOut = new FileOutputStream(_interpretador.getFileName());
 				ObjectOutputStream out = new ObjectOutputStream(fileOut);
 				out.writeObject(_interpretador);
 				out.close();

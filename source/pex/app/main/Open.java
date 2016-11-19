@@ -35,7 +35,7 @@ public class Open extends Command<Handler> {
             entity().openInterpreter(inS.value());
         } 
         catch (Exception e) {
-            System.out.println(Message.fileNotFound(inS.value()));
+            (new Display(title())).add(Message.fileNotFound(inS.toString())).display();
         }
     }
 }

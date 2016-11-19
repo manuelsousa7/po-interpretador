@@ -41,7 +41,7 @@ public class WriteProgram extends Command<Handler> {
             }
         }
         else {
-            System.out.println(Message.noSuchProgram(inS.toString()));
+            (new Display(title())).add(Message.noSuchProgram(inS.toString())).display();
         }
     }
 }

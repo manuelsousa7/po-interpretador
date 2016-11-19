@@ -7,6 +7,7 @@ import pex.support.app.main.*;
 
 import pt.utl.ist.po.ui.Command;
 import pt.utl.ist.po.ui.Form;
+import pt.utl.ist.po.ui.Display;
 import pt.utl.ist.po.ui.InputString;
 import pt.utl.ist.po.ui.InvalidOperation;
 
@@ -32,14 +33,14 @@ public class Save extends Command<Handler> {
                 entity().saveInterpreter(inS.toString());
             }
             catch (Exception e) {
-                System.out.println("Erro a guardar o interpretador");
+                (new Display(title())).add("Erro a guardar o interpretador").display();
             }
         } else {
             try {
                 entity().saveInterpreter();
             }
             catch (Exception e) {
-                System.out.println("Erro a guardar o interpretador");
+                (new Display(title())).add("Erro a guardar o interpretador").display();
             }
         }
     }

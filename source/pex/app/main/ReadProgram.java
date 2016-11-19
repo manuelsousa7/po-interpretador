@@ -30,7 +30,7 @@ public class ReadProgram extends Command<Handler> {
             entity().readProgram(inS.toString());
         }
         catch (Exception e) {
-            System.out.println(Message.fileNotFound(inS.value()));
+            (new Display(title())).add(Message.fileNotFound(inS.toString())).display();
         }
     }
 }
