@@ -36,9 +36,8 @@ public class EditProgram extends Command<Handler> {
             Program prog = entity().editProgram(inS.toString());
             EvaluatorMenu menu = new EvaluatorMenu(prog);
             menu.open();
-        }
-        else {
-            //System.out.print(Message.noSuchProgram(inS.toString()));
+        } else {
+            (new Display(title())).add(Message.noSuchProgram(inS.toString())).display();
         }
     }
 
