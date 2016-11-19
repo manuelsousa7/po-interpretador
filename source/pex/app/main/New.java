@@ -20,6 +20,9 @@ public class New extends Command<Handler> {
         super(Label.NEW, receiver);
     }
 
+    /**
+     * Cria um novo interpretador
+     */
     @Override
     public final void execute() {
         entity().newInterpreter();

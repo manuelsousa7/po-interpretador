@@ -23,7 +23,7 @@ public class And extends BinaryExpression {
 	/**
      * Retorna a primeira expressao
      *
-     * @return Retorna uma expressao que representa o valor da primeira expressao
+     * @return Expression Retorna uma expressao que representa o valor da primeira expressao
      */
 	@Override
 	public Expression getFirstArgument() {
@@ -33,7 +33,7 @@ public class And extends BinaryExpression {
 	/**
      * Retorna a segunda expressao
      *
-     * @return Retorna uma expressao que representa o valor da segunda expressao
+     * @return Expression Retorna uma expressao que representa o valor da segunda expressao
      */
 	@Override
 	public Expression getSecondArgument() {
@@ -42,7 +42,7 @@ public class And extends BinaryExpression {
 
 	/**
      * Verifica se as expressoes recebidas sao validas.
-     * @return Retorna true se as expressoes recebidas forem validas
+     * @return boolean Retorna true se as expressoes recebidas forem validas
      */
 	@Override
 	public boolean verifyArguments() {
@@ -52,7 +52,7 @@ public class And extends BinaryExpression {
 	/**
      * Retorna o nome do operador
      *
-     * @return Retorna uma string que representa o nome do operador
+     * @return String Retorna uma string que representa o nome do operador
      */
 	@Override
 	public String getAsText() {
@@ -62,7 +62,7 @@ public class And extends BinaryExpression {
 	/**
      * Retorna o valor da expressao
      *
-     * @return Retorna uma expressao que representa o valor avaliado
+     * @return Expression Retorna uma expressao que representa o valor avaliado
      */
 	@Override
 	public Expression evaluate() {

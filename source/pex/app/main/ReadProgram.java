@@ -20,6 +20,9 @@ public class ReadProgram extends Command<Handler> {
         super(Label.READ_PROGRAM, receiver);
     }
 
+    /**
+     * Le um programa a partir de um ficheiro
+     */
     @Override
     public final void execute() {
         Form f = new Form();

@@ -22,6 +22,9 @@ public class Save extends Command<Handler> {
         super(Label.SAVE, receiver);
     }
 
+    /**
+     * Guarda um interpretador num ficheiro
+     */
     @Override
     public final void execute() throws InvalidOperation {
         if (!(entity().checkSaved())) {

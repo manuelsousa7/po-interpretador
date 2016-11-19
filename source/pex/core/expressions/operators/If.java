@@ -24,7 +24,7 @@ public class If extends TrenaryExpression {
 	/**
      * Retorna a primeira expressao
      *
-     * @return Retorna uma expressao que representa o valor da primeira expressao
+     * @return Expression Retorna uma expressao que representa o valor da primeira expressao
      */
 	@Override
 	public Expression getFirstArgument() {
@@ -34,7 +34,7 @@ public class If extends TrenaryExpression {
 	/**
      * Retorna a segunda expressao
      *
-     * @return Retorna uma expressao que representa o valor da segunda expressao
+     * @return Expression Retorna uma expressao que representa o valor da segunda expressao
      */
 	@Override
 	public Expression getSecondArgument() {
@@ -44,7 +44,7 @@ public class If extends TrenaryExpression {
 	/**
      * Retorna a terceira expressao
      *
-     * @return Retorna uma expressao que representa o valor da terceira expressao
+     * @return Expression Retorna uma expressao que representa o valor da terceira expressao
      */
 	@Override
 	public Expression getThirdArgument() {
@@ -53,7 +53,7 @@ public class If extends TrenaryExpression {
 
 	/**
      * Verifica se as expressoes recebidas sao validas.
-     * @return Retorna true se as expressoes recebidas forem validas
+     * @return boolean Retorna true se as expressoes recebidas forem validas
      */
 	@Override
 	public boolean verifyArguments() {
@@ -63,7 +63,7 @@ public class If extends TrenaryExpression {
 	/**
      * Retorna o nome do operador
      *
-     * @return Retorna uma string que representa o nome do operador
+     * @return String Retorna uma string que representa o nome do operador
      */
 	@Override
 	public String getAsText() {
@@ -72,7 +72,7 @@ public class If extends TrenaryExpression {
 
 	/**
      * Verifica se a expressao recebida e valida.
-     * @return Retorna true se a expressao recebida for valida.
+     * @return Expression Retorna true se a expressao recebida for valida.
      */
 	@Override
 	public Expression evaluate() {

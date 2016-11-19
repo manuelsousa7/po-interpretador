@@ -42,7 +42,7 @@ public class Identifier extends Expression implements Serializable {
 	/**
      * Retorna o nome do identificador
      *
-     * @return Retorna uma string que representa o nome do identificador
+     * @return String Retorna uma string que representa o nome do identificador
      */
 	@Override
 	public String getAsText() {
@@ -52,7 +52,7 @@ public class Identifier extends Expression implements Serializable {
 	/**
      * Retorna o valor da expressao
      *
-     * @return Retorna uma expressao que representa o valor de _value
+     * @return Expression Retorna uma expressao que representa o valor de _value
      */
 	@Override
 	public Expression evaluate() {

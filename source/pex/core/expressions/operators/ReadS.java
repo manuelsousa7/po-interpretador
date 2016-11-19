@@ -16,7 +16,7 @@ public class ReadS extends Expression {
 	/**
      * Retorna o nome do operador
      *
-     * @return Retorna uma string que representa o nome do operador
+     * @return String Retorna uma string que representa o nome do operador
      */
 	public String getAsText() {
 		return "ReadS";
@@ -25,7 +25,7 @@ public class ReadS extends Expression {
 	/**
      * Retorna o valor da expressao
      *
-     * @return Retorna uma expressao que representa o valor avaliado
+     * @return Expression Retorna uma expressao que representa o valor avaliado
      */
 	public Expression evaluate() {
 		return null;

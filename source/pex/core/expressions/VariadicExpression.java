@@ -12,7 +12,7 @@ public abstract class VariadicExpression extends Expression {
      * Retorna a expressao de indice indicado
      * @param index O index da expressao a retornar
      *
-     * @return Retorna a expressao de indice indicado
+     * @return Expression Retorna a expressao de indice indicado
      */
 	public Expression getArgument(int index){
 		try {
@@ -35,7 +35,7 @@ public abstract class VariadicExpression extends Expression {
 
 	/**
      * Verifica se as expressoes recebidas sao validas.
-     * @return Retorna true se as expressoes recebidas forem validas
+     * @return boolean Retorna true se as expressoes recebidas forem validas
      */
 	public abstract boolean verifyArguments();
 }

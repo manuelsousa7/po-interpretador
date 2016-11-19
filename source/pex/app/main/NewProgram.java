@@ -20,6 +20,9 @@ public class NewProgram extends Command<Handler> {
         super(Label.NEW_PROGRAM, receiver);
     }
 
+    /**
+     * Adiciona um programa ao interpretador
+     */
     @Override
     public final void execute() {
         Form f = new Form();

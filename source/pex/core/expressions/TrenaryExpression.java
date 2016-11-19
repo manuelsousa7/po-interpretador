@@ -15,7 +15,7 @@ public abstract class TrenaryExpression extends Expression {
 	/**
      * Retorna a primeira expressao
      *
-     * @return Retorna uma expressao que representa o valor da primeira expressao
+     * @return Expression Retorna uma expressao que representa o valor da primeira expressao
      */
 	public Expression getFirstArgument() {
 		return _expression_1;
@@ -24,7 +24,7 @@ public abstract class TrenaryExpression extends Expression {
 	/**
      * Retorna a segunda expressao
      *
-     * @return Retorna uma expressao que representa o valor da segunda expressao
+     * @return Expression Retorna uma expressao que representa o valor da segunda expressao
      */
 	public Expression getSecondArgument() {
 		return _expression_2;
@@ -33,7 +33,7 @@ public abstract class TrenaryExpression extends Expression {
 	/**
      * Retorna a terceira expressao
      *
-     * @return Retorna uma expressao que representa o valor da terceira expressao
+     * @return Expression Retorna uma expressao que representa o valor da terceira expressao
      */
 	public Expression getThirdArgument() {
 		return _expression_3;
@@ -52,7 +52,7 @@ public abstract class TrenaryExpression extends Expression {
 
 	/**
      * Verifica se as expressoes recebidas sao validas.
-     * @return Retorna true se as expressoes recebidas forem validas
+     * @return boolean Retorna true se as expressoes recebidas forem validas
      */
 	public abstract boolean verifyArguments();
 }

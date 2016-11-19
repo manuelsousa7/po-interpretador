@@ -14,52 +14,104 @@ import java.util.Collections;
 import java.util.Collection;
 import java.io.Serializable;
 
+/**
+ * Classe usada para representar um programa que vai avaliar expressoes
+ *
+ * @author Manuel e Goncalo
+ */
 public class Program implements Serializable {
 	private String _name;
 	private List<Expression> _expressions;
 	private Interpreter _interpreter;
 
+	/**
+     * Construtor : Associa um nome do programa e o seu interpretador correspondente
+     *
+     * @param name Nome do programa
+     * @param interpreter Interpretador do programa
+     */
 	public Program(String name, Interpreter interpreter) {
 		_name = name;
 		_expressions = new ArrayList<Expression>();
 		_interpreter = interpreter;
 	}
 
+	/**
+     * Adiciona uma expressao ao programa
+     *
+     * @param expressao Nova expressao a adicionar
+     */
 	public void add(Expression expressao) {
 		_expressions.add(expressao);
 	}
 
+	/**
+     * Adiciona um vetor de expressoes ao programa
+     *
+     * @param expressoes Vetor de expressoes a adicionar
+     */
 	public void set(Collection<Expression> expressoes) {
 		_expressions.addAll(expressoes);
 	}
 
+	/**
+     * Substitiu a expressao no indice indicado com a expressao indicada
+     *
+     * @param index Indice da expressao a substituir
+     * @param expressao Expressao a usar para substituir
+     */
 	public void replace(int index, Expression expressao) {
 		_expressions.set(index, expressao);
 	}
 
+	/**
+     * Adiciona um identificador ao interpretador associado
+     *
+     * @param id Nome do identificador
+     * @param value Valor do identificador
+     */
 	public void setIdentifierValue(Identifier id, Expression value) {
 		_interpreter.setIdentifierValue(id, value);
 	}
 
+	/**
+     * Devolve o valor do identificador indicado
+     *
+     * @param id Nome do identificador
+     * @return Expression Valor do identificador indicado
+     */
 	public Expression getIdentifierValue(Identifier id) {
 		return _interpreter.getIdentifierValue(id);
 	}
 
+	/**
+     * Avalia as expressoes e retorna o seu valor
+     *
+     * @return Expression Valor das expressoes avaliadas
+     */
 	public Expression execute() {
 		return _expressions.get(0).evaluate();
 	}
 
+	/**
+     * Devolve o nome do programa
+     *
+     * @return String Nome do programa
+     */
 	public String getAsText() {
 		return _name;
 	}
 
-	public Program getProgram(String name) {
-		return _interpreter.getProgram(name);
-	}
-
+	/**
+     * Imprime todas as expressoes neste programa
+     *
+     * @param title Titulo do comando a usar para o display
+     */
 	public void listExpressions(String title) {
+		Display disp = new Display(title);
 		for (Expression exp : _expressions) {
-			(new Display(title)).add(exp.getAsText()).display();
+			disp.add(exp.getAsText());
 		}
+		disp.display();
 	}
 }

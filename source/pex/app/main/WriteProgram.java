@@ -22,6 +22,9 @@ public class WriteProgram extends Command<Handler> {
         super(Label.WRITE_PROGRAM, receiver);
     }
 
+    /**
+     * Guarda um programa num ficheiro
+     */
     @Override
     public final void execute() throws InvalidOperation {
         Form f = new Form();

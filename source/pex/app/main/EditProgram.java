@@ -26,6 +26,9 @@ public class EditProgram extends Command<Handler> {
         super(Label.MANAGE_PROGRAM, receiver);
     }
 
+    /**
+     * Permite editar um programa
+     */
     @Override
     public final void execute() {
         Form f = new Form();

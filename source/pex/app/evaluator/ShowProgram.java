@@ -19,6 +19,9 @@ public class ShowProgram extends ProgramCommand {
         super(Label.SHOW_PROGRAM, receiver);
     }
 
+    /**
+     * Imprime todas as expressoes presentes no programa
+     */
     @Override
     public final void execute() {
         entity().listExpressions(title());

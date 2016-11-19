@@ -13,7 +13,7 @@ public abstract class UnaryExpression extends Expression {
 	/**
      * Retorna a expressao
      *
-     * @return Retorna uma expressao que representa o valor da expressao
+     * @return Expression Retorna uma expressao que representa o valor da expressao
      */
 	public Expression getArgument() {
 		return _expression;
@@ -29,7 +29,7 @@ public abstract class UnaryExpression extends Expression {
 
 	/**
      * Verifica se a expressao recebida e valida.
-     * @return Retorna true se a expressao recebida for valida.
+     * @return boolean Retorna true se a expressao recebida for valida.
      */
 	public abstract boolean verifyArgument();
 }

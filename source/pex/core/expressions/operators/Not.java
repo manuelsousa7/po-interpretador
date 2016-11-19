@@ -22,7 +22,7 @@ public class Not extends UnaryExpression {
 	/**
      * Retorna a expressao
      *
-     * @return Retorna uma expressao que representa o valor da expressao
+     * @return Expression Retorna uma expressao que representa o valor da expressao
      */
 	@Override
 	public Expression getArgument() {
@@ -31,7 +31,7 @@ public class Not extends UnaryExpression {
 
 	/**
      * Verifica se a expressao recebida e valida.
-     * @return Retorna true se a expressao recebida for valida.
+     * @return boolean Retorna true se a expressao recebida for valida.
      */
 	@Override
 	public boolean verifyArgument() {
@@ -41,7 +41,7 @@ public class Not extends UnaryExpression {
 	/**
      * Retorna o nome do operador
      *
-     * @return Retorna uma string que representa o nome do operador
+     * @return String Retorna uma string que representa o nome do operador
      */
 	@Override
 	public String getAsText() {
@@ -51,7 +51,7 @@ public class Not extends UnaryExpression {
 	/**
      * Retorna o valor da expressao
      *
-     * @return Retorna uma expressao que representa o valor avaliado
+     * @return Expression Retorna uma expressao que representa o valor avaliado
      */
 	@Override
 	public Expression evaluate() {

@@ -25,6 +25,9 @@ public class Open extends Command<Handler> {
         super(Label.OPEN, receiver);
     }
 
+    /**
+     * Le um interpretador a partir de um ficheiro
+     */
     @Override
     public final void execute() throws InvalidOperation {
         Form f = new Form();

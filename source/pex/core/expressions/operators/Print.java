@@ -26,7 +26,7 @@ public class Print extends VariadicExpression {
      * Retorna a expressao de indice indicado
      * @param index O index da expressao a retornar
      *
-     * @return Retorna a expressao de indice indicado
+     * @return Expression Retorna a expressao de indice indicado
      */
 	@Override
 	public Expression getArgument(int index) {
@@ -35,7 +35,7 @@ public class Print extends VariadicExpression {
 
 	/**
      * Verifica se as expressoes recebidas sao validas.
-     * @return Retorna true se as expressoes recebidas forem validas
+     * @return boolean Retorna true se as expressoes recebidas forem validas
      */
 	@Override
 	public boolean verifyArguments() {
@@ -45,7 +45,7 @@ public class Print extends VariadicExpression {
 	/**
      * Retorna o nome do operador
      *
-     * @return Retorna uma string que representa o nome do operador
+     * @return String Retorna uma string que representa o nome do operador
      */
 	@Override
 	public String getAsText() {
@@ -55,7 +55,7 @@ public class Print extends VariadicExpression {
 	/**
      * Retorna o valor da expressao
      *
-     * @return Retorna uma expressao que representa o valor avaliado
+     * @return Expression Retorna uma expressao que representa o valor avaliado
      */
 	@Override
 	public Expression evaluate() {
