@@ -56,7 +56,7 @@ public class Sub extends BinaryExpression {
      */
 	@Override
 	public String getAsText() {
-		return "(sub " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")";
+		return "(sub " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")\n";
 	}
 
 	/**

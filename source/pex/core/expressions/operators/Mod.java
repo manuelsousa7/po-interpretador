@@ -56,7 +56,7 @@ public class Mod extends BinaryExpression {
      */
 	@Override
 	public String getAsText() {
-		return "(mod " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")";
+		return "(mod " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")\n";
 	}
 
 	/**

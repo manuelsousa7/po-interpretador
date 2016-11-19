@@ -45,7 +45,7 @@ public class Call extends UnaryExpression {
      */
 	@Override
 	public String getAsText() {
-		return "(call " + getArgument().getAsText() + ")";
+		return "(call " + getArgument().getAsText() + ")\n";
 	}
 
 	/**

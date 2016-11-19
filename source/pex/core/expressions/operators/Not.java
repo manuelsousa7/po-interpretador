@@ -45,7 +45,7 @@ public class Not extends UnaryExpression {
      */
 	@Override
 	public String getAsText() {
-		return "(neg " + getArgument().getAsText() + ")";
+		return "(not " + getArgument().getAsText() + ")\n";
 	}
 
 	/**

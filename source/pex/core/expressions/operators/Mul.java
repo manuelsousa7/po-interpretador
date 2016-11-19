@@ -56,7 +56,7 @@ public class Mul extends BinaryExpression {
      */
 	@Override
 	public String getAsText() {
-		return "(mul " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")";
+		return "(mul " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")\n";
 	}
 
 	/**

@@ -57,7 +57,7 @@ public class Or extends BinaryExpression {
      */
 	@Override
 	public String getAsText() {
-		return "(or " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")";
+		return "(or " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")\n";
 	}
 
 	/**

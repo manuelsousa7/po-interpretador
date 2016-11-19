@@ -67,7 +67,7 @@ public class If extends TrenaryExpression {
      */
 	@Override
 	public String getAsText() {
-		return "(if " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + " " + getThirdArgument().getAsText() + ")";
+		return "(if " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + " " + getThirdArgument().getAsText() + ")\n";
 	}
 
 	/**

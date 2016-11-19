@@ -56,7 +56,7 @@ public class And extends BinaryExpression {
      */
 	@Override
 	public String getAsText() {
-		return "(and " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")";
+		return "(and " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")\n";
 	}
 
 	/**
