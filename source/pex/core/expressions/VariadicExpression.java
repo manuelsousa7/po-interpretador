@@ -14,14 +14,8 @@ public abstract class VariadicExpression extends Expression {
      *
      * @return Expression Retorna a expressao de indice indicado
      */
-	public Expression getArgument(int index){
-		try {
-			return _expressions.get(index);
-		}
-		catch (Exception e) {
-			System.out.println("Nao conseguiu buscar argumento");
-			return null;
-		}
+	public List<Expression> getArguments() {
+		return _expressions;
 	}
 
 	/**

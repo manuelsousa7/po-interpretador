@@ -56,7 +56,7 @@ public class Div extends BinaryExpression {
      */
 	@Override
 	public String getAsText() {
-		return "Div";
+		return "(div " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")";
 	}
 
 	/**

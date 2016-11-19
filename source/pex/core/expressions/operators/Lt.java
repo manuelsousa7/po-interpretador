@@ -56,7 +56,7 @@ public class Lt extends BinaryExpression {
      */
 	@Override
 	public String getAsText() {
-		return "Lt";
+		return "(lt " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")";
 	}
 
 	/**
