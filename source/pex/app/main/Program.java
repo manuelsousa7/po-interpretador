@@ -4,6 +4,7 @@ import pex.core.expressions.*;
 import pex.app.main.Interpreter;
 
 import pt.utl.ist.po.ui.Display;
+
 import pex.support.app.main.*;
 
 import java.util.List;
@@ -110,7 +111,9 @@ public class Program implements Serializable {
 	public void listExpressions(String title) {
 		Display disp = new Display(title);
 		for (Expression exp : _expressions) {
-			disp.add(exp.getAsText());
+			 (new Display(title).add((exp.getAsText()))).display();
+			 //System.out.println(exp.getAsText());
+			//disp.add(exp.getAsText());
 		}
 		disp.display();
 	}
