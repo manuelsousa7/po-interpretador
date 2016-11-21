@@ -56,7 +56,7 @@ public class Gt extends BinaryExpression {
 	 */
 	@Override
 	public String getAsText() {
-		return "(gt " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")\n";
+		return "(gt " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")";
 	}
 
 	/**

@@ -19,7 +19,7 @@ public class ReadS extends Expression {
 	 * @return String Retorna uma string que representa o nome do operador
 	 */
 	public String getAsText() {
-		return "reads\n";
+		return "reads";
 	}
 
 	/**

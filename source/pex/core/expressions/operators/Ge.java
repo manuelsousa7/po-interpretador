@@ -56,7 +56,7 @@ public class Ge extends BinaryExpression {
 	 */
 	@Override
 	public String getAsText() {
-		return "(ge " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")\n";
+		return "(ge " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")";
 	}
 
 	/**

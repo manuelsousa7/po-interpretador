@@ -56,7 +56,7 @@ public class While extends BinaryExpression {
 	 */
 	@Override
 	public String getAsText() {
-		return "(while " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")\n";
+		return "(while " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")";
 	}
 
 	/**

@@ -56,7 +56,7 @@ public class Ne extends BinaryExpression {
 	 */
 	@Override
 	public String getAsText() {
-		return "(ne " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")\n";
+		return "(ne " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")";
 	}
 
 	/**

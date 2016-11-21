@@ -56,7 +56,7 @@ public class Add extends BinaryExpression {
 	 */
 	@Override
 	public String getAsText() {
-		return "(add " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")\n";
+		return "(add " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")";
 	}
 
 	/**

@@ -56,7 +56,7 @@ public class Eq extends BinaryExpression {
 	 */
 	@Override
 	public String getAsText() {
-		return "(eq " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")\n";
+		return "(eq " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")";
 	}
 
 	/**

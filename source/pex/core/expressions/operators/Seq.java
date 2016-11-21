@@ -54,7 +54,7 @@ public class Seq extends VariadicExpression {
 		for (Expression exp : getArguments()) {
 			sb.append(" " + exp.getAsText());
 		}
-		sb.append(")\n");
+		sb.append(")");
 		return sb.toString();
 	}
 
