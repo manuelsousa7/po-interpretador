@@ -108,7 +108,6 @@ public class Handler implements AppIO, Serializable  {
 				out.flush();
 				out.close();
 				fileOut.close();
-
 			}
 
 			catch (Exception e) {
@@ -125,10 +124,10 @@ public class Handler implements AppIO, Serializable  {
 			try {
 				FileOutputStream fileOut = new FileOutputStream(_interpretador.getFileName());
 				ObjectOutputStream out = new ObjectOutputStream(fileOut);
+				_changed = false;
 				out.writeObject(_interpretador);
 				out.close();
 				fileOut.close();
-				_changed = false;
 			}
 
 			catch (Exception e) {

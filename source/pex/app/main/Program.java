@@ -52,7 +52,7 @@ public class Program implements Serializable {
 	 *
 	 * @param expressoes Vetor de expressoes a adicionar
 	 */
-	public void set(Collection<Expression> expressoes) {
+	public void add(Collection<Expression> expressoes) {
 		_expressions.addAll(expressoes);
 	}
 

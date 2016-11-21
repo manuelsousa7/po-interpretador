@@ -42,7 +42,7 @@ public class Parser {
             while ((exp = parseExpression()) != null)
                 expressions.add(exp);
 
-            _program.set(expressions);
+            _program.add(expressions);
         } catch (IOException ioe) {
             throw new BadSourceException(fileName, ioe);
         }
