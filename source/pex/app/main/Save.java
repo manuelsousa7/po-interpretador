@@ -34,15 +34,13 @@ public class Save extends Command<Handler> {
 
             try {
                 entity().saveInterpreter(inS.toString());
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 (new Display(title())).add("Erro a guardar o interpretador").display();
             }
         } else {
             try {
                 entity().saveInterpreter();
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 (new Display(title())).add("Erro a guardar o interpretador").display();
             }
         }

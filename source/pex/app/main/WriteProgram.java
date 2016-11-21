@@ -38,12 +38,10 @@ public class WriteProgram extends Command<Handler> {
         if (entity().checkProgram(inS.toString())) {
             try {
                 entity().writeProgram(inS.toString(), inS_2.toString());
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 //FIX ME
             }
-        }
-        else {
+        } else {
             (new Display(title())).add(Message.noSuchProgram(inS.toString())).display();
         }
     }

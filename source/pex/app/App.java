@@ -20,11 +20,11 @@ import pt.utl.ist.po.ui.Display;
 public class App implements AppIO {
     // Add fileds here if needed
 
-    /*
+
     public App() {
 
     }
-    */
+
 
     /**
      * Writes a string to be presented to the user.

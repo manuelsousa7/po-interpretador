@@ -12,19 +12,19 @@ import pt.utl.ist.po.ui.Menu;
  */
 public class EvaluatorMenu extends Menu {
 
-    /**
-     * @param receiver
-     */
-    public EvaluatorMenu(Program receiver) {
-        super(Label.TITLE,
-              new Command<?>[] { //
-                    new ShowProgram(receiver), //
-                    new RunProgram(receiver), //
-                    new AddExpression(receiver), //
-                    new ReplaceExpression(receiver), //
-                    new ShowAllIdentifiers(receiver), //
-                    new ShowUninitializedIdentifiers(receiver), //
-                    });
-    }
+  /**
+   * @param receiver
+   */
+  public EvaluatorMenu(Program receiver) {
+    super(Label.TITLE,
+          new Command<?>[] { //
+            new ShowProgram(receiver), //
+            new RunProgram(receiver), //
+            new AddExpression(receiver), //
+            new ReplaceExpression(receiver), //
+            new ShowAllIdentifiers(receiver), //
+            new ShowUninitializedIdentifiers(receiver), //
+          });
+  }
 
 }
