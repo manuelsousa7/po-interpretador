@@ -56,7 +56,7 @@ public class Le extends BinaryExpression {
      */
 	@Override
 	public String getAsText() {
-		return "Le";
+		return "(le " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")\n";
 	}
 
 	/**

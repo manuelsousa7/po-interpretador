@@ -7,6 +7,8 @@ import pex.app.main.Interpreter;
 
 import pt.utl.ist.po.ui.Display;
 
+import pex.core.parser.Parser;
+
 import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -172,15 +174,12 @@ public class Handler implements AppIO, Serializable  {
      */
 	public void readProgram(String file) throws WriteAbortedException, IOException, ClassNotFoundException {
 		try {
-			FileInputStream fileIn = new FileInputStream(file);
-			ObjectInputStream in = new ObjectInputStream(fileIn);
-			_interpretador.addProgram((Program)in.readObject());
-			in.close();
-			fileIn.close();
+			Parser parser = new Parser();
+			_interpretador.addProgram(parser.parseFile(file,file,_interpretador));
 			_changed = true;
 		}
-
 		catch (Exception e) {
+			System.out.println("crl");
 			throw new FileNotFoundException();
 		}
 	}

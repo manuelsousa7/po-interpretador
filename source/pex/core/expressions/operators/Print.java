@@ -29,8 +29,8 @@ public class Print extends VariadicExpression {
      * @return Expression Retorna a expressao de indice indicado
      */
 	@Override
-	public Expression getArgument(int index) {
-		return super.getArgument(index);
+	public List<Expression> getArguments() {
+		return super.getArguments();
 	}
 
 	/**
@@ -49,7 +49,13 @@ public class Print extends VariadicExpression {
      */
 	@Override
 	public String getAsText() {
-		return "Print";
+		StringBuilder sb = new StringBuilder();
+		sb.append("(print");
+		for (Expression exp : getArguments()) {
+			sb.append(" " + exp.getAsText());
+		}
+		sb.append(")\n");
+		return sb.toString();
 	}
 
 	/**
@@ -59,6 +65,6 @@ public class Print extends VariadicExpression {
      */
 	@Override
 	public Expression evaluate() {
-		return super.getArgument(0);
+		return null;
 	}
 }

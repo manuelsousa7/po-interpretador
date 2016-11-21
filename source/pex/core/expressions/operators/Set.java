@@ -56,7 +56,7 @@ public class Set extends BinaryExpression {
      */
 	@Override
 	public String getAsText() {
-		return "Set";
+		return "(set " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")\n";
 	}
 
 	/**

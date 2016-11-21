@@ -112,8 +112,6 @@ public class Program implements Serializable {
 		Display disp = new Display(title);
 		for (Expression exp : _expressions) {
 			 (new Display(title).add((exp.getAsText()))).display();
-			 //System.out.println(exp.getAsText());
-			//disp.add(exp.getAsText());
 		}
 		disp.display();
 	}
