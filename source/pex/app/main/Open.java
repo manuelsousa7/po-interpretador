@@ -3,8 +3,8 @@ package pex.app.main;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import pex.app.main.Interpreter;
-import pex.app.main.Handler;
+import pex.core.Interpreter;
+import pex.core.Handler;
 
 import pex.support.app.main.*;
 

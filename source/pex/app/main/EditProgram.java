@@ -1,8 +1,8 @@
 package pex.app.main;
 
-import pex.app.main.Handler;
-import pex.app.main.Program;
-import pex.app.main.Interpreter;
+import pex.core.Handler;
+import pex.core.Program;
+import pex.core.Interpreter;
 import pex.support.app.main.*;
 
 import pex.app.evaluator.EvaluatorMenu;

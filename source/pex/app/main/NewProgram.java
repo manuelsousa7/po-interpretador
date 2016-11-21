@@ -1,7 +1,7 @@
 package pex.app.main;
 
-import pex.app.main.Interpreter;
-import pex.app.main.Handler;
+import pex.core.Interpreter;
+import pex.core.Handler;
 import pex.support.app.main.*;
 
 import pt.utl.ist.po.ui.Command;

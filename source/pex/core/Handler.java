@@ -1,9 +1,9 @@
-package pex.app.main;
+package pex.core;
 
 import java.io.*;
 
 import pex.AppIO;
-import pex.app.main.Interpreter;
+import pex.core.Interpreter;
 
 import pt.utl.ist.po.ui.Display;
 

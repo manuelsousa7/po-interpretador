@@ -1,7 +1,7 @@
-package pex.app.main;
+package pex.core;
 
-import pex.app.main.Interpreter;
-import pex.app.main.Program;
+import pex.core.Interpreter;
+import pex.core.Program;
 import pex.core.expressions.*;
 import pex.core.parser.Parser;
 

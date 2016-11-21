@@ -4,9 +4,9 @@ import pex.AppIO;
 import pex.core.parser.*;
 
 import pex.app.main.MainMenu;
-import pex.app.main.Interpreter;
-import pex.app.main.Handler;
-import pex.app.main.Program;
+import pex.core.Interpreter;
+import pex.core.Handler;
+import pex.core.Program;
 
 import pt.utl.ist.po.ui.Form;
 import pt.utl.ist.po.ui.InputString;
@@ -58,17 +58,17 @@ public class App implements AppIO {
      */
     public static void main(String[] args) {
         Parser parser = new Parser();
-        Handler app = new Handler();
+        Handler handler = new Handler();
         String datafile = System.getProperty("import");
         if (datafile != null) {
             try {
-                Program programa = parser.parseFile(datafile, "import", app.getInterperter());
-                app.addProgram(programa);
+                Program programa = parser.parseFile(datafile, "import", handler.getInterperter());
+                handler.addProgram(programa);
             } catch (ParserException e) {
                 e.printStackTrace();
             }
         }
-        MainMenu menu = new MainMenu(app);
+        MainMenu menu = new MainMenu(handler);
         menu.open();
     }
 }
