@@ -57,7 +57,7 @@ public class Program implements Serializable {
 	}
 
 	/**
-	 * Substitiu a expressao no indice indicado com a expressao indicada
+	 * Substitui a expressao no indice indicado com a expressao indicada
 	 *
 	 * @param index Indice da expressao a substituir
 	 * @param expressao Expressao a usar para substituir
@@ -67,7 +67,7 @@ public class Program implements Serializable {
 	}
 
 	/**
-	 * Adiciona um identificador ao interpretador associado
+	 * Adiciona um identificador e um valor ao interpretador
 	 *
 	 * @param id Nome do identificador
 	 * @param value Valor do identificador
@@ -118,7 +118,8 @@ public class Program implements Serializable {
 	}
 
 	/**
-	 * Guarda as expressoes do programa num ficheiro de texto
+	 * Guarda as expressoes do programa num ficheiro de texto, passível
+	 * de ser lido mais tarde pelo programa
 	 *
 	 * @param title Titulo do comando a usar para o display
 	 */
