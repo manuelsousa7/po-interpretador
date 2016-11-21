@@ -112,7 +112,7 @@ public class Program implements Serializable {
 	public void listExpressions(String title) {
 		Display disp = new Display(title);
 		for (Expression exp : _expressions) {
-			(new Display(title).add((exp.getAsText()))).display();
+			disp.addNewLine((exp.getAsText()));
 		}
 		disp.display();
 	}
