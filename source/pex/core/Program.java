@@ -19,7 +19,7 @@ import java.io.Serializable;
 /**
  * Classe usada para representar um programa que vai avaliar expressoes
  *
- * @author Manuel e Goncalo
+ * @author Grupo 28 - Goncalo Marques (84719) - Manuel Sousa (84740)
  */
 public class Program implements Serializable {
 	private String _name;
