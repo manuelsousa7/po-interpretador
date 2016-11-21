@@ -114,4 +114,16 @@ public class Program implements Serializable {
 		}
 		disp.display();
 	}
+
+	/**
+     * Guarda as expressoes do programa num ficheiro de texto
+     *
+     * @param title Titulo do comando a usar para o display
+     */
+	public void saveProgram(String file) {
+		PrintWriter p = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+		for (Expression exp : _expressions) {
+			p.println(exp.getAsText());
+		}
+	}
 }
