@@ -179,7 +179,6 @@ public class Handler implements AppIO, Serializable  {
 			_changed = true;
 		}
 		catch (Exception e) {
-			System.out.println("crl");
 			throw new FileNotFoundException();
 		}
 	}
@@ -195,10 +194,9 @@ public class Handler implements AppIO, Serializable  {
 		Program prog = _interpretador.getProgram(name);
 		if (prog != null) {
 			try {
-				prog.saveProgwram(file);
+				prog.saveProgram(file);
 				_changed = true;
 			}
-
 			catch (Exception e) {
 				throw new IOException();
 			}
@@ -206,7 +204,7 @@ public class Handler implements AppIO, Serializable  {
 	}
 
 	/**
-     * Devovle o programa com o nome indicado para poder ser editado
+     * Devolve o programa com o nome indicado para poder ser editado
      *
      * @param name Nome do programa a devolver
      * @return Program Retorna o programa a editar
