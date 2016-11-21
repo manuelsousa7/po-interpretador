@@ -195,11 +195,7 @@ public class Handler implements AppIO, Serializable  {
 		Program prog = _interpretador.getProgram(name);
 		if (prog != null) {
 			try {
-				FileOutputStream fileOut = new FileOutputStream(file);
-				ObjectOutputStream out = new ObjectOutputStream(fileOut);
-				out.writeObject(prog);
-				out.close();
-				fileOut.close();
+				prog.saveProgram(file);
 				_changed = true;
 			}
 
