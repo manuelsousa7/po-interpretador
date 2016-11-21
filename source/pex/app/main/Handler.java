@@ -195,7 +195,7 @@ public class Handler implements AppIO, Serializable  {
 		Program prog = _interpretador.getProgram(name);
 		if (prog != null) {
 			try {
-				prog.saveProgram(file);
+				prog.saveProgwram(file);
 				_changed = true;
 			}
 
