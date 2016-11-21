@@ -7,6 +7,7 @@ import pt.utl.ist.po.ui.Display;
 
 import pex.support.app.main.*;
 
+import java.io.*;
 import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -122,9 +123,14 @@ public class Program implements Serializable {
      * @param title Titulo do comando a usar para o display
      */
 	public void saveProgram(String file) {
-		PrintWriter p = new PrintWriter(new BufferedWriter(new FileWriter(file)));
-		for (Expression exp : _expressions) {
-			p.println(exp.getAsText());
+		try {
+			PrintWriter p = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+			for (Expression exp : _expressions) {
+				p.println(exp.getAsText());
+			}
+		}
+		catch (IOException ioe) {
+			(new Display().add(("Erro a guardar o programa!"))).display();
 		}
 	}
 }
