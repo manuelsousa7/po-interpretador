@@ -2,6 +2,8 @@ package pex.core.expressions.operators;
 
 import pex.core.expressions.BinaryExpression;
 import pex.core.expressions.Expression;
+import pex.core.expressions.LiteralInt;
+import pex.core.expressions.LiteralString;
 
 /**
  * Classe usada para representar um operador Set
@@ -46,7 +48,19 @@ public class Set extends BinaryExpression {
 	 */
 	@Override
 	public boolean verifyArguments() {
-		return true;
+		try {
+			Expression exp = (LiteralString)getFirstArgument();
+			try {
+				exp = (LiteralInt)getSecondArgument();
+				return true;
+			}
+			catch (Exception e) {
+				return false;
+			}
+		}
+		catch (Exception e) {
+			return false;
+		}
 	}
 
 	/**

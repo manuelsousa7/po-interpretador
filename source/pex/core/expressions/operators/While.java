@@ -2,6 +2,7 @@ package pex.core.expressions.operators;
 
 import pex.core.expressions.BinaryExpression;
 import pex.core.expressions.Expression;
+import pex.core.expressions.LiteralInt;
 
 /**
  * Classe usada para representar um operador While
@@ -46,7 +47,13 @@ public class While extends BinaryExpression {
 	 */
 	@Override
 	public boolean verifyArguments() {
-		return true;
+		try {
+			Expression exp = (LiteralInt)getFirstArgument();
+			return true;
+		}
+		catch (Exception e) {
+			return false;
+		}
 	}
 
 	/**

@@ -2,6 +2,8 @@ package pex.core.expressions.operators;
 
 import pex.core.expressions.VariadicExpression;
 import pex.core.expressions.Expression;
+import pex.core.expressions.LiteralInt;
+import pex.core.expressions.LiteralString;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;

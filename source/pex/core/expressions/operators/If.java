@@ -2,6 +2,7 @@ package pex.core.expressions.operators;
 
 import pex.core.expressions.TrenaryExpression;
 import pex.core.expressions.Expression;
+import pex.core.expressions.LiteralInt;
 
 /**
  * Classe usada para representar um operador If
@@ -57,7 +58,25 @@ public class If extends TrenaryExpression {
 	 */
 	@Override
 	public boolean verifyArguments() {
-		return true;
+		try {
+			Expression exp = (LiteralInt)getFirstArgument();
+			try {
+				exp = (LiteralInt)getSecondArgument();
+				try {
+					exp = (LiteralInt)getThirdArgument();
+					return true;
+				}
+				catch (Exception e) {
+					return false;
+				}
+			}
+			catch (Exception e) {
+				return false;
+			}
+		}
+		catch (Exception e) {
+			return false;
+		}
 	}
 
 	/**

@@ -2,6 +2,7 @@ package pex.core.expressions.operators;
 
 import pex.core.expressions.BinaryExpression;
 import pex.core.expressions.Expression;
+import pex.core.expressions.LiteralInt;
 
 /**
  * Classe usada para representar um operador And
@@ -46,7 +47,19 @@ public class And extends BinaryExpression {
 	 */
 	@Override
 	public boolean verifyArguments() {
-		return true;
+		try {
+			Expression exp = (LiteralInt)getFirstArgument();
+			try {
+				exp = (LiteralInt)getSecondArgument();
+				return true;
+			}
+			catch (Exception e) {
+				return false;
+			}
+		}
+		catch (Exception e) {
+			return false;
+		}
 	}
 
 	/**
@@ -66,6 +79,15 @@ public class And extends BinaryExpression {
 	 */
 	@Override
 	public Expression evaluate() {
-		return super.getFirstArgument();
+		if (verifyArguments()) {
+			if (((LiteralInt)getFirstArgument()).getInt() > 0 &&
+				((LiteralInt)getSecondArgument()).getInt() > 0) {
+				return new LiteralInt(1);
+			}
+			else {
+				return new LiteralInt(0);
+			}
+		}
+		return null;
 	}
 }

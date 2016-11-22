@@ -2,6 +2,7 @@ package pex.core.expressions.operators;
 
 import pex.core.expressions.UnaryExpression;
 import pex.core.expressions.Expression;
+import pex.core.expressions.LiteralInt;
 
 /**
  * Classe usada para representar um operador Not
@@ -35,7 +36,13 @@ public class Not extends UnaryExpression {
 	 */
 	@Override
 	public boolean verifyArgument() {
-		return true;
+		try {
+			Expression exp = (LiteralInt)getArgument();
+			return true;
+		}
+		catch (Exception e) {
+			return false;
+		}
 	}
 
 	/**
@@ -55,6 +62,14 @@ public class Not extends UnaryExpression {
 	 */
 	@Override
 	public Expression evaluate() {
-		return super.getArgument();
+		if (verifyArgument()) {
+			if (((LiteralInt)getArgument()).getInt() > 0) {
+				return new LiteralInt(0);
+			}
+			else {
+				return new LiteralInt(1);
+			}
+		}
+		return null;
 	}
 }

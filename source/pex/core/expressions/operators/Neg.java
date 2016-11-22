@@ -2,6 +2,7 @@ package pex.core.expressions.operators;
 
 import pex.core.expressions.UnaryExpression;
 import pex.core.expressions.Expression;
+import pex.core.expressions.LiteralInt;
 
 /**
  * Classe usada para representar um operador Neg
@@ -35,7 +36,13 @@ public class Neg extends UnaryExpression {
 	 */
 	@Override
 	public boolean verifyArgument() {
-		return true;
+		try {
+			Expression exp = (LiteralInt)getArgument();
+			return true;
+		}
+		catch (Exception e) {
+			return false;
+		}
 	}
 
 	/**
@@ -55,6 +62,9 @@ public class Neg extends UnaryExpression {
 	 */
 	@Override
 	public Expression evaluate() {
-		return super.getArgument();
+		if (verifyArgument()) {
+			return new LiteralInt(-((LiteralInt)getArgument()).getInt());
+		}
+		return null;
 	}
 }
