@@ -28,8 +28,18 @@ public abstract class VariadicExpression extends CompositeExpression {
 	}
 
 	/**
-	 * Verifica se as expressoes recebidas sao validas.
-	 * @return boolean Retorna true se as expressoes recebidas forem validas
+	 * Retorna o nome do operador
+	 *
+	 * @return String Retorna uma string que representa o nome do operador
 	 */
-	public abstract boolean verifyArguments();
+	@Override
+	public String getAsText() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("(" + getOperatorName());
+		for (Expression exp : getArguments()) {
+			sb.append(" " + exp.getAsText());
+		}
+		sb.append(")");
+		return sb.toString();
+	}
 }

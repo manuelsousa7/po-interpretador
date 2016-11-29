@@ -1,13 +1,13 @@
 package pex.core.expressions;
 
-import pex.core.expressions.Expression;
+import pex.core.expressions.CompositeExpression;
 
 /**
  * Classe usada para representar um operador binario (recebe duas expressoes)
  *
  * @author Manuel e Goncalo
  */
-public abstract class BinaryExpression extends Expression {
+public abstract class BinaryExpression extends CompositeExpression {
 	private Expression _expression_1;
 	private Expression _expression_2;
 
@@ -40,8 +40,12 @@ public abstract class BinaryExpression extends Expression {
 	}
 
 	/**
-	 * Verifica se as expressoes recebidas sao validas.
-	 * @return boolean Retorna true se as expressoes recebidas forem validas
+	 * Retorna o nome do operador
+	 *
+	 * @return String Retorna uma string que representa o nome do operador
 	 */
-	public abstract boolean verifyArguments();
+	@Override
+	public String getAsText() {
+		return "(" + getOperatorName() + " " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")";
+	}
 }

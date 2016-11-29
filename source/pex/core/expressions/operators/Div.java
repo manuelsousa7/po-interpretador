@@ -19,26 +19,7 @@ public class Div extends BinaryExpression {
 	 */
 	public Div(Expression exp_1, Expression exp_2) {
 		super.setArguments(exp_1, exp_2);
-	}
-
-	/**
-	 * Retorna a primeira expressao
-	 *
-	 * @return Expression Retorna uma expressao que representa o valor da primeira expressao
-	 */
-	@Override
-	public Expression getFirstArgument() {
-		return super.getFirstArgument();
-	}
-
-	/**
-	 * Retorna a segunda expressao
-	 *
-	 * @return Expression Retorna uma expressao que representa o valor da segunda expressao
-	 */
-	@Override
-	public Expression getSecondArgument() {
-		return super.getSecondArgument();
+		super.setOperatorName("div");
 	}
 
 	/**
@@ -60,16 +41,6 @@ public class Div extends BinaryExpression {
 		catch (Exception e) {
 			return false;
 		}
-	}
-
-	/**
-	 * Retorna o nome do operador
-	 *
-	 * @return String Retorna uma string que representa o nome do operador
-	 */
-	@Override
-	public String getAsText() {
-		return "(div " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")";
 	}
 
 	/**

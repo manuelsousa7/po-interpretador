@@ -28,8 +28,12 @@ public abstract class UnaryExpression extends CompositeExpression {
 	}
 
 	/**
-	 * Verifica se a expressao recebida e valida.
-	 * @return boolean Retorna true se a expressao recebida for valida.
+	 * Retorna o nome do operador
+	 *
+	 * @return String Retorna uma string que representa o nome do operador
 	 */
-	public abstract boolean verifyArgument();
+	@Override
+	public String getAsText() {
+		return "(" + getOperatorName() + " " + getArgument().getAsText() + ")";
+	}
 }

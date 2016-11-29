@@ -23,39 +23,12 @@ public class Seq extends VariadicExpression {
 	}
 
 	/**
-	 * Retorna a expressao de indice indicado
-	 * @param index O index da expressao a retornar
-	 *
-	 * @return Expression Retorna a expressao de indice indicado
-	 */
-	@Override
-	public List<Expression> getArguments() {
-		return super.getArguments();
-	}
-
-	/**
 	 * Verifica se as expressoes recebidas sao validas.
 	 * @return boolean Retorna true se as expressoes recebidas forem validas
 	 */
 	@Override
 	public boolean verifyArguments() {
 		return true;
-	}
-
-	/**
-	 * Retorna o nome do operador
-	 *
-	 * @return String Retorna uma string que representa o nome do operador
-	 */
-	@Override
-	public String getAsText() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("(seq");
-		for (Expression exp : getArguments()) {
-			sb.append(" " + exp.getAsText());
-		}
-		sb.append(")");
-		return sb.toString();
 	}
 
 	/**

@@ -51,8 +51,12 @@ public abstract class TrenaryExpression extends CompositeExpression {
 	}
 
 	/**
-	 * Verifica se as expressoes recebidas sao validas.
-	 * @return boolean Retorna true se as expressoes recebidas forem validas
+	 * Retorna o nome do operador
+	 *
+	 * @return String Retorna uma string que representa o nome do operador
 	 */
-	public abstract boolean verifyArguments();
+	@Override
+	public String getAsText() {
+		return "(" + getOperatorName() + " " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + " " + getThirdArgument().getAsText() + ")";
+	}
 }

@@ -23,36 +23,6 @@ public class If extends TrenaryExpression {
 	}
 
 	/**
-	 * Retorna a primeira expressao
-	 *
-	 * @return Expression Retorna uma expressao que representa o valor da primeira expressao
-	 */
-	@Override
-	public Expression getFirstArgument() {
-		return super.getFirstArgument();
-	}
-
-	/**
-	 * Retorna a segunda expressao
-	 *
-	 * @return Expression Retorna uma expressao que representa o valor da segunda expressao
-	 */
-	@Override
-	public Expression getSecondArgument() {
-		return super.getSecondArgument();
-	}
-
-	/**
-	 * Retorna a terceira expressao
-	 *
-	 * @return Expression Retorna uma expressao que representa o valor da terceira expressao
-	 */
-	@Override
-	public Expression getThirdArgument() {
-		return super.getThirdArgument();
-	}
-
-	/**
 	 * Verifica se as expressoes recebidas sao validas.
 	 * @return boolean Retorna true se as expressoes recebidas forem validas
 	 */
@@ -77,16 +47,6 @@ public class If extends TrenaryExpression {
 		catch (Exception e) {
 			return false;
 		}
-	}
-
-	/**
-	 * Retorna o nome do operador
-	 *
-	 * @return String Retorna uma string que representa o nome do operador
-	 */
-	@Override
-	public String getAsText() {
-		return "(if " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + " " + getThirdArgument().getAsText() + ")";
 	}
 
 	/**

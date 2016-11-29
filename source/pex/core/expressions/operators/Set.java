@@ -23,26 +23,6 @@ public class Set extends BinaryExpression {
 	}
 
 	/**
-	 * Retorna a primeira expressao
-	 *
-	 * @return Expression Retorna uma expressao que representa o valor da primeira expressao
-	 */
-	@Override
-	public Expression getFirstArgument() {
-		return super.getFirstArgument();
-	}
-
-	/**
-	 * Retorna a segunda expressao
-	 *
-	 * @return Retorna uma expressao que representa o valor da segunda expressao
-	 */
-	@Override
-	public Expression getSecondArgument() {
-		return super.getSecondArgument();
-	}
-
-	/**
 	 * Verifica se as expressoes recebidas sao validas.
 	 * @return boolean Retorna true se as expressoes recebidas forem validas
 	 */
@@ -61,16 +41,6 @@ public class Set extends BinaryExpression {
 		catch (Exception e) {
 			return false;
 		}
-	}
-
-	/**
-	 * Retorna o nome do operador
-	 *
-	 * @return String Retorna uma string que representa o nome do operador
-	 */
-	@Override
-	public String getAsText() {
-		return "(set " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + ")";
 	}
 
 	/**

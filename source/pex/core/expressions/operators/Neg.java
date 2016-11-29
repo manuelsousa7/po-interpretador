@@ -21,16 +21,6 @@ public class Neg extends UnaryExpression {
 	}
 
 	/**
-	 * Retorna a expressao
-	 *
-	 * @return Expression Retorna uma expressao que representa o valor da expressao
-	 */
-	@Override
-	public Expression getArgument() {
-		return super.getArgument();
-	}
-
-	/**
 	 * Verifica se a expressao recebida e valida.
 	 * @return boolean Retorna true se a expressao recebida for valida.
 	 */
@@ -43,16 +33,6 @@ public class Neg extends UnaryExpression {
 		catch (Exception e) {
 			return false;
 		}
-	}
-
-	/**
-	 * Retorna o nome do operador
-	 *
-	 * @return String Retorna uma string que representa o nome do operador
-	 */
-	@Override
-	public String getAsText() {
-		return "(neg " + getArgument().getAsText() + ")";
 	}
 
 	/**

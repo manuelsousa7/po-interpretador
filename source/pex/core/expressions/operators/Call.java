@@ -17,35 +17,22 @@ public class Call extends UnaryExpression {
 	 */
 	public Call(Expression exp) {
 		super.setArgument(exp);
+		super.setOperatorName("call");
 	}
 
 	/**
-	 * Retorna a expressao
-	 *
-	 * @return Expression Retorna uma expressao que representa o valor da expressao
+	 * Verifica se as expressoes recebidas sao validas.
+	 * @return boolean Retorna true se as expressoes recebidas forem validas
 	 */
 	@Override
-	public Expression getArgument() {
-		return super.getArgument();
-	}
-
-	/**
-	 * Verifica se a expressao recebida e valida.
-	 * @return boolean Retorna true se a expressao recebida for valida.
-	 */
-	@Override
-	public boolean verifyArgument() {
-		return true;
-	}
-
-	/**
-	 * Retorna o nome do operador
-	 *
-	 * @return String Retorna uma string que representa o nome do operador
-	 */
-	@Override
-	public String getAsText() {
-		return "(call " + getArgument().getAsText() + ")";
+	public boolean verifyArguments() {
+		try {
+			Expression exp = (LiteralString)getFirstArgument();
+			return true;
+		}
+		catch (Exception e) {
+			return false;
+		}
 	}
 
 	/**
