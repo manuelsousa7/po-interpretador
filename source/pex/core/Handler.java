@@ -5,8 +5,6 @@ import java.io.*;
 import pex.AppIO;
 import pex.core.Interpreter;
 
-import pt.utl.ist.po.ui.Display;
-
 import pex.core.parser.Parser;
 
 import java.util.List;
@@ -36,7 +34,7 @@ public class Handler implements AppIO, Serializable  {
 
 	@Override
 	public void println(String str) {
-		(new Display()).add(str).display();
+		;
 	}
 
 	@Override

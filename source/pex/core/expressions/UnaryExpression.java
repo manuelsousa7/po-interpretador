@@ -1,13 +1,13 @@
 package pex.core.expressions;
 
-import pex.core.expressions.Expression;
+import pex.core.expressions.CompositeExpression;
 
 /**
  * Classe usada para representar um operador unario (recebe uma expressao)
  *
  * @author Manuel e Goncalo
  */
-public abstract class UnaryExpression extends Expression {
+public abstract class UnaryExpression extends CompositeExpression {
 	private Expression _expression;
 
 	/**

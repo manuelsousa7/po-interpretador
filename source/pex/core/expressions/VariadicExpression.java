@@ -1,11 +1,11 @@
 package pex.core.expressions;
 
-import pex.core.expressions.Expression;
+import pex.core.expressions.CompositeExpression;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public abstract class VariadicExpression extends Expression {
+public abstract class VariadicExpression extends CompositeExpression {
 	private List<Expression> _expressions;
 
 	/**

@@ -1,13 +1,13 @@
 package pex.core.expressions;
 
-import pex.core.expressions.Expression;
+import pex.core.expressions.CompositeExpression;
 
 /**
  * Classe usada para representar um operador trenario (recebe tres expressoes)
  *
  * @author Manuel e Goncalo
  */
-public abstract class TrenaryExpression extends Expression {
+public abstract class TrenaryExpression extends CompositeExpression {
 	private Expression _expression_1;
 	private Expression _expression_2;
 	private Expression _expression_3;

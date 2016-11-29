@@ -1,0 +1,9 @@
+- Fatorizacao do getAsText() (Composite expression com getExpressionName)
+
+- Displays no core (nao deviam haver)
+
+- List<Program> para Map<Program>
+
+- addProgram == getProgram (e nao precisa de boolean, so de return)
+
+- metodos das expressoes teem overrides desnecessarios
