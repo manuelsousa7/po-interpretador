@@ -3,8 +3,6 @@ package pex.core;
 import pex.core.expressions.*;
 import pex.core.Interpreter;
 
-import pt.utl.ist.po.ui.Display;
-
 import pex.support.app.main.*;
 
 import java.io.*;
@@ -107,21 +105,21 @@ public class Program implements Serializable {
 	/**
 	 * Imprime todas as expressoes neste programa
 	 *
-	 * @param title Titulo do comando a usar para o display
+	 * @return List<String> Lista de expressoes a imprimir
 	 */
-	public void listExpressions(String title) {
-		Display disp = new Display(title);
+	public List<String> listExpressions() {
+		List<String> _expressoes = new ArrayList<String>();
 		for (Expression exp : _expressions) {
-			disp.addNewLine((exp.getAsText()));
+			_expressoes.add(exp.getAsText());
 		}
-		disp.display();
+		return _expressoes;
 	}
 
 	/**
 	 * Guarda as expressoes do programa num ficheiro de texto, passível
 	 * de ser lido mais tarde pelo programa
 	 *
-	 * @param title Titulo do comando a usar para o display
+	 * @param file Nome do ficheiro onde guardar as expressoes
 	 */
 	public void saveProgram(String file) {
 		try {
@@ -130,7 +128,7 @@ public class Program implements Serializable {
 				p.println(exp.getAsText());
 			}
 		} catch (IOException ioe) {
-			(new Display().add(("Erro a guardar o programa!"))).display();
+			//Deveria apresentar erro?
 		}
 	}
 }

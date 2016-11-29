@@ -25,7 +25,7 @@ public class Neg extends UnaryExpression {
 	 * @return boolean Retorna true se a expressao recebida for valida.
 	 */
 	@Override
-	public boolean verifyArgument() {
+	public boolean verifyArguments() {
 		try {
 			Expression exp = (LiteralInt)getArgument();
 			return true;
@@ -42,7 +42,7 @@ public class Neg extends UnaryExpression {
 	 */
 	@Override
 	public Expression evaluate() {
-		if (verifyArgument()) {
+		if (verifyArguments()) {
 			return new LiteralInt(-((LiteralInt)getArgument()).getInt());
 		}
 		return null;

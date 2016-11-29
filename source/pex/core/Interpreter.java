@@ -8,6 +8,8 @@ import pex.core.parser.Parser;
 import pex.AppIO;
 
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -21,7 +23,7 @@ import java.io.Serializable;
  */
 public class Interpreter implements Serializable {
 	private AppIO _app;
-	private List<Program> _programs;
+	private Map<String, Program> _programs;
 	private List<Identifier> _identifiers;
 	private List<Expression> _values;
 	private boolean _saved;
@@ -34,7 +36,7 @@ public class Interpreter implements Serializable {
 	 */
 	public Interpreter(AppIO app) {
 		_app = app;
-		_programs = new ArrayList<Program>();
+		_programs = new HashMap<String, Program>();
 		_identifiers = new ArrayList<Identifier>();
 		_values = new ArrayList<Expression>();
 		_saved = false;
@@ -77,16 +79,10 @@ public class Interpreter implements Serializable {
 	 * @param program Programa a adicionar
 	 */
 	public void addProgram(Program program) {
-		boolean found = false;
-		for (Program programa : _programs) {
-			if (programa.getAsText().equals(program.getAsText())) {
-				found = true;
-				_programs.set(_programs.indexOf(programa), program);
-			}
+		if (getProgram(program.getAsText()) == null) {
+			_programs.put(program.getAsText(), program);
 		}
-		if (!found) {
-			_programs.add(program);
-		}
+		//Se o programa ja existir faz o que?
 	}
 
 	/**
@@ -96,12 +92,7 @@ public class Interpreter implements Serializable {
 	 * @return Program programa a devolver
 	 */
 	public Program getProgram(String name) {
-		for (Program program : _programs) {
-			if (program.getAsText().equals(name)) {
-				return program;
-			}
-		}
-		return null;
+		return _programs.get(name);
 	}
 
 	/**

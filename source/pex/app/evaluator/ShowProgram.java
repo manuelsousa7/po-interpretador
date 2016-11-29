@@ -6,6 +6,7 @@ import pex.support.app.evaluator.Label;
 
 import pt.utl.ist.po.ui.Display;
 
+import java.util.List;
 
 /**
  * Show program (present code).
@@ -24,6 +25,12 @@ public class ShowProgram extends ProgramCommand {
      */
     @Override
     public final void execute() {
-        entity().listExpressions(title());
+        List<String> lista = entity().listExpressions();
+
+        Display disp = new Display();
+        for (String str : lista) {
+            disp.addNewLine(str);
+        }
+        disp.display();
     }
 }

@@ -32,5 +32,5 @@ public abstract class CompositeExpression extends Expression {
       * Verifica se a expressao recebida e valida.
       * @return boolean Retorna true se a expressao recebida for valida.
       */
-     public abstract boolean verifyArgument();
+     public abstract boolean verifyArguments();
 }

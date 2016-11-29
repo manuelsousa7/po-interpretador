@@ -2,6 +2,7 @@ package pex.core.expressions.operators;
 
 import pex.core.expressions.UnaryExpression;
 import pex.core.expressions.Expression;
+import pex.core.expressions.LiteralString;
 
 /**
  * Classe usada para representar um operador Call
@@ -27,7 +28,7 @@ public class Call extends UnaryExpression {
 	@Override
 	public boolean verifyArguments() {
 		try {
-			Expression exp = (LiteralString)getFirstArgument();
+			Expression exp = (LiteralString)getArgument();
 			return true;
 		}
 		catch (Exception e) {
