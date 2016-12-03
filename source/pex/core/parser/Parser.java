@@ -20,8 +20,6 @@ public class Parser {
     private Program _program;
     private StreamTokenizer _tokenizer;
 
-    // may need aditional fields
-
     public Parser() {
         
     }
@@ -124,102 +122,103 @@ public class Parser {
 
         switch (operatorName) {
 
-        // process no-args expressions
-        case "reads":
-            return new ReadS();
+            // process no-args expressions
+            case "reads":
+                return new ReadS();
 
-        case "readi":
-            return new ReadI();
+            case "readi":
+                return new ReadI();
 
-        // processing unary expressions
-        case "neg":
-            return new Neg(parseArgument());
+            // processing unary expressions
+            case "neg":
+                return new Neg(parseArgument());
 
-        case "not":
-            return new Not(parseArgument());
+            case "not":
+                return new Not(parseArgument());
 
-        case "call":
-            try {
-                return new Call((LiteralString)parseArgument());
-            } catch (ClassCastException cce) { // it is not a LiteralString
-                throw new InvalidExpressionException(_tokenizer.lineno());
-            }
-
-        // processing binary expressions
-        case "add":
-            return new Add(parseArgument(), parseArgument());
-
-        case "mul":
-            return new Mul(parseArgument(), parseArgument());
-
-        case "div":
-            return new Div(parseArgument(), parseArgument());
-
-        case "mod":
-            return new Mod(parseArgument(), parseArgument());
-
-        case "sub":
-            return new Sub(parseArgument(), parseArgument());
-
-        case "lt":
-            return new Lt(parseArgument(), parseArgument());
-
-        case "le":
-            return new Le(parseArgument(), parseArgument());
-
-        case "gt":
-            return new Gt(parseArgument(), parseArgument());
-
-        case "ge":
-            return new Ge(parseArgument(), parseArgument());
-
-        case "eq":
-            return new Eq(parseArgument(), parseArgument());
-
-        case "ne":
-            return new Ne(parseArgument(), parseArgument());
-
-        case "and":
-            return new And(parseArgument(), parseArgument());
-
-        case "or":
-            return new Or(parseArgument(), parseArgument());
-
-        case "set":
-            return new Set(parseArgument(), parseArgument());
-
-        case "while":
-            return new While(parseArgument(), parseArgument());
-
-        // processing ternary expressions
-        case "if":
-            return new If(parseArgument(), parseArgument(), parseArgument());
-
-        // processing variadic expressions
-        case "seq":
-        case "print":
-            // process args
-            ArrayList<Expression> args = new ArrayList<>();
-
-            while (true) {
+            case "call":
                 try {
-                    args.add(parseArgument());
-                } catch (InvalidExpressionException iee) { // reaching the closing parenthisis of current composite expression
-                    if (_tokenizer.ttype == ')') { // no more arguments
-                        _tokenizer.pushBack();
-                        break;
-                    }
-                    throw iee;
+                    return new Call((LiteralString)parseArgument());
+                } catch (ClassCastException cce) { // it is not a LiteralString
+                    throw new InvalidExpressionException(_tokenizer.lineno());
                 }
-            }
 
-            if (operatorName.equals("seq"))
-                return new Seq(args);
-            else
-                return new Print(args);
+            // processing binary expressions
+            case "add":
+                return new Add(parseArgument(), parseArgument());
 
-        default:
-            throw new UnknownOperationException(_tokenizer.sval);
+            case "mul":
+                return new Mul(parseArgument(), parseArgument());
+
+            case "div":
+                return new Div(parseArgument(), parseArgument());
+
+            case "mod":
+                return new Mod(parseArgument(), parseArgument());
+
+            case "sub":
+                return new Sub(parseArgument(), parseArgument());
+
+            case "lt":
+                return new Lt(parseArgument(), parseArgument());
+
+            case "le":
+                return new Le(parseArgument(), parseArgument());
+
+            case "gt":
+                return new Gt(parseArgument(), parseArgument());
+
+            case "ge":
+                return new Ge(parseArgument(), parseArgument());
+
+            case "eq":
+                return new Eq(parseArgument(), parseArgument());
+
+            case "ne":
+                return new Ne(parseArgument(), parseArgument());
+
+            case "and":
+                return new And(parseArgument(), parseArgument());
+
+            case "or":
+                return new Or(parseArgument(), parseArgument());
+
+            case "set":
+                return new Set(parseArgument(), parseArgument());
+
+            case "while":
+                return new While(parseArgument(), parseArgument());
+
+            // processing ternary expressions
+            case "if":
+                return new If(parseArgument(), parseArgument(), parseArgument());
+
+            // processing variadic expressions
+            case "seq":
+            
+            case "print":
+                // process args
+                ArrayList<Expression> args = new ArrayList<>();
+
+                while (true) {
+                    try {
+                        args.add(parseArgument());
+                    } catch (InvalidExpressionException iee) { // reaching the closing parenthisis of current composite expression
+                        if (_tokenizer.ttype == ')') { // no more arguments
+                            _tokenizer.pushBack();
+                            break;
+                        }
+                        throw iee;
+                    }
+                }
+
+                if (operatorName.equals("seq"))
+                    return new Seq(args);
+                else
+                    return new Print(args);
+
+            default:
+                throw new UnknownOperationException(_tokenizer.sval);
         }
     }
 }

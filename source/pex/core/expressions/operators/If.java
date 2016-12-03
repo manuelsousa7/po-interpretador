@@ -3,6 +3,7 @@ package pex.core.expressions.operators;
 import pex.core.expressions.TrenaryExpression;
 import pex.core.expressions.Expression;
 import pex.core.expressions.LiteralInt;
+import pex.core.expressions.LiteralString;
 
 /**
  * Classe usada para representar um operador If
@@ -28,24 +29,34 @@ public class If extends TrenaryExpression {
 	 */
 	@Override
 	public boolean verifyArguments() {
+
 		try {
 			Expression exp = (LiteralInt)getFirstArgument();
-			try {
-				exp = (LiteralInt)getSecondArgument();
-				try {
-					exp = (LiteralInt)getThirdArgument();
-					return true;
-				}
-				catch (Exception e) {
-					return false;
-				}
-			}
-			catch (Exception e) {
+		}
+		catch (Exception e) {
+			if (!verifyIdentifier((LiteralString)getFirstArgument())) {
 				return false;
 			}
 		}
-		catch (Exception e) {
-			return false;
+		finally {
+			try {
+				Expression exp = (LiteralInt)getSecondArgument();
+				return true;
+			}
+			catch (Exception e) {
+				if (!verifyIdentifier((LiteralString)getSecondArgument())) {
+					return false;
+				}
+			}
+			finally {
+				try {
+					Expression exp = (LiteralInt)getThirdArgument();
+					return true;
+				}
+				catch (Exception e) {
+					return verifyIdentifier((LiteralString)getThirdArgument());
+				}
+			}
 		}
 	}
 

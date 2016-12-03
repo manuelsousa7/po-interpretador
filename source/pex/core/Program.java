@@ -1,6 +1,7 @@
 package pex.core;
 
 import pex.core.expressions.*;
+import pex.core.parser.*;
 import pex.core.Interpreter;
 import pex.core.Element;
 import pex.core.Visitor;
@@ -25,6 +26,7 @@ public class Program implements Serializable, Visitor {
 	private String _name;
 	private List<Expression> _expressions;
 	private Interpreter _interpreter;
+	private Parser _parser;
 
 	/**
 	 * Construtor : Associa um nome do programa e o seu interpretador correspondente
@@ -36,6 +38,15 @@ public class Program implements Serializable, Visitor {
 		_name = name;
 		_expressions = new ArrayList<Expression>();
 		_interpreter = interpreter;
+		_parser = new Parser();
+	}
+
+	public boolean checkAdd(int index) {
+		return (_expressions.size() >= index && index >= 0);
+	}
+
+	public boolean checkReplace(int index) {
+		return (_expressions.size() > index && index >= 0);
 	}
 
 	/**
@@ -43,8 +54,18 @@ public class Program implements Serializable, Visitor {
 	 *
 	 * @param expressao Nova expressao a adicionar
 	 */
-	public void add(Expression expressao) {
-		_expressions.add(expressao);
+	public boolean add(int index, String expressao) {
+		try {
+			Expression exp = _parser.parseString(expressao, this);
+			if (exp.evaluate() != null) {
+				_expressions.add(index, exp);
+				return true;
+			}
+			return false;
+		}
+		catch (Exception e){
+			return false;
+		}
 	}
 
 	/**
@@ -62,8 +83,18 @@ public class Program implements Serializable, Visitor {
 	 * @param index Indice da expressao a substituir
 	 * @param expressao Expressao a usar para substituir
 	 */
-	public void replace(int index, Expression expressao) {
-		_expressions.set(index, expressao);
+	public boolean replace(int index, String expressao) {
+		try {
+			Expression exp = _parser.parseString(expressao, this);
+			if (exp.evaluate() != null) {
+				_expressions.set(index, exp);
+				return true;
+			}
+			return false;
+		}
+		catch (Exception e){
+			return false;
+		}
 	}
 
 	/**

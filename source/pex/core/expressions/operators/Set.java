@@ -29,17 +29,21 @@ public class Set extends BinaryExpression {
 	@Override
 	public boolean verifyArguments() {
 		try {
-			Expression exp = (LiteralString)getFirstArgument();
+			Expression exp = (LiteralInt)getFirstArgument();
+		}
+		catch (Exception e) {
+			if (!verifyIdentifier((LiteralString)getFirstArgument())) {
+				return false;
+			}
+		}
+		finally {
 			try {
-				exp = (LiteralInt)getSecondArgument();
+				Expression exp = (LiteralString)getSecondArgument();
 				return true;
 			}
 			catch (Exception e) {
 				return false;
 			}
-		}
-		catch (Exception e) {
-			return false;
 		}
 	}
 
@@ -50,6 +54,10 @@ public class Set extends BinaryExpression {
 	 */
 	@Override
 	public Expression evaluate() {
-		return super.getFirstArgument();
+		if (verifyArguments()) {
+			//FIX ME
+			;
+		}
+		return null;
 	}
 }

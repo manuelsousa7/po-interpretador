@@ -3,6 +3,7 @@ package pex.core.expressions.operators;
 import pex.core.expressions.UnaryExpression;
 import pex.core.expressions.Expression;
 import pex.core.expressions.LiteralInt;
+import pex.core.expressions.LiteralString;
 
 /**
  * Classe usada para representar um operador Neg
@@ -31,7 +32,7 @@ public class Neg extends UnaryExpression {
 			return true;
 		}
 		catch (Exception e) {
-			return false;
+			return verifyIdentifier((LiteralString)getArgument());
 		}
 	}
 

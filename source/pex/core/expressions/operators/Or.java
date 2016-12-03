@@ -3,6 +3,7 @@ package pex.core.expressions.operators;
 import pex.core.expressions.BinaryExpression;
 import pex.core.expressions.Expression;
 import pex.core.expressions.LiteralInt;
+import pex.core.expressions.LiteralString;
 
 /**
  * Classe usada para representar um operador Or
@@ -30,16 +31,20 @@ public class Or extends BinaryExpression {
 	public boolean verifyArguments() {
 		try {
 			Expression exp = (LiteralInt)getFirstArgument();
-			try {
-				exp = (LiteralInt)getSecondArgument();
-				return true;
-			}
-			catch (Exception e) {
+		}
+		catch (Exception e) {
+			if (!verifyIdentifier((LiteralString)getFirstArgument())) {
 				return false;
 			}
 		}
-		catch (Exception e) {
-			return false;
+		finally {
+			try {
+				Expression exp = (LiteralInt)getSecondArgument();
+				return true;
+			}
+			catch (Exception e) {
+				return verifyIdentifier((LiteralString)getSecondArgument());
+			}
 		}
 	}
 

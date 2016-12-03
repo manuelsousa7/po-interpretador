@@ -1,6 +1,7 @@
 package pex.core.expressions;
 
 import pex.core.expressions.Expression;
+import pex.core.expressions.LiteralString;
 
 /**
  * Classe usada para representar uma expressao no programa
@@ -34,5 +35,7 @@ public abstract class CompositeExpression extends Expression {
 	*/
 	public abstract boolean verifyArguments();
 
-	//public abstract boolean verifyIdentifier();
+	public boolean verifyIdentifier(LiteralString str) {
+		return true;
+	}
 }
