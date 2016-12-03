@@ -39,6 +39,7 @@ public class Add extends BinaryExpression {
 			}
 		}
 		catch (Exception e) {
+			//verifyIdentifier((LiteralString)getFirstArgument());
 			return false;
 		}
 	}

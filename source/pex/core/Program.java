@@ -2,6 +2,8 @@ package pex.core;
 
 import pex.core.expressions.*;
 import pex.core.Interpreter;
+import pex.core.Element;
+import pex.core.Visitor;
 
 import pex.support.app.main.*;
 
@@ -19,7 +21,7 @@ import java.io.Serializable;
  *
  * @author Grupo 28 - Goncalo Marques (84719) - Manuel Sousa (84740)
  */
-public class Program implements Serializable {
+public class Program implements Serializable, Visitor {
 	private String _name;
 	private List<Expression> _expressions;
 	private Interpreter _interpreter;
@@ -130,5 +132,10 @@ public class Program implements Serializable {
 		} catch (IOException ioe) {
 			//Deveria apresentar erro?
 		}
+	}
+
+	public void visit(Element elemento) {
+		;
+		//FIX ME
 	}
 }

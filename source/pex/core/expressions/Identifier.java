@@ -1,5 +1,8 @@
 package pex.core.expressions;
 
+import pex.core.Element;
+import pex.core.Visitor;
+
 import java.io.Serializable;
 
 /**
@@ -7,7 +10,7 @@ import java.io.Serializable;
  *
  * @author Manuel e Goncalo
  */
-public class Identifier extends Expression implements Serializable {
+public class Identifier extends Expression implements Serializable, Element {
 	private String _name;
 	private Expression _expression;
 
@@ -57,5 +60,10 @@ public class Identifier extends Expression implements Serializable {
 	@Override
 	public Expression evaluate() {
 		return _expression.evaluate();
+	}
+
+	public void accept(Visitor v) {
+		;
+		//FIX ME
 	}
 }

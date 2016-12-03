@@ -10,6 +10,8 @@ import pex.AppIO;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -24,7 +26,7 @@ import java.io.Serializable;
 public class Interpreter implements Serializable {
 	private AppIO _app;
 	private Map<String, Program> _programs;
-	private List<Identifier> _identifiers;
+	private Set<Identifier> _identifiers;
 	private List<Expression> _values;
 	private boolean _saved;
 	private String _fileName;
@@ -37,7 +39,7 @@ public class Interpreter implements Serializable {
 	public Interpreter(AppIO app) {
 		_app = app;
 		_programs = new HashMap<String, Program>();
-		_identifiers = new ArrayList<Identifier>();
+		_identifiers = new TreeSet<Identifier>();
 		_values = new ArrayList<Expression>();
 		_saved = false;
 		_fileName = "";
@@ -55,7 +57,8 @@ public class Interpreter implements Serializable {
 			_identifiers.add(id);
 			_values.add(value);
 		} else {
-			_values.set(_identifiers.indexOf(id), value);
+			//FIX ME
+			//_values.set(_identifiers.indexOf(id), value);
 		}
 	}
 
@@ -66,10 +69,13 @@ public class Interpreter implements Serializable {
 	 * @return Expression Valor do identificador indicado
 	 */
 	public Expression getIdentifierValue(Identifier id) {
+		//FIX ME
+		/*
 		int index = _identifiers.indexOf(id);
 		if (index != -1) {
 			return _values.get(index);
 		}
+		*/
 		return null;
 	}
 
