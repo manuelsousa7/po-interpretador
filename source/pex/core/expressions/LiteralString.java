@@ -1,5 +1,7 @@
 package pex.core.expressions;
 
+import pex.core.Visitor;
+
 /**
  * Classe usada para representar uma cadeia de caracteres (literal) no programa
  *
@@ -35,5 +37,14 @@ public class LiteralString extends Expression {
 	@Override
 	public Expression evaluate() {
 		return new LiteralString(_value);
+	}
+
+	/**
+	 * Fornece o valor a entidade Visitor
+	 *
+	 * @param v Visitor a fornecer um valor
+	 */
+	public void accept(Visitor v) {
+		v.visit(this);
 	}
 }

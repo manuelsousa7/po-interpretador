@@ -16,7 +16,7 @@ public abstract class UnaryExpression extends CompositeExpression {
 	 * @return Expression Retorna uma expressao que representa o valor da expressao
 	 */
 	public Expression getArgument() {
-		return _expression;
+		return _expression.evaluate();
 	}
 
 	/**

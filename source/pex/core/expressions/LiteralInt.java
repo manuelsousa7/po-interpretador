@@ -1,5 +1,7 @@
 package pex.core.expressions;
 
+import pex.core.Visitor;
+
 /**
  * Classe usada para representar um numero inteiro (literal) no programa
  *
@@ -44,5 +46,14 @@ public class LiteralInt extends Expression {
 	@Override
 	public Expression evaluate() {
 		return new LiteralInt(_value);
+	}
+
+	/**
+	 * Fornece o valor a entidade Visitor
+	 *
+	 * @param v Visitor a fornecer um valor
+	 */
+	public void accept(Visitor v) {
+		v.visit(this);
 	}
 }

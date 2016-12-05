@@ -165,8 +165,33 @@ public class Program implements Serializable, Visitor {
 		}
 	}
 
-	public void visit(Element elemento) {
-		;
-		//FIX ME
+	/**
+	 * Obtem o valor do identificador a visitar
+	 *
+	 * @param identificador Identificador a visitar
+	 * @return Expression Expressao associada ao identificador
+	 */
+	public Expression visit(Identifier identificador) {
+		return identificador.evaluate();
+	}
+
+	/**
+	 * Obtem o valor do literalInt a visitar
+	 *
+	 * @param literalInt LiteralInt a visitar
+	 * @return Expression Valor do literalint
+	 */
+	public Expression visit(LiteralInt literalInt) {
+		return literalInt.evaluate();
+	}
+
+	/**
+	 * Obtem o valor do literalString a visitar
+	 *
+	 * @param literalString LiteralString a visitar
+	 * @return Expression Valor da literalString
+	 */
+	public Expression visit(LiteralString literalString) {
+		return literalString.evaluate();
 	}
 }

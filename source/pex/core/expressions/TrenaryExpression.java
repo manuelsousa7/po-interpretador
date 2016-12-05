@@ -18,7 +18,7 @@ public abstract class TrenaryExpression extends CompositeExpression {
 	 * @return Expression Retorna uma expressao que representa o valor da primeira expressao
 	 */
 	public Expression getFirstArgument() {
-		return _expression_1;
+		return _expression_1.evaluate();
 	}
 
 	/**
@@ -27,7 +27,7 @@ public abstract class TrenaryExpression extends CompositeExpression {
 	 * @return Expression Retorna uma expressao que representa o valor da segunda expressao
 	 */
 	public Expression getSecondArgument() {
-		return _expression_2;
+		return _expression_2.evaluate();
 	}
 
 	/**
@@ -36,7 +36,7 @@ public abstract class TrenaryExpression extends CompositeExpression {
 	 * @return Expression Retorna uma expressao que representa o valor da terceira expressao
 	 */
 	public Expression getThirdArgument() {
-		return _expression_3;
+		return _expression_3.evaluate();
 	}
 
 	/**

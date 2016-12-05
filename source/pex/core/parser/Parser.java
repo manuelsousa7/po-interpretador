@@ -19,9 +19,18 @@ public class Parser {
 
     private Program _program;
     private StreamTokenizer _tokenizer;
+    private Interpreter _interp;
 
-    public Parser() {
-        
+    public Parser(Interpreter interpretador) {
+        _interp = interpretador;
+    }
+
+    public void updateInterpreter(Interpreter interpretador) {
+        _interp = interpretador;
+    }
+
+    public Identifier fetchIdentifier(String str) {
+        _interp.ad
     }
 
     private void initTokenizer(Reader reader) {
@@ -81,7 +90,8 @@ public class Parser {
             return new LiteralString(_tokenizer.sval);
 
         case StreamTokenizer.TT_WORD:
-            return new Identifier(_tokenizer.sval, new LiteralInt((int)_tokenizer.nval));
+            return fetchIdentifier(_tokenizer.sval);
+            //return new Identifier(_tokenizer.sval, new LiteralInt((int)_tokenizer.nval));
 
         case '(':
             Expression exp = parseCompositeExpression();

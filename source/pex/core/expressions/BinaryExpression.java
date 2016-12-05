@@ -17,7 +17,7 @@ public abstract class BinaryExpression extends CompositeExpression {
 	 * @return Expression Retorna uma expressao que representa o valor da primeira expressao
 	 */
 	public Expression getFirstArgument() {
-		return _expression_1;
+		return _expression_1.evaluate();
 	}
 
 	/**
@@ -26,7 +26,7 @@ public abstract class BinaryExpression extends CompositeExpression {
 	 * @return Expression Retorna uma expressao que representa o valor da segunda expressao
 	 */
 	public Expression getSecondArgument() {
-		return _expression_2;
+		return _expression_2.evaluate();
 	}
 
 	/**

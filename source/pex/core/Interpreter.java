@@ -26,8 +26,7 @@ import java.io.Serializable;
 public class Interpreter implements Serializable {
 	private AppIO _app;
 	private Map<String, Program> _programs;
-	private Set<Identifier> _identifiers;
-	private List<Expression> _values;
+	private Map<String, Identifier> _identifiers;
 	private boolean _saved;
 	private String _fileName;
 
@@ -39,11 +38,13 @@ public class Interpreter implements Serializable {
 	public Interpreter(AppIO app) {
 		_app = app;
 		_programs = new HashMap<String, Program>();
-		_identifiers = new TreeSet<Identifier>();
-		_values = new ArrayList<Expression>();
+		_identifiers = new HashMap<String, Identifier>();
 		_saved = false;
 		_fileName = "";
+	}
 
+	public Identifier checkIdentifier(String str) {
+		
 	}
 
 	/**
@@ -55,10 +56,8 @@ public class Interpreter implements Serializable {
 	public void setIdentifierValue(Identifier id, Expression value) {
 		if (!_identifiers.contains(id)) {
 			_identifiers.add(id);
-			_values.add(value);
 		} else {
 			//FIX ME
-			//_values.set(_identifiers.indexOf(id), value);
 		}
 	}
 
@@ -73,7 +72,6 @@ public class Interpreter implements Serializable {
 		/*
 		int index = _identifiers.indexOf(id);
 		if (index != -1) {
-			return _values.get(index);
 		}
 		*/
 		return null;

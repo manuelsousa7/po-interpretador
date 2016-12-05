@@ -23,6 +23,7 @@ import java.io.Serializable;
 public class Handler implements AppIO, Serializable  {
 	private Interpreter _interpretador;
 	private boolean _changed;
+	private Parser _parser;
 
 	/**
 	 * Contrutor: Inicia _interpretador com o interpretador recebido
@@ -30,6 +31,7 @@ public class Handler implements AppIO, Serializable  {
 	public Handler() {
 		_interpretador = new Interpreter(this);
 		_changed = true;
+		_parser = new Parser();
 	}
 
 	@Override
@@ -58,6 +60,7 @@ public class Handler implements AppIO, Serializable  {
 	 */
 	public void newInterpreter() {
 		_interpretador = new Interpreter(this);
+		_parser.updateInterpreter(_interpretador);
 		_changed = true;
 	}
 
@@ -171,8 +174,7 @@ public class Handler implements AppIO, Serializable  {
 	 */
 	public void readProgram(String file) throws WriteAbortedException, IOException, ClassNotFoundException {
 		try {
-			Parser parser = new Parser();
-			_interpretador.addProgram(parser.parseFile(file, file, _interpretador));
+			_interpretador.addProgram(_parser.parseFile(file, file, _interpretador));
 			_changed = true;
 		} catch (Exception e) {
 			throw new FileNotFoundException();

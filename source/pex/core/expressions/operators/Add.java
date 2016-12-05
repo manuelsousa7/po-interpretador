@@ -37,7 +37,9 @@ public class Add extends BinaryExpression {
 				return false;
 			}
 		}
+
 		finally {
+
 			try {
 				Expression exp = (LiteralInt)getSecondArgument();
 				return true;

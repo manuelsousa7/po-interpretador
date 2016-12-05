@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author Manuel e Goncalo
  */
-public class Identifier extends Expression implements Serializable, Element {
+public class Identifier extends Expression implements Element {
 	private String _name;
 	private Expression _expression;
 
@@ -25,13 +25,9 @@ public class Identifier extends Expression implements Serializable, Element {
 		_expression = expression;
 	}
 
-	/**
-	 * Muda o nome do identificador
-	 *
-	 * @param name Novo nome do identificador
-	 */
-	public void setName(String name) {
+	public Identifier(String name) {
 		_name = name;
+		_expression = new LiteralInt(0);
 	}
 
 	/**
@@ -62,8 +58,12 @@ public class Identifier extends Expression implements Serializable, Element {
 		return _expression.evaluate();
 	}
 
+	/**
+	 * Fornece o valor a entidade Visitor
+	 *
+	 * @param v Visitor a fornecer um valor
+	 */
 	public void accept(Visitor v) {
-		;
-		//FIX ME
+		v.visit(this);
 	}
 }
