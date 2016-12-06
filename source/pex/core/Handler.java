@@ -31,7 +31,7 @@ public class Handler implements AppIO, Serializable  {
 	public Handler() {
 		_interpretador = new Interpreter(this);
 		_changed = true;
-		_parser = new Parser();
+		_parser = new Parser(_interpretador);
 	}
 
 	@Override
@@ -152,8 +152,8 @@ public class Handler implements AppIO, Serializable  {
 	 * @param name Nome do programa a criar
 	 */
 	public void createProgram(String name) {
-		Program prog = new Program(name, _interpretador);
-		_interpretador.addProgram(prog);
+		Program prog = new Program(name, _interpretador, _parser);
+		_interpretador.addProgram(prog, _parser);
 		_changed = true;
 	}
 
@@ -163,7 +163,7 @@ public class Handler implements AppIO, Serializable  {
 	 * @param programa Nome do programa a acidionar
 	 */
 	public void addProgram(Program programa) {
-		_interpretador.addProgram(programa);
+		_interpretador.addProgram(programa, _parser);
 		_changed = true;
 	}
 
@@ -174,7 +174,7 @@ public class Handler implements AppIO, Serializable  {
 	 */
 	public void readProgram(String file) throws WriteAbortedException, IOException, ClassNotFoundException {
 		try {
-			_interpretador.addProgram(_parser.parseFile(file, file, _interpretador));
+			_interpretador.addProgram(_parser.parseFile(file, file, _interpretador), _parser);
 			_changed = true;
 		} catch (Exception e) {
 			throw new FileNotFoundException();

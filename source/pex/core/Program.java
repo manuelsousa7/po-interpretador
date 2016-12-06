@@ -34,11 +34,11 @@ public class Program implements Serializable, Visitor {
 	 * @param name Nome do programa
 	 * @param interpreter Interpretador do programa
 	 */
-	public Program(String name, Interpreter interpreter) {
+	public Program(String name, Interpreter interpreter, Parser parser) {
 		_name = name;
 		_expressions = new ArrayList<Expression>();
 		_interpreter = interpreter;
-		_parser = new Parser();
+		_parser = parser;
 	}
 
 	public boolean checkAdd(int index) {
@@ -98,32 +98,14 @@ public class Program implements Serializable, Visitor {
 	}
 
 	/**
-	 * Adiciona um identificador e um valor ao interpretador
-	 *
-	 * @param id Nome do identificador
-	 * @param value Valor do identificador
-	 */
-	public void setIdentifierValue(Identifier id, Expression value) {
-		_interpreter.setIdentifierValue(id, value);
-	}
-
-	/**
-	 * Devolve o valor do identificador indicado
-	 *
-	 * @param id Nome do identificador
-	 * @return Expression Valor do identificador indicado
-	 */
-	public Expression getIdentifierValue(Identifier id) {
-		return _interpreter.getIdentifierValue(id);
-	}
-
-	/**
 	 * Avalia as expressoes e retorna o seu valor
 	 *
 	 * @return Expression Valor das expressoes avaliadas
 	 */
-	public Expression execute() {
-		return _expressions.get(0).evaluate();
+	public void execute() {
+		for (Expression exp : _expressions) {
+			exp.evaluate();
+		}
 	}
 
 	/**
