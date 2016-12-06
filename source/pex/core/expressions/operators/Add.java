@@ -35,11 +35,9 @@ public class Add extends BinaryExpression {
 									((LiteralInt)getSecondArgument()).getInt())
 									);
 		}
-		if (verifyArguments()) {
-			return (new LiteralInt(((LiteralInt)getFirstArgument()).getInt() + 
-									((LiteralInt)getSecondArgument()).getInt())
-									);
+		catch (ClassCastException cce) {
+			System.out.println("Erro a analizar os argumentos!");
+			return null;
 		}
-		return null;
 	}
 }

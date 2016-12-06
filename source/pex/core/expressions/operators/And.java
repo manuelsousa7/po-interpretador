@@ -24,38 +24,13 @@ public class And extends BinaryExpression {
 	}
 
 	/**
-	 * Verifica se as expressoes recebidas sao validas.
-	 * @return boolean Retorna true se as expressoes recebidas forem validas
-	 */
-	@Override
-	public boolean verifyArguments() {
-		try {
-			Expression exp = (LiteralInt)getFirstArgument();
-		}
-		catch (Exception e) {
-			if (!verifyIdentifier((LiteralString)getFirstArgument())) {
-				return false;
-			}
-		}
-		finally {
-			try {
-				Expression exp = (LiteralInt)getSecondArgument();
-				return true;
-			}
-			catch (Exception e) {
-				return verifyIdentifier((LiteralString)getSecondArgument());
-			}
-		}
-	}
-
-	/**
 	 * Retorna o valor da expressao
 	 *
 	 * @return Expression Retorna uma expressao que representa o valor avaliado
 	 */
 	@Override
 	public Expression evaluate() {
-		if (verifyArguments()) {
+		try {
 			if (((LiteralInt)getFirstArgument()).getInt() > 0 &&
 				((LiteralInt)getSecondArgument()).getInt() > 0) {
 				return new LiteralInt(1);
@@ -64,6 +39,9 @@ public class And extends BinaryExpression {
 				return new LiteralInt(0);
 			}
 		}
-		return null;
+		catch (ClassCastException cce) {
+			System.out.println("Erro a analizar os argumentos!");
+			return null;
+		}
 	}
 }

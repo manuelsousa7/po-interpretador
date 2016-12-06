@@ -29,34 +29,6 @@ public abstract class BinaryExpression extends CompositeExpression {
 		return _expression_2.evaluate();
 	}
 
-	public Expression verifyFirstArgument() {
-		try {
-			return (LiteralInt)getFirstArgument();
-		}
-		catch (ClassCastException cce) {
-			try {
-				return (Identifier)getFirstArgument();
-			}
-			catch (ClassCastException cce) {
-				return null;
-			}
-		}
-	}
-
-	public Expression verifySecondArgument() {
-		try {
-			return (LiteralInt)getSecondArgument();
-		}
-		catch (ClassCastException cce) {
-			try {
-				return (Identifier)getSecondArgument();
-			}
-			catch (ClassCastException cce) {
-				return null;
-			}
-		}
-	}
-
 	/**
 	 * Associa as expressoes aos valores dados
 	 * @param expression_1 Primeira expressao

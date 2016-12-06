@@ -55,11 +55,21 @@ public class Div extends BinaryExpression {
 	 */
 	@Override
 	public Expression evaluate() {
-		if (verifyArguments()) {
-			return (new LiteralInt(((LiteralInt)getFirstArgument()).getInt() / 
-									((LiteralInt)getSecondArgument()).getInt())
-									);
+		try {
+			if ((LiteralInt)getSecondArgument()).getInt() != 0) {
+				return (new LiteralInt(((LiteralInt)getFirstArgument()).getInt() /
+										((LiteralInt)getSecondArgument()).getInt())
+										);
+			}
+			else {
+				/*FIX ME*/
+				/*O que acontece se dividir por 0?*/
+				return null;
+			}
 		}
-		return null;
+		catch (ClassCastException cce) {
+			System.out.println("Erro a analizar os argumentos!");
+			return null;
+		}
 	}
 }
