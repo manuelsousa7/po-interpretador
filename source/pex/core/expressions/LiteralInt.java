@@ -2,6 +2,8 @@ package pex.core.expressions;
 
 import pex.core.Visitor;
 
+import pex.core.Visitor;
+
 /**
  * Classe usada para representar um numero inteiro (literal) no programa
  *
@@ -20,9 +22,9 @@ public class LiteralInt extends Expression{
 	}
 
 	/**
-	 * Retorna o nome da expressao
+	 * Retorna uma string que representa a expressao
 	 *
-	 * @return String Retorna uma string que representa o nome da expressao
+	 * @return String Retorna uma string que representa a expressao
 	 */
 	@Override
 	public String getAsText() {
@@ -38,13 +40,7 @@ public class LiteralInt extends Expression{
 		return _value;
 	}
 
-	/**
-	 * Retorna o valor da expressao
-	 *
-	 * @return Expression Retorna uma expressao que representa o valor de _value
-	 */
-	@Override
-	public Expression evaluate() {
-		return new LiteralInt(_value);
+	public Expression accept(Visitor v) {
+		return v.visit(this);
 	}
 }

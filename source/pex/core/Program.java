@@ -64,7 +64,7 @@ public class Program implements Serializable {
 	public boolean add(int index, String expressao) {
 		try {
 			Expression exp = _parser.parseString(expressao, this);
-			if (exp.evaluate() != null) {
+			if (exp.accept(_visitor) != null) {
 				_expressions.add(index, exp);
 				return true;
 			}
@@ -92,7 +92,7 @@ public class Program implements Serializable {
 	public boolean replace(int index, String expressao) {
 		try {
 			Expression exp = _parser.parseString(expressao, this);
-			if (exp.evaluate() != null) {
+			if (exp.accept(_visitor) != null) {
 				_expressions.set(index, exp);
 				return true;
 			}
@@ -110,9 +110,8 @@ public class Program implements Serializable {
 	public Expression execute() {
 		if (_expressions.size() > 0) {
 			Expression expression = null;
-			//_expressions.accept(_visitor);
 			for (Expression exp : _expressions) {
-				expression = exp.evaluate();
+				exp.accept(_visitor);
 			}
 			return expression;
 		}
@@ -156,35 +155,5 @@ public class Program implements Serializable {
 		} catch (IOException ioe) {
 			//Deveria apresentar erro?
 		}
-	}
-
-	/**
-	 * Obtem o valor do identificador a visitar
-	 *
-	 * @param identificador Identificador a visitar
-	 * @return Expression Expressao associada ao identificador
-	 */
-	public Expression visit(Identifier identificador) {
-		return identificador.evaluate();
-	}
-
-	/**
-	 * Obtem o valor do literalInt a visitar
-	 *
-	 * @param literalInt LiteralInt a visitar
-	 * @return Expression Valor do literalint
-	 */
-	public Expression visit(LiteralInt literalInt) {
-		return literalInt.evaluate();
-	}
-
-	/**
-	 * Obtem o valor do literalString a visitar
-	 *
-	 * @param literalString LiteralString a visitar
-	 * @return Expression Valor da literalString
-	 */
-	public Expression visit(LiteralString literalString) {
-		return literalString.evaluate();
 	}
 }

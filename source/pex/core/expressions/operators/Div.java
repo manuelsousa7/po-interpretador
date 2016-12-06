@@ -1,5 +1,7 @@
 package pex.core.expressions.operators;
 
+import pex.core.Visitor;
+
 import pex.core.expressions.BinaryExpression;
 import pex.core.expressions.Expression;
 import pex.core.expressions.LiteralInt;
@@ -23,28 +25,7 @@ public class Div extends BinaryExpression {
 		super.setOperatorName("div");
 	}
 
-	/**
-	 * Retorna o valor da expressao
-	 *
-	 * @return Expression Retorna uma expressao que representa o valor avaliado
-	 */
-	@Override
-	public Expression evaluate() {
-		try {
-			if ((((LiteralInt)getSecondArgument()).getInt()) != 0) {
-				return (new LiteralInt(((LiteralInt)getFirstArgument()).getInt() /
-										((LiteralInt)getSecondArgument()).getInt())
-										);
-			}
-			else {
-				/*FIX ME*/
-				/*O que acontece se dividir por 0?*/
-				return null;
-			}
-		}
-		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
-		}
+	public Expression accept(Visitor v) {
+		return v.visit(this);
 	}
 }

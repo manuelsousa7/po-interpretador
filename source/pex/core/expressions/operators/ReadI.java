@@ -1,6 +1,9 @@
 package pex.core.expressions.operators;
 
+import pex.core.Visitor;
+
 import pex.core.expressions.Expression;
+import pex.core.expressions.IOExpression;
 import pex.core.expressions.LiteralInt;
 
 import pex.core.Program;
@@ -10,28 +13,15 @@ import pex.core.Program;
  *
  * @author Manuel e Goncalo
  */
-public class ReadI extends Expression {
+public class ReadI extends IOExpression {
 	Program _prog;
 
 	public ReadI(Program prog) {
-		_prog = prog;
+		super.setProgram(prog);
+		super.setOperatorName("readi");
 	}
 
-	/**
-	 * Retorna o nome do operador
-	 *
-	 * @return String Retorna uma string que representa o nome do operador
-	 */
-	public String getAsText() {
-		return "(readi)";
-	}
-
-	/**
-	 * Retorna o valor da expressao
-	 *
-	 * @return Expression Retorna uma expressao que representa o valor avaliado
-	 */
-	public Expression evaluate() {
-		return new LiteralInt(_prog.getInterpreter().getAppIO().readInteger());
+	public Expression accept(Visitor v) {
+		return v.visit(this);
 	}
 }

@@ -1,5 +1,7 @@
 package pex.core.expressions.operators;
 
+import pex.core.Visitor;
+
 import pex.core.expressions.UnaryExpression;
 import pex.core.expressions.Expression;
 import pex.core.expressions.LiteralInt;
@@ -21,19 +23,7 @@ public class Neg extends UnaryExpression {
 		super.setArgument(exp);
 	}
 
-	/**
-	 * Retorna o valor da expressao
-	 *
-	 * @return Expression Retorna uma expressao que representa o valor avaliado
-	 */
-	@Override
-	public Expression evaluate() {
-		try {
-			return new LiteralInt(-1 * ((LiteralInt)getArgument()).getInt());
-		}
-		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
-		}
+	public Expression accept(Visitor v) {
+		return v.visit(this);
 	}
 }

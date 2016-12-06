@@ -1,5 +1,7 @@
 package pex.core.expressions.operators;
 
+import pex.core.Visitor;
+
 import pex.core.expressions.VariadicExpression;
 import pex.core.expressions.Expression;
 import java.util.List;
@@ -22,17 +24,7 @@ public class Seq extends VariadicExpression {
 		super.setArguments(expressions);
 	}
 
-	/**
-	 * Retorna o valor da expressao
-	 *
-	 * @return Expression Retorna uma expressao que representa o valor avaliado
-	 */
-	@Override
-	public Expression evaluate() {
-		Expression express = null;
-		for (Expression exp : getArguments()) {
-			express = exp.evaluate(); 
-		}
-		return express;
+	public Expression accept(Visitor v) {
+		return v.visit(this);
 	}
 }

@@ -1,25 +1,20 @@
 package pex.core.expressions;
 
-import java.io.Serializable;
+import pex.core.Visitor;
+import pex.core.Element;
 
+import java.io.Serializable;
 /**
  * Classe usada para representar uma expressao no programa
  *
  * @author Manuel e Goncalo
  */
-public abstract class Expression implements Serializable {
+public abstract class Expression implements Serializable, Element {
 
      /**
-     * Retorna o nome da expressao
-     *
-     * @return String Retorna uma string que representa o nome da expressao
-     */
+      * Retorna uma string que representa a expressao
+      *
+      * @return String Retorna uma string que representa a expressao
+      */
      public abstract String getAsText();
-
-     /**
-     * Retorna o valor da expressao
-     *
-     * @return Expression Retorna uma expressao que representa o valor da expressao
-     */
-     public abstract Expression evaluate();
 }

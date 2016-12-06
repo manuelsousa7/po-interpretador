@@ -41,7 +41,7 @@ public class Interpreter implements Serializable {
 		_app = app;
 		_programs = new HashMap<String, Program>();
 		_initializedIds = new HashMap<String, Identifier>();
-		_uninitializedIds = new TreeMap<String, Identifier>();
+		_uninitializedIds = new HashMap<String, Identifier>();
 		_saved = false;
 		_fileName = "";
 	}
@@ -57,8 +57,20 @@ public class Interpreter implements Serializable {
 	 * @param value Valor do identificador
 	 */
 	public Identifier setId(String id, Expression value) {
+
+		/*Adiciona nos identificadores initializados*/
 		Identifier newId = new Identifier(id, value);
-		_initializedIds.put(id, newId);
+		if (_initializedIds.containsKey(id)) {
+			_initializedIds.replace(id, newId);
+		}
+		else {
+			_initializedIds.put(id, newId);
+		}
+
+		/*Remove dos identificadores nao inicializados*/
+		if (_uninitializedIds.containsKey(id)) {
+			_uninitializedIds.remove(id);
+		}
 		return newId;
 	}
 

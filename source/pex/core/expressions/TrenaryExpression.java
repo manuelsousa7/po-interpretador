@@ -1,5 +1,7 @@
 package pex.core.expressions;
 
+import pex.core.Visitor;
+
 import pex.core.expressions.CompositeExpression;
 
 /**
@@ -17,8 +19,12 @@ public abstract class TrenaryExpression extends CompositeExpression {
 	 *
 	 * @return Expression Retorna uma expressao que representa o valor da primeira expressao
 	 */
-	public Expression getFirstArgument() {
-		return _expression_1.evaluate();
+	public Expression getFirstArgument(Visitor v) {
+		return _expression_1.accept(v);
+	}
+
+	public String getFirstArgumentText() {
+		return _expression_1.getAsText();
 	}
 
 	/**
@@ -26,8 +32,12 @@ public abstract class TrenaryExpression extends CompositeExpression {
 	 *
 	 * @return Expression Retorna uma expressao que representa o valor da segunda expressao
 	 */
-	public Expression getSecondArgument() {
-		return _expression_2.evaluate();
+	public Expression getSecondArgument(Visitor v) {
+		return _expression_2.accept(v);
+	}
+
+	public String getSecondArgumentText() {
+		return _expression_2.getAsText();
 	}
 
 	/**
@@ -35,8 +45,12 @@ public abstract class TrenaryExpression extends CompositeExpression {
 	 *
 	 * @return Expression Retorna uma expressao que representa o valor da terceira expressao
 	 */
-	public Expression getThirdArgument() {
-		return _expression_3.evaluate();
+	public Expression getThirdArgument(Visitor v) {
+		return _expression_3.accept(v);
+	}
+
+	public String getThirdArgument() {
+		return _expression_3.getAsText();
 	}
 
 	/**
@@ -57,6 +71,6 @@ public abstract class TrenaryExpression extends CompositeExpression {
 	 */
 	@Override
 	public String getAsText() {
-		return "(" + getOperatorName() + " " + getFirstArgument().getAsText() + " " + getSecondArgument().getAsText() + " " + getThirdArgument().getAsText() + ")";
+		return "(" + getOperatorName() + " " + getFirstArgumentText() + " " + getSecondArgumentText() + " " + getThirdArgument() + ")";
 	}
 }

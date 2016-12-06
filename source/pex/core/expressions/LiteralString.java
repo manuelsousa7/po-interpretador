@@ -2,6 +2,8 @@ package pex.core.expressions;
 
 import pex.core.Visitor;
 
+import pex.core.Visitor;
+
 /**
  * Classe usada para representar uma cadeia de caracteres (literal) no programa
  *
@@ -20,9 +22,9 @@ public class LiteralString extends Expression {
 	}
 
 	/**
-	 * Retorna o nome da expressao
+	 * Retorna uma string que representa a expressao
 	 *
-	 * @return String Retorna uma string que representa o nome da expressao
+	 * @return String Retorna uma string que representa a expressao
 	 */
 	@Override
 	public String getAsText() {
@@ -30,12 +32,15 @@ public class LiteralString extends Expression {
 	}
 
 	/**
-	 * Retorna o valor da expressao
+	 * Retorna o nome da expressao
 	 *
-	 * @return Expression Retorna uma expressao que representa o valor de _value
+	 * @return String Retorna uma string que representa o nome da expressao
 	 */
-	@Override
-	public Expression evaluate() {
-		return new LiteralString(_value);
+	public String getString() {
+		return _value;
+	}
+
+	public Expression accept(Visitor v) {
+		return v.visit(this);
 	}
 }

@@ -1,5 +1,7 @@
 package pex.core.expressions.operators;
 
+import pex.core.Visitor;
+
 import pex.core.expressions.BinaryExpression;
 import pex.core.expressions.Expression;
 import pex.core.expressions.LiteralInt;
@@ -22,25 +24,7 @@ public class Gt extends BinaryExpression {
 		super.setArguments(exp_1, exp_2);
 	}
 
-	/**
-	 * Retorna o nome do operador
-	 *
-	 * @return Expression Retorna uma expressao que representa o valor avaliado
-	 */
-	@Override
-	public Expression evaluate() {
-		try {
-			if (((LiteralInt)getFirstArgument()).getInt() >
-				((LiteralInt)getSecondArgument()).getInt()) {
-				return new LiteralInt(1);
-			}
-			else {
-				return new LiteralInt(0);
-			}
-		}
-		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
-		}
+	public Expression accept(Visitor v) {
+		return v.visit(this);
 	}
 }

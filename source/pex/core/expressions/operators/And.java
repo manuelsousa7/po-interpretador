@@ -1,5 +1,6 @@
 package pex.core.expressions.operators;
 
+import pex.core.Visitor;
 import pex.core.expressions.BinaryExpression;
 import pex.core.expressions.Expression;
 import pex.core.expressions.LiteralInt;
@@ -23,25 +24,7 @@ public class And extends BinaryExpression {
 		super.setOperatorName("and");
 	}
 
-	/**
-	 * Retorna o valor da expressao
-	 *
-	 * @return Expression Retorna uma expressao que representa o valor avaliado
-	 */
-	@Override
-	public Expression evaluate() {
-		try {
-			if (((LiteralInt)getFirstArgument()).getInt() > 0 &&
-				((LiteralInt)getSecondArgument()).getInt() > 0) {
-				return new LiteralInt(1);
-			}
-			else {
-				return new LiteralInt(0);
-			}
-		}
-		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
-		}
+	public Expression accept(Visitor v) {
+		return v.visit(this);
 	}
 }

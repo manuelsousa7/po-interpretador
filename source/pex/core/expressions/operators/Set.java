@@ -1,5 +1,7 @@
 package pex.core.expressions.operators;
 
+import pex.core.Visitor;
+
 import pex.core.expressions.BinaryExpression;
 import pex.core.expressions.Expression;
 import pex.core.expressions.Identifier;
@@ -34,14 +36,15 @@ public class Set extends BinaryExpression {
 		}
 	}
 
-	/**
-	 * Retorna o valor da expressao
-	 *
-	 * @return Expression Retorna uma expressao que representa o valor avaliado
-	 */
-	@Override
-	public Expression evaluate() {
-		String id = _ident.getAsText();
-		return _programa.getInterpreter().setId(id, getSecondArgument());
+	public Program getProgram() {
+		return _programa;
+	}
+
+	public Identifier getIdent() {
+		return _ident;
+	}
+
+	public Expression accept(Visitor v) {
+		return v.visit(this);
 	}
 }

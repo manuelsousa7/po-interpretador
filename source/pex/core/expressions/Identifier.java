@@ -1,5 +1,7 @@
 package pex.core.expressions;
 
+import pex.core.Visitor;
+
 import java.io.Serializable;
 
 /**
@@ -36,6 +38,15 @@ public class Identifier extends Expression{
 	}
 
 	/**
+	 * Retorna a expressao deste identificador
+	 *
+	 * @return Expression Retorna a expressao associada a este identificador
+	 */
+	public Expression getExpression() {
+		return _expression;
+	}
+
+	/**
 	 * Retorna o nome do identificador
 	 *
 	 * @return String Retorna uma string que representa o nome do identificador
@@ -45,13 +56,7 @@ public class Identifier extends Expression{
 		return _name;
 	}
 
-	/**
-	 * Retorna o valor da expressao
-	 *
-	 * @return Expression Retorna uma expressao que representa o valor de _value
-	 */
-	@Override
-	public Expression evaluate() {
-		return _expression.evaluate();
+	public Expression accept(Visitor v) {
+		return v.visit(this);
 	}
 }

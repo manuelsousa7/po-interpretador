@@ -141,7 +141,7 @@ public class Parser {
 
         case "call":
             try {
-                return new Call((LiteralString)parseArgument());
+                return new Call((LiteralString)parseArgument(), _program.getInterpreter());
             } catch (ClassCastException cce) { // it is not a LiteralString
                 throw new InvalidExpressionException(_tokenizer.lineno());
             }

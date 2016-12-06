@@ -1,5 +1,7 @@
 package pex.core.expressions.operators;
 
+import pex.core.Visitor;
+
 import pex.core.expressions.BinaryExpression;
 import pex.core.expressions.Expression;
 import pex.core.expressions.LiteralInt;
@@ -22,22 +24,7 @@ public class While extends BinaryExpression {
 		super.setArguments(exp_1, exp_2);
 	}
 
-	/**
-	 * Retorna o valor da expressao
-	 *
-	 * @return Expression Retorna uma expressao que representa o valor avaliado
-	 */
-	@Override
-	public Expression evaluate() {
-		try {
-			while ((((LiteralInt)getFirstArgument()).getInt()) > 0) {
-				getSecondArgument();
-			}
-			return new LiteralInt(0); 
-		}
-		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
-		}
+	public Expression accept(Visitor v) {
+		return v.visit(this);
 	}
 }

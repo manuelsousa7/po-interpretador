@@ -1,5 +1,7 @@
 package pex.core.expressions.operators;
 
+import pex.core.Visitor;
+
 import pex.core.expressions.TrenaryExpression;
 import pex.core.expressions.Expression;
 import pex.core.expressions.LiteralInt;
@@ -23,23 +25,7 @@ public class If extends TrenaryExpression {
 		super.setArguments(exp_1, exp_2, exp_3);
 	}
 
-	/**
-	 * Verifica se a expressao recebida e valida.
-	 * @return Expression Retorna true se a expressao recebida for valida.
-	 */
-	@Override
-	public Expression evaluate() {
-		try {
-			if ((((LiteralInt)getFirstArgument()).getInt()) > 0) {
-				return getSecondArgument();
-			}
-			else {
-				return getThirdArgument();
-			}
-		}
-		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
-		}
+	public Expression accept(Visitor v) {
+		return v.visit(this);
 	}
 }
