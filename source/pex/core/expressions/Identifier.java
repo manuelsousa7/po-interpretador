@@ -1,8 +1,5 @@
 package pex.core.expressions;
 
-import pex.core.Element;
-import pex.core.Visitor;
-
 import java.io.Serializable;
 
 /**
@@ -10,7 +7,7 @@ import java.io.Serializable;
  *
  * @author Manuel e Goncalo
  */
-public class Identifier extends Expression {
+public class Identifier extends Expression{
 	private String _name;
 	private Expression _expression;
 

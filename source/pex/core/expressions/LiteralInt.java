@@ -7,7 +7,7 @@ import pex.core.Visitor;
  *
  * @author Manuel e Goncalo
  */
-public class LiteralInt extends Expression {
+public class LiteralInt extends Expression{
 	private int _value;
 
 	/**

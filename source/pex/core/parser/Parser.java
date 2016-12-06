@@ -23,15 +23,6 @@ public class Parser {
 
     public Parser() {
         _interp = null;
-        _toSet = false;
-    }
-
-    public Parser() {
-
-    }
-
-    public void updateInterpreter(Interpreter interpretador) {
-        _interp = interpretador;
     }
 
     private void initTokenizer(Reader reader) {
@@ -113,7 +104,6 @@ public class Parser {
     private Expression parseArgument() throws IOException, BadNumberException, UnknownOperationException,
         MissingClosingParenthesisException, EndOfInputException, InvalidExpressionException {
         Expression exp = parseExpression();
-        _toSet = false;
         if (exp == null)
             throw new EndOfInputException();
 
@@ -137,10 +127,10 @@ public class Parser {
 
         // process no-args expressions
         case "reads":
-            return new ReadS(_interp.getAppIO());
+            return new ReadS(_program);
 
         case "readi":
-            return new ReadI();
+            return new ReadI(_program);
 
         // processing unary expressions
         case "neg":
@@ -197,7 +187,7 @@ public class Parser {
             return new Or(parseArgument(), parseArgument());
 
         case "set":
-            return new Set(parseArgument(), parseArgument());
+            return new Set(parseArgument(), parseArgument(), _program);
 
         case "while":
             return new While(parseArgument(), parseArgument());

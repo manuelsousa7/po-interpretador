@@ -31,7 +31,7 @@ public class Handler implements AppIO, Serializable  {
 	public Handler() {
 		_interpretador = new Interpreter(this);
 		_changed = true;
-		_parser = new Parser(_interpretador);
+		_parser = new Parser();
 	}
 
 	@Override
@@ -60,7 +60,6 @@ public class Handler implements AppIO, Serializable  {
 	 */
 	public void newInterpreter() {
 		_interpretador = new Interpreter(this);
-		_parser.updateInterpreter(_interpretador);
 		_changed = true;
 	}
 

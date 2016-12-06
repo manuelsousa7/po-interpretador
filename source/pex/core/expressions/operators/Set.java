@@ -2,8 +2,8 @@ package pex.core.expressions.operators;
 
 import pex.core.expressions.BinaryExpression;
 import pex.core.expressions.Expression;
-import pex.core.expressions.LiteralInt;
-import pex.core.expressions.LiteralString;
+import pex.core.expressions.Identifier;
+import pex.core.Program;
 
 /**
  * Classe usada para representar um operador Set
@@ -20,10 +20,18 @@ public class Set extends BinaryExpression {
 	 * @param exp_1 Expressao a associar a _expressao_1
 	 * @param exp_2 Expressao a associar a _expressao_2
 	 */
-	public Set(Identifier exp_1, Expression exp_2, Program prog) {
-		super.setArguments(exp_1, exp_2);
-		_ident = exp_1;
-		_programa = prog;
+	public Set(Expression exp_1, Expression exp_2, Program prog) {
+		try {
+			_ident = (Identifier)exp_1;
+		}
+		catch (ClassCastException cce) {
+			//Bad expression
+			;
+		}
+		finally {
+			super.setArguments(exp_1, exp_2);
+			_programa = prog;
+		}
 	}
 
 	/**
@@ -34,6 +42,6 @@ public class Set extends BinaryExpression {
 	@Override
 	public Expression evaluate() {
 		String id = _ident.getAsText();
-		_programa.getInterpreter().setId(id, getSecondArgument);
+		return _programa.getInterpreter().setId(id, getSecondArgument());
 	}
 }

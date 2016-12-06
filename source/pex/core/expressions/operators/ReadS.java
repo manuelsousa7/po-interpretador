@@ -1,6 +1,8 @@
 package pex.core.expressions.operators;
 
 import pex.core.expressions.Expression;
+import pex.core.expressions.LiteralString;
+import pex.core.Program;
 
 /**
  * Classe usada para representar um operador ReadS
@@ -8,9 +10,10 @@ import pex.core.expressions.Expression;
  * @author Manuel e Goncalo
  */
 public class ReadS extends Expression {
+	Program _prog;
 
-	public ReadS() {
-
+	public ReadS(Program prog) {
+		_prog = prog;
 	}
 
 	/**
@@ -28,6 +31,6 @@ public class ReadS extends Expression {
 	 * @return Expression Retorna uma expressao que representa o valor avaliado
 	 */
 	public Expression evaluate() {
-		return null;
+		return new LiteralString(_prog.getInterpreter().getAppIO().readString());
 	}
 }

@@ -1,8 +1,9 @@
 package pex.core;
 
+import pex.core.expressions.Expression;
 import pex.core.Visitor;
 
 public interface Element
 {
-	public void accept(Visitor v);
+	public Expression accept(Visitor v);
 }

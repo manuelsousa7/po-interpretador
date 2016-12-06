@@ -5,6 +5,7 @@ import pex.core.parser.*;
 import pex.core.Interpreter;
 import pex.core.Element;
 import pex.core.Visitor;
+import pex.core.LiteralVisitor;
 
 import pex.support.app.main.*;
 
@@ -27,6 +28,7 @@ public class Program implements Serializable {
 	private List<Expression> _expressions;
 	private Interpreter _interpreter;
 	private Parser _parser;
+	private LiteralVisitor _visitor;
 
 	/**
 	 * Construtor : Associa um nome do programa e o seu interpretador correspondente
@@ -39,6 +41,7 @@ public class Program implements Serializable {
 		_expressions = new ArrayList<Expression>();
 		_interpreter = interpreter;
 		_parser = parser;
+		_visitor = new LiteralVisitor();
 	}
 
 	public boolean checkAdd(int index) {
@@ -104,10 +107,16 @@ public class Program implements Serializable {
 	 *
 	 * @return Expression Valor das expressoes avaliadas
 	 */
-	public void execute() {
-		for (Expression exp : _expressions) {
-			exp.evaluate();
+	public Expression execute() {
+		if (_expressions.size() > 0) {
+			Expression expression = null;
+			//_expressions.accept(_visitor);
+			for (Expression exp : _expressions) {
+				expression = exp.evaluate();
+			}
+			return expression;
 		}
+		return new LiteralInt(0);
 	}
 
 	/**

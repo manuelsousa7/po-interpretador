@@ -8,6 +8,8 @@ import pex.core.Interpreter;
 import pex.core.Handler;
 import pex.core.Program;
 
+import pex.support.app.evaluator.*;
+
 import pt.utl.ist.po.ui.Form;
 import pt.utl.ist.po.ui.InputString;
 import pt.utl.ist.po.ui.InputInteger;
@@ -44,7 +46,7 @@ public class App implements AppIO {
         Form g = new Form();
         InputString inputS = new InputString(g, Message.requestExpression());
         g.parse();
-        return inputS;
+        return inputS.toString();
     }
 
     /**
@@ -56,7 +58,7 @@ public class App implements AppIO {
         Form f = new Form();
         InputInteger inputI = new InputInteger(f, Message.requestPosition());
         f.parse();
-        return inputI;
+        return inputI.value();
     }
 
     /**

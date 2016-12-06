@@ -2,10 +2,13 @@ package pex.core;
 
 import pex.core.Element;
 import pex.core.expressions.Expression;
+import pex.core.expressions.LiteralInt;
+import pex.core.expressions.LiteralString;
 import pex.core.expressions.operators.*;
 
 public interface Visitor
 {
+	/*
 	public Expression visit(Add add);
 	public Expression visit(And and);
 	public Expression visit(Call call);
@@ -29,4 +32,5 @@ public interface Visitor
 	public Expression visit(Set set);
 	public Expression visit(Sub sub);
 	public Expression visit(While whail);
+	*/
 }

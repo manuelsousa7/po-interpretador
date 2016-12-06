@@ -1,8 +1,9 @@
 package pex.core.expressions.operators;
 
 import pex.core.expressions.Expression;
+import pex.core.expressions.LiteralInt;
 
-import pex.core.AppIO;
+import pex.core.Program;
 
 /**
  * Classe usada para representar um operador ReadI
@@ -31,6 +32,6 @@ public class ReadI extends Expression {
 	 * @return Expression Retorna uma expressao que representa o valor avaliado
 	 */
 	public Expression evaluate() {
-		return _prog.getInterpreter().getAppIO().readInteger();
+		return new LiteralInt(_prog.getInterpreter().getAppIO().readInteger());
 	}
 }

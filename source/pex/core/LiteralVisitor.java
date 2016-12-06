@@ -2,12 +2,23 @@ package pex.core;
 
 import pex.core.Visitor;
 import pex.core.expressions.Expression;
+import pex.core.expressions.LiteralInt;
+import pex.core.expressions.LiteralString;
 import pex.core.expressions.operators.*;
 
-public class XPTOVisitor implements Visitor {
-	
+public class LiteralVisitor implements Visitor {
+
+	/*
 	public Expression visit(Add add) {
-		return add.evaluate();
+		try {
+			return (new LiteralInt(((LiteralInt)getFirstArgument()).getInt() + 
+									((LiteralInt)getSecondArgument()).getInt())
+									);
+		}
+		catch (ClassCastException cce) {
+			System.out.println("Erro a analizar os argumentos!");
+			return null;
+		}
 	}
 
 	public Expression visit(And and) {
@@ -15,7 +26,6 @@ public class XPTOVisitor implements Visitor {
 	}
 
 	public Expression visit(Call call) {
-		/*FIX ME*/
 		return null;
 	}
 
@@ -98,5 +108,5 @@ public class XPTOVisitor implements Visitor {
 	public Expression visit(While whail) {
 		return whail.evaluate();
 	}
-
+	*/
 }
