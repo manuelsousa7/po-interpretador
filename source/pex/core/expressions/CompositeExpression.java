@@ -28,8 +28,4 @@ public abstract class CompositeExpression extends Expression {
 	public void setOperatorName(String name) {
 		_operatorName = name;
 	}
-
-	public boolean verifyIdentifier(LiteralString str) {
-		return true;
-	}
 }
