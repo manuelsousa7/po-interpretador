@@ -23,41 +23,17 @@ public class Set extends BinaryExpression {
 	}
 
 	/**
-	 * Verifica se as expressoes recebidas sao validas.
-	 * @return boolean Retorna true se as expressoes recebidas forem validas
-	 */
-	@Override
-	public boolean verifyArguments() {
-		try {
-			Expression exp = (LiteralInt)getFirstArgument();
-		}
-		catch (Exception e) {
-			if (!verifyIdentifier((LiteralString)getFirstArgument())) {
-				return false;
-			}
-		}
-		finally {
-			try {
-				Expression exp = (LiteralString)getSecondArgument();
-				return true;
-			}
-			catch (Exception e) {
-				return false;
-			}
-		}
-	}
-
-	/**
 	 * Retorna o valor da expressao
 	 *
 	 * @return Expression Retorna uma expressao que representa o valor avaliado
 	 */
 	@Override
 	public Expression evaluate() {
-		if (verifyArguments()) {
-			//FIX ME
-			;
+		try {
+			return null;
 		}
-		return null;
+		catch (Exception e) {
+			return null;
+		}
 	}
 }

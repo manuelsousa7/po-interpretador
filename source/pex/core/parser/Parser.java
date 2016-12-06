@@ -36,9 +36,6 @@ public class Parser {
         _interp = interpretador;
     }
 
-    public Identifier fetchIdentifier(String str) {
-    }
-
     private void initTokenizer(Reader reader) {
         _tokenizer = new StreamTokenizer(reader);
         _tokenizer.eolIsSignificant(false);

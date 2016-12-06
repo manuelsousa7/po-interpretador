@@ -22,35 +22,23 @@ public class Not extends UnaryExpression {
 	}
 
 	/**
-	 * Verifica se a expressao recebida e valida.
-	 * @return boolean Retorna true se a expressao recebida for valida.
-	 */
-	@Override
-	public boolean verifyArguments() {
-		try {
-			Expression exp = (LiteralInt)getArgument();
-			return true;
-		}
-		catch (Exception e) {
-			return verifyIdentifier((LiteralString)getArgument());
-		}
-	}
-
-	/**
 	 * Retorna o valor da expressao
 	 *
 	 * @return Expression Retorna uma expressao que representa o valor avaliado
 	 */
 	@Override
 	public Expression evaluate() {
-		if (verifyArguments()) {
-			if (((LiteralInt)getArgument()).getInt() > 0) {
-				return new LiteralInt(0);
-			}
-			else {
+		try {
+			if (((LiteralInt)getArgument()).getInt() == 0) {
 				return new LiteralInt(1);
 			}
+			else {
+				return new LiteralInt(0);
+			}
 		}
-		return null;
+		catch (ClassCastException cce) {
+			System.out.println("Erro a analizar os argumentos!");
+			return null;
+		}
 	}
 }

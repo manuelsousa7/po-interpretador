@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author Manuel e Goncalo
  */
-public class Identifier extends Expression implements Element {
+public class Identifier extends Expression {
 	private String _name;
 	private Expression _expression;
 
@@ -56,14 +56,5 @@ public class Identifier extends Expression implements Element {
 	@Override
 	public Expression evaluate() {
 		return _expression.evaluate();
-	}
-
-	/**
-	 * Fornece o valor a entidade Visitor
-	 *
-	 * @param v Visitor a fornecer um valor
-	 */
-	public void accept(Visitor v) {
-		v.visit(this);
 	}
 }

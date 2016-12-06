@@ -47,13 +47,4 @@ public class LiteralInt extends Expression {
 	public Expression evaluate() {
 		return new LiteralInt(_value);
 	}
-
-	/**
-	 * Fornece o valor a entidade Visitor
-	 *
-	 * @param v Visitor a fornecer um valor
-	 */
-	public void accept(Visitor v) {
-		v.visit(this);
-	}
 }

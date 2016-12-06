@@ -2,9 +2,7 @@ package pex.core;
 
 import pex.core.Element;
 import pex.core.expressions.Expression;
-import pex.core.expressions.Identifier;
-import pex.core.expressions.LiteralInt;
-import pex.core.expressions.LiteralString;
+import pex.core.expressions.operators.*;
 
 public interface Visitor
 {
