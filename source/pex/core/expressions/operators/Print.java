@@ -25,15 +25,6 @@ public class Print extends VariadicExpression {
 	}
 
 	/**
-	 * Verifica se as expressoes recebidas sao validas.
-	 * @return boolean Retorna true se as expressoes recebidas forem validas
-	 */
-	@Override
-	public boolean verifyArguments() {
-		return true;
-	}
-
-	/**
 	 * Retorna o valor da expressao
 	 *
 	 * @return Expression Retorna uma expressao que representa o valor avaliado

@@ -22,7 +22,7 @@ import java.io.Serializable;
  *
  * @author Grupo 28 - Goncalo Marques (84719) - Manuel Sousa (84740)
  */
-public class Program implements Serializable, Visitor {
+public class Program implements Serializable {
 	private String _name;
 	private List<Expression> _expressions;
 	private Interpreter _interpreter;

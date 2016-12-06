@@ -22,21 +22,6 @@ public class Call extends UnaryExpression {
 	}
 
 	/**
-	 * Verifica se as expressoes recebidas sao validas.
-	 * @return boolean Retorna true se as expressoes recebidas forem validas
-	 */
-	@Override
-	public boolean verifyArguments() {
-		try {
-			Expression exp = (LiteralString)getArgument();
-			return true;
-		}
-		catch (Exception e) {
-			return false;
-		}
-	}
-
-	/**
 	 * Retorna o valor da expressao
 	 *
 	 * @return Expression Retorna uma expressao que representa o valor avaliado

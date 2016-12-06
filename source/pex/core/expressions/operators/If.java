@@ -24,48 +24,22 @@ public class If extends TrenaryExpression {
 	}
 
 	/**
-	 * Verifica se as expressoes recebidas sao validas.
-	 * @return boolean Retorna true se as expressoes recebidas forem validas
-	 */
-	@Override
-	public boolean verifyArguments() {
-
-		try {
-			Expression exp = (LiteralInt)getFirstArgument();
-		}
-		catch (Exception e) {
-			if (!verifyIdentifier((LiteralString)getFirstArgument())) {
-				return false;
-			}
-		}
-		finally {
-			try {
-				Expression exp = (LiteralInt)getSecondArgument();
-				return true;
-			}
-			catch (Exception e) {
-				if (!verifyIdentifier((LiteralString)getSecondArgument())) {
-					return false;
-				}
-			}
-			finally {
-				try {
-					Expression exp = (LiteralInt)getThirdArgument();
-					return true;
-				}
-				catch (Exception e) {
-					return verifyIdentifier((LiteralString)getThirdArgument());
-				}
-			}
-		}
-	}
-
-	/**
 	 * Verifica se a expressao recebida e valida.
 	 * @return Expression Retorna true se a expressao recebida for valida.
 	 */
 	@Override
 	public Expression evaluate() {
-		return super.getFirstArgument();
+		try {
+			if ((((LiteralInt)getFirstArgument()).getInt()) > 0) {
+				return getSecondArgument();
+			}
+			else {
+				return getThirdArgument();
+			}
+		}
+		catch (ClassCastException cce) {
+			System.out.println("Erro a analizar os argumentos!");
+			return null;
+		}
 	}
 }

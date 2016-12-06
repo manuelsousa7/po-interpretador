@@ -29,12 +29,6 @@ public abstract class CompositeExpression extends Expression {
 		_operatorName = name;
 	}
 
-	/**
-	* Verifica se a expressao recebida e valida.
-	* @return boolean Retorna true se a expressao recebida for valida.
-	*/
-	public abstract boolean verifyArguments();
-
 	public boolean verifyIdentifier(LiteralString str) {
 		return true;
 	}
