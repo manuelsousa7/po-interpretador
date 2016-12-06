@@ -1,5 +1,5 @@
 *** testsEI/A-002-005-M-ok.out	Mon Nov  7 22:20:06 2016
---- testsEI/A-002-005-M-ok.outhyp	Mon Dec  5 23:57:22 2016
+--- testsEI/A-002-005-M-ok.outhyp	Tue Dec  6 13:19:58 2016
 ***************
 *** 30,37 ****
   (not (sub aa 1))

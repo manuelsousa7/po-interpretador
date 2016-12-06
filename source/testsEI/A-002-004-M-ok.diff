@@ -1,5 +1,5 @@
 *** testsEI/A-002-004-M-ok.out	Mon Nov  7 22:11:19 2016
---- testsEI/A-002-004-M-ok.outhyp	Mon Dec  5 23:57:22 2016
+--- testsEI/A-002-004-M-ok.outhyp	Tue Dec  6 13:19:57 2016
 ***************
 *** 18,25 ****
   Escolha uma opção: (if aa 12 "asde")

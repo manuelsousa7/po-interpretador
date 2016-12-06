@@ -30,7 +30,6 @@ public class Parser {
     }
 
     public Identifier fetchIdentifier(String str) {
-        _interp.get(set);
     }
 
     private void initTokenizer(Reader reader) {

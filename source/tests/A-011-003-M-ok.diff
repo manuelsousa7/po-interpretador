@@ -1,0 +1,98 @@
+*** tests/A-011-003-M-ok.out	Mon Dec  5 13:13:09 2016
+--- tests/A-011-003-M-ok.outhyp	Tue Dec  6 13:19:51 2016
+***************
+*** 15,21 ****
+  5 - Mostrar os identificadores presentes no programa
+  6 - Mostrar os identificadores do programa sem inicialização explícita
+  0 - Sair
+! Escolha uma opção: Posição do programa: Expressão: Substituir expressão no programa: Operação inválida: Posição inválida: -1
+  Menu de Edição
+  1 - Listar programa
+  2 - Executar programa
+--- 15,29 ----
+  5 - Mostrar os identificadores presentes no programa
+  6 - Mostrar os identificadores do programa sem inicialização explícita
+  0 - Sair
+! Escolha uma opção: Menu de Edição
+! 1 - Listar programa
+! 2 - Executar programa
+! 3 - Adicionar expressão ao programa
+! 4 - Substituir expressão no programa
+! 5 - Mostrar os identificadores presentes no programa
+! 6 - Mostrar os identificadores do programa sem inicialização explícita
+! 0 - Sair
+! Escolha uma opção: Opção inválida!
+  Menu de Edição
+  1 - Listar programa
+  2 - Executar programa
+***************
+*** 24,29 ****
+--- 32,38 ----
+  5 - Mostrar os identificadores presentes no programa
+  6 - Mostrar os identificadores do programa sem inicialização explícita
+  0 - Sair
++ Escolha uma opção: Número inválido!
+  Escolha uma opção: (print 1)
+  (print 2)
+  (print 3)
+***************
+*** 40,46 ****
+  5 - Mostrar os identificadores presentes no programa
+  6 - Mostrar os identificadores do programa sem inicialização explícita
+  0 - Sair
+! Escolha uma opção: Posição do programa: Expressão: Substituir expressão no programa: Operação inválida: Posição inválida: 10
+  Menu de Edição
+  1 - Listar programa
+  2 - Executar programa
+--- 49,63 ----
+  5 - Mostrar os identificadores presentes no programa
+  6 - Mostrar os identificadores do programa sem inicialização explícita
+  0 - Sair
+! Escolha uma opção: Menu de Edição
+! 1 - Listar programa
+! 2 - Executar programa
+! 3 - Adicionar expressão ao programa
+! 4 - Substituir expressão no programa
+! 5 - Mostrar os identificadores presentes no programa
+! 6 - Mostrar os identificadores do programa sem inicialização explícita
+! 0 - Sair
+! Escolha uma opção: Opção inválida!
+  Menu de Edição
+  1 - Listar programa
+  2 - Executar programa
+***************
+*** 49,55 ****
+  5 - Mostrar os identificadores presentes no programa
+  6 - Mostrar os identificadores do programa sem inicialização explícita
+  0 - Sair
+! Escolha uma opção: Posição do programa: Expressão: Substituir expressão no programa: Operação inválida: Posição inválida: 8
+  Menu de Edição
+  1 - Listar programa
+  2 - Executar programa
+--- 66,81 ----
+  5 - Mostrar os identificadores presentes no programa
+  6 - Mostrar os identificadores do programa sem inicialização explícita
+  0 - Sair
+! Escolha uma opção: Número inválido!
+! Escolha uma opção: Menu de Edição
+! 1 - Listar programa
+! 2 - Executar programa
+! 3 - Adicionar expressão ao programa
+! 4 - Substituir expressão no programa
+! 5 - Mostrar os identificadores presentes no programa
+! 6 - Mostrar os identificadores do programa sem inicialização explícita
+! 0 - Sair
+! Escolha uma opção: Opção inválida!
+  Menu de Edição
+  1 - Listar programa
+  2 - Executar programa
+***************
+*** 58,63 ****
+--- 84,90 ----
+  5 - Mostrar os identificadores presentes no programa
+  6 - Mostrar os identificadores do programa sem inicialização explícita
+  0 - Sair
++ Escolha uma opção: Número inválido!
+  Escolha uma opção: (print 1)
+  (print 2)
+  (print 3)
