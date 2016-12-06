@@ -10,6 +10,7 @@ import pex.AppIO;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.Iterator;
@@ -26,7 +27,8 @@ import java.io.Serializable;
 public class Interpreter implements Serializable {
 	private AppIO _app;
 	private Map<String, Program> _programs;
-	private Map<String, Identifier> _identifiers;
+	private Map<String, Identifier> _initializedIds;
+	private Map<String, Identifier> _uninitializedIds;
 	private boolean _saved;
 	private String _fileName;
 
@@ -38,13 +40,14 @@ public class Interpreter implements Serializable {
 	public Interpreter(AppIO app) {
 		_app = app;
 		_programs = new HashMap<String, Program>();
-		_identifiers = new HashMap<String, Identifier>();
+		_initializedIds = new HashMap<String, Identifier>();
+		_uninitializedIds = new TreeMap<String, Identifier>();
 		_saved = false;
 		_fileName = "";
 	}
 
 	public Identifier checkIdentifier(String str) {
-		
+		return _initializedIds.get(str);
 	}
 
 	/**
@@ -53,28 +56,27 @@ public class Interpreter implements Serializable {
 	 * @param id Nome do identificador
 	 * @param value Valor do identificador
 	 */
-	public void setIdentifierValue(Identifier id, Expression value) {
-		if (!_identifiers.contains(id)) {
-			_identifiers.add(id);
-		} else {
-			//FIX ME
-		}
+	public Identifier setId(String id, Expression value) {
+		Identifier newId = new Identifier(id, value);
+		_initializedIds.put(id, newId);
+		return newId;
 	}
 
 	/**
-	 * Devolve o valor do identificador indicado
+	 * Procura um identificador com o nome associado, se nao
+	 * houver nenhum, adiciona um novo identificador inicializado a 0
 	 *
 	 * @param id Nome do identificador
-	 * @return Expression Valor do identificador indicado
+	 * @param value Valor do identificador
 	 */
-	public Expression getIdentifierValue(Identifier id) {
-		//FIX ME
-		/*
-		int index = _identifiers.indexOf(id);
-		if (index != -1) {
+	public Identifier fetchId(String id) {
+		Identifier ident = _initializedIds.get(id);
+		if (ident != null) {
+			return ident;
 		}
-		*/
-		return null;
+		ident = new Identifier(id, new LiteralInt(0));
+		_uninitializedIds.put(id, ident);
+		return ident;
 	}
 
 	/**
@@ -82,7 +84,7 @@ public class Interpreter implements Serializable {
 	 *
 	 * @param program Programa a adicionar
 	 */
-	public void addProgram(Program program) {
+	public void addProgram(Program program, Parser parser) {
 		if (getProgram(program.getAsText()) == null) {
 			_programs.put(program.getAsText(), program);
 		}
