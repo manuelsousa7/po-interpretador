@@ -1,16 +1,20 @@
-*** testsEI/A-005-002-M-ok.out	Mon Nov  7 13:48:31 2016
---- testsEI/A-005-002-M-ok.outhyp	Tue Dec  6 13:19:59 2016
+*** tests/A-009-027-M-ok.out	Mon Dec  5 13:13:09 2016
+--- tests/A-009-027-M-ok.outhyp	Tue Dec  6 13:19:49 2016
 ***************
-*** 33,40 ****
+*** 15,26 ****
   5 - Mostrar os identificadores presentes no programa
   6 - Mostrar os identificadores do programa sem inicialização explícita
   0 - Sair
-! Escolha uma opção: 12
+! Escolha uma opção: menor ou igual
+! maior
+! menor ou igual
+! menor ou igual
+! maior
 ! Menu de Edição
   1 - Listar programa
   2 - Executar programa
   3 - Adicionar expressão ao programa
---- 33,39 ----
+--- 15,21 ----
   5 - Mostrar os identificadores presentes no programa
   6 - Mostrar os identificadores do programa sem inicialização explícita
   0 - Sair
