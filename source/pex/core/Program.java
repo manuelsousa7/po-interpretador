@@ -49,6 +49,10 @@ public class Program implements Serializable {
 		return (_expressions.size() > index && index >= 0);
 	}
 
+	public Interpreter getInterpreter() {
+		return _interpreter;
+	}
+
 	/**
 	 * Adiciona uma expressao ao programa
 	 *

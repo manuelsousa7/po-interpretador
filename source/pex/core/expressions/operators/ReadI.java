@@ -10,9 +10,10 @@ import pex.core.AppIO;
  * @author Manuel e Goncalo
  */
 public class ReadI extends Expression {
-	AppIO _intrep;
-	public ReadI(AppIO intrep) {
-		_app = intrep;
+	Program _prog;
+
+	public ReadI(Program prog) {
+		_prog = prog;
 	}
 
 	/**
@@ -30,7 +31,6 @@ public class ReadI extends Expression {
 	 * @return Expression Retorna uma expressao que representa o valor avaliado
 	 */
 	public Expression evaluate() {
-		return _app.readInteger();
-		//return null;
+		return _prog.getInterpreter().getAppIO().readInteger();
 	}
 }

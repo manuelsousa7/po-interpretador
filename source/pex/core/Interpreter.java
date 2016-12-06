@@ -67,7 +67,6 @@ public class Interpreter implements Serializable {
 	 * houver nenhum, adiciona um novo identificador inicializado a 0
 	 *
 	 * @param id Nome do identificador
-	 * @param value Valor do identificador
 	 */
 	public Identifier fetchId(String id) {
 		if (_initializedIds.containsKey(id)) {
@@ -77,7 +76,6 @@ public class Interpreter implements Serializable {
 			_uninitializedIds.put(id, ident);
 			return ident;
 		}
-		return null;
 	}
 
 	/**

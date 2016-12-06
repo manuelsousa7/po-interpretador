@@ -11,6 +11,8 @@ import pex.core.expressions.LiteralString;
  * @author Manuel e Goncalo
  */
 public class Set extends BinaryExpression {
+	private Program _programa;
+	private Identifier _ident;
 
 	/**
 	 * Contrutor: Inicia as expressoes como as expressoes recebidas
@@ -18,8 +20,10 @@ public class Set extends BinaryExpression {
 	 * @param exp_1 Expressao a associar a _expressao_1
 	 * @param exp_2 Expressao a associar a _expressao_2
 	 */
-	public Set(Expression exp_1, Expression exp_2) {
+	public Set(Identifier exp_1, Expression exp_2, Program prog) {
 		super.setArguments(exp_1, exp_2);
+		_ident = exp_1;
+		_programa = prog;
 	}
 
 	/**
@@ -29,11 +33,7 @@ public class Set extends BinaryExpression {
 	 */
 	@Override
 	public Expression evaluate() {
-		try {
-			return null;
-		}
-		catch (Exception e) {
-			return null;
-		}
+		String id = _ident.getAsText();
+		_programa.getInterpreter().setId(id, getSecondArgument);
 	}
 }

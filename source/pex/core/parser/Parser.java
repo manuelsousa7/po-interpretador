@@ -20,16 +20,14 @@ public class Parser {
     private Program _program;
     private StreamTokenizer _tokenizer;
     private Interpreter _interp;
-    private boolean _toSet;
 
     public Parser() {
         _interp = null;
         _toSet = false;
     }
 
-    public Parser(Interpreter interpretador) {
-        _interp = interpretador;
-        _toSet = false;
+    public Parser() {
+
     }
 
     public void updateInterpreter(Interpreter interpretador) {
@@ -44,6 +42,7 @@ public class Parser {
     public Program parseFile(String fileName, String programName, Interpreter interpreter) throws BadSourceException, BadNumberException, InvalidExpressionException,
         MissingClosingParenthesisException, UnknownOperationException, EndOfInputException  {
         _program = new Program(programName, interpreter, this);
+        _interp = interpreter;
 
         try (FileReader reader = new FileReader(fileName)) {
             initTokenizer(reader);
@@ -65,6 +64,7 @@ public class Parser {
     public Expression parseString(String expression, Program program) throws BadSourceException, BadNumberException, InvalidExpressionException,
         MissingClosingParenthesisException, UnknownOperationException, EndOfInputException {
         _program = program;
+        _interp = _program.getInterpreter();
 
         try (StringReader reader = new StringReader(expression)) {
             initTokenizer(reader);
@@ -93,13 +93,7 @@ public class Parser {
             return new LiteralString(_tokenizer.sval);
 
         case StreamTokenizer.TT_WORD:
-            if (_toSet) {
-                _toSet = false;
-                return _interp.setId(_tokenizer.sval, new LiteralInt((int)_tokenizer.nval));
-            }
-            else {
-                return _interp.fetchId(_tokenizer.sval);
-            }
+            return _interp.fetchId(_tokenizer.sval);
 
         case '(':
             Expression exp = parseCompositeExpression();
@@ -214,7 +208,7 @@ public class Parser {
 
         // processing variadic expressions
         case "seq":
-            _toSet = true;
+
         case "print":
             // process args
             ArrayList<Expression> args = new ArrayList<>();
