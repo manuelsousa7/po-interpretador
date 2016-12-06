@@ -1,0 +1,8 @@
+(set a 1)
+(set b 1)
+(set c 2)
+(if (lt a c) (print "menor") (print "maior ou igual"))
+(if (lt c 0) (print "menor") (print "maior ou igual"))
+(if (lt a b) (print "menor") (print "maior ou igual"))
+(if (lt c (add a 3)) (print "menor") (print "maior ou igual"))
+

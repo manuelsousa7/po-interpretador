@@ -1,0 +1,8 @@
+(if aa 12 "asde")
+(while aa (set a 1))
+(set a 2)
+(readi)
+(reads)
+(print "wer" 23 12 "aaaaaa" aa)
+(seq 1 2 3 4 5 6 7  "asd" 12)
+(call "asdw")

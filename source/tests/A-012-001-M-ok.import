@@ -1,0 +1,7 @@
+(add a 0)
+(sub c 2)
+(sub d 0)
+(set c 2)
+(print g c)
+(set v 0)
+(mul x 90)

@@ -1,0 +1,21 @@
+*** testsEI/A-002-005-M-ok.out	Mon Nov  7 22:20:06 2016
+--- testsEI/A-002-005-M-ok.outhyp	Mon Dec  5 23:57:22 2016
+***************
+*** 30,37 ****
+  (not (sub aa 1))
+  (and (add 2 3) (add e 1))
+  (or (mul 2 3) (sub 4 1))
+! (set aa (readi))
+! (print "wer" 23 (add a 5) (reads) (readi))
+  (seq 1 2 3 4 5 6 7 (add e 6) "asd")
+  (if (and aa (add b 2)) (add aa 1) (sub b 1))
+  (while (lt aa 10) (set aa (add aa 1)))
+--- 31,38 ----
+  (not (sub aa 1))
+  (and (add 2 3) (add e 1))
+  (or (mul 2 3) (sub 4 1))
+! (set aa readi)
+! (print "wer" 23 (add a 5) reads readi)
+  (seq 1 2 3 4 5 6 7 (add e 6) "asd")
+  (if (and aa (add b 2)) (add aa 1) (sub b 1))
+  (while (lt aa 10) (set aa (add aa 1)))

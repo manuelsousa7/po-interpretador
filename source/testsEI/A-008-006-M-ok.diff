@@ -1,0 +1,21 @@
+*** testsEI/A-008-006-M-ok.out	Mon Nov  7 13:48:31 2016
+--- testsEI/A-008-006-M-ok.outhyp	Mon Dec  5 23:57:25 2016
+***************
+*** 46,53 ****
+  (if aa (add 2 3) (add 3 2))
+  (while (add a 2) (sub a 2))
+  (set a (add a 2))
+! (readi)
+! (reads)
+  (print "wer" 23 (add a 5))
+  (seq 1 2 3 4 5 6 7 (add e 6) "asd")
+  Menu de Edição
+--- 47,54 ----
+  (if aa (add 2 3) (add 3 2))
+  (while (add a 2) (sub a 2))
+  (set a (add a 2))
+! readi
+! reads
+  (print "wer" 23 (add a 5))
+  (seq 1 2 3 4 5 6 7 (add e 6) "asd")
+  Menu de Edição

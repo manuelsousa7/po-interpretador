@@ -1,0 +1,7 @@
+(set a 1)
+(print (seq a))
+(print (seq (set a 2) a))
+(print (seq (set a 4) (set b 3) (set c 5) a) b c)
+
+
+

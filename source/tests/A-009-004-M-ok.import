@@ -1,0 +1,3 @@
+(set a (sub 0 1))
+(print (add 0 1))
+(print (add a 0))

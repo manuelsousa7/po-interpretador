@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for x in tests/*.in; do
+for x in testsEI/*.in; do
     if [ -e ${x%.in}.import ]; then
         java -cp pex-support.jar:po-uilib.jar:. -Dimport=${x%.in}.import -Din=$x -Dout=${x%.in}.outhyp pex.app.App;
     else

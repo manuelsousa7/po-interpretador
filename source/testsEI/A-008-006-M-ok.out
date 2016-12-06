@@ -1,0 +1,70 @@
+Menu Principal
+1 - Criar
+2 - Abrir
+3 - Guardar
+4 - Criar Programa
+5 - Ler Programa
+6 - Escrever Programa
+7 - Manipular Programa
+0 - Sair
+Escolha uma opção: Ficheiro a abrir: Menu Principal
+1 - Criar
+2 - Abrir
+3 - Guardar
+4 - Criar Programa
+5 - Ler Programa
+6 - Escrever Programa
+7 - Manipular Programa
+0 - Sair
+Escolha uma opção: Nome do program: Menu de Edição
+1 - Listar programa
+2 - Executar programa
+3 - Adicionar expressão ao programa
+4 - Substituir expressão no programa
+5 - Mostrar os identificadores presentes no programa
+6 - Mostrar os identificadores do programa sem inicialização explícita
+0 - Sair
+Escolha uma opção: 12
+"abcd"
+"1234"
+aaa
+(neg 1)
+(add 1 2)
+(sub 1 2)
+(mul 1 2)
+(div 1 2)
+(mod 1 2)
+(eq 1 1)
+(ne 1 2)
+(lt 1 2)
+(gt 1 2)
+(le 1 2)
+(ge 1 2)
+(not 1)
+(and 1 0)
+(or 0 aa)
+(if aa (add 2 3) (add 3 2))
+(while (add a 2) (sub a 2))
+(set a (add a 2))
+(readi)
+(reads)
+(print "wer" 23 (add a 5))
+(seq 1 2 3 4 5 6 7 (add e 6) "asd")
+Menu de Edição
+1 - Listar programa
+2 - Executar programa
+3 - Adicionar expressão ao programa
+4 - Substituir expressão no programa
+5 - Mostrar os identificadores presentes no programa
+6 - Mostrar os identificadores do programa sem inicialização explícita
+0 - Sair
+Escolha uma opção: Menu Principal
+1 - Criar
+2 - Abrir
+3 - Guardar
+4 - Criar Programa
+5 - Ler Programa
+6 - Escrever Programa
+7 - Manipular Programa
+0 - Sair
+Escolha uma opção: 

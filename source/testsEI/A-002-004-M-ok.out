@@ -1,0 +1,43 @@
+Menu Principal
+1 - Criar
+2 - Abrir
+3 - Guardar
+4 - Criar Programa
+5 - Ler Programa
+6 - Escrever Programa
+7 - Manipular Programa
+0 - Sair
+Escolha uma opção: Nome do program: Menu de Edição
+1 - Listar programa
+2 - Executar programa
+3 - Adicionar expressão ao programa
+4 - Substituir expressão no programa
+5 - Mostrar os identificadores presentes no programa
+6 - Mostrar os identificadores do programa sem inicialização explícita
+0 - Sair
+Escolha uma opção: (if aa 12 "asde")
+(while aa (set a 1))
+(set a 2)
+(readi)
+(reads)
+(print "wer" 23 12 "aaaaaa" aa)
+(seq 1 2 3 4 5 6 7 "asd" 12)
+(call "asdw")
+Menu de Edição
+1 - Listar programa
+2 - Executar programa
+3 - Adicionar expressão ao programa
+4 - Substituir expressão no programa
+5 - Mostrar os identificadores presentes no programa
+6 - Mostrar os identificadores do programa sem inicialização explícita
+0 - Sair
+Escolha uma opção: Menu Principal
+1 - Criar
+2 - Abrir
+3 - Guardar
+4 - Criar Programa
+5 - Ler Programa
+6 - Escrever Programa
+7 - Manipular Programa
+0 - Sair
+Escolha uma opção: 

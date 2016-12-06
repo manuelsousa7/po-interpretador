@@ -1,0 +1,4 @@
+(print (mod 5 2))
+(print (mod 4 8))
+(print (mod 9 3))
+
