@@ -70,13 +70,14 @@ public class Interpreter implements Serializable {
 	 * @param value Valor do identificador
 	 */
 	public Identifier fetchId(String id) {
-		Identifier ident = _initializedIds.get(id);
-		if (ident != null) {
+		if (_initializedIds.containsKey(id)) {
+			return _initializedIds.get(id);
+		} else {
+			Identifier ident = new Identifier(id, new LiteralInt(0));
+			_uninitializedIds.put(id, ident);
 			return ident;
 		}
-		ident = new Identifier(id, new LiteralInt(0));
-		_uninitializedIds.put(id, ident);
-		return ident;
+		return null;
 	}
 
 	/**

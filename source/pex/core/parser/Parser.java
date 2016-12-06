@@ -146,7 +146,7 @@ public class Parser {
 
         // process no-args expressions
         case "reads":
-            return new ReadS();
+            return new ReadS(_interp.getAppIO());
 
         case "readi":
             return new ReadI();

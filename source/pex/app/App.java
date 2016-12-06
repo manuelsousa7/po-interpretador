@@ -41,7 +41,10 @@ public class App implements AppIO {
      * @return the string written by the user.
      **/
     public String readString() {
-        return "Le String";
+        Form g = new Form();
+        InputString inputS = new InputString(g, Message.requestExpression());
+        g.parse();
+        return inputS;
     }
 
     /**
@@ -50,7 +53,10 @@ public class App implements AppIO {
      * @return the number written by the user.
      **/
     public int readInteger() {
-        return 0;
+        Form f = new Form();
+        InputInteger inputI = new InputInteger(f, Message.requestPosition());
+        f.parse();
+        return inputI;
     }
 
     /**

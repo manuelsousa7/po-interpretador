@@ -2,15 +2,17 @@ package pex.core.expressions.operators;
 
 import pex.core.expressions.Expression;
 
+import pex.core.AppIO;
+
 /**
  * Classe usada para representar um operador ReadI
  *
  * @author Manuel e Goncalo
  */
 public class ReadI extends Expression {
-
-	public ReadI() {
-
+	AppIO _intrep;
+	public ReadI(AppIO intrep) {
+		_app = intrep;
 	}
 
 	/**
@@ -28,6 +30,7 @@ public class ReadI extends Expression {
 	 * @return Expression Retorna uma expressao que representa o valor avaliado
 	 */
 	public Expression evaluate() {
-		return null;
+		return _app.readInteger();
+		//return null;
 	}
 }

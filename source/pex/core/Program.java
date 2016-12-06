@@ -62,8 +62,7 @@ public class Program implements Serializable, Visitor {
 				return true;
 			}
 			return false;
-		}
-		catch (Exception e){
+		} catch (Exception e) {
 			return false;
 		}
 	}
@@ -91,8 +90,7 @@ public class Program implements Serializable, Visitor {
 				return true;
 			}
 			return false;
-		}
-		catch (Exception e){
+		} catch (Exception e) {
 			return false;
 		}
 	}
