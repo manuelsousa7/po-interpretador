@@ -1,5 +1,5 @@
-*** testsEI/A-005-002-M-ok.out	Wed Dec  7 12:41:06 2016
---- testsEI/A-005-002-M-ok.outhyp	Wed Dec  7 12:43:06 2016
+*** testsEI/A-004-002-M-ok.out	Wed Dec  7 12:41:06 2016
+--- testsEI/A-004-002-M-ok.outhyp	Wed Dec  7 12:43:06 2016
 ***************
 *** 33,40 ****
   5 - Mostrar os identificadores presentes no programa

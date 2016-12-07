@@ -1,0 +1,20 @@
+*** testsEI/A-008-004-M-ok.out	Wed Dec  7 12:41:06 2016
+--- testsEI/A-008-004-M-ok.outhyp	Wed Dec  7 12:43:08 2016
+***************
+*** 7,13 ****
+  6 - Escrever Programa
+  7 - Manipular Programa
+  0 - Sair
+! Escolha uma opção: Ficheiro sem nome. Guardar ficheiro como: Menu Principal
+  1 - Criar
+  2 - Abrir
+  3 - Guardar
+--- 7,14 ----
+  6 - Escrever Programa
+  7 - Manipular Programa
+  0 - Sair
+! Escolha uma opção: Ficheiro sem nome. Guardar ficheiro como: Erro a guardar o interpretador
+! Menu Principal
+  1 - Criar
+  2 - Abrir
+  3 - Guardar

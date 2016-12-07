@@ -40,14 +40,18 @@ public class Interpreter implements Serializable {
 	public Interpreter(Handler handler) {
 		_handler = handler;
 		_programs = new HashMap<String, Program>();
-		_initializedIds = new HashMap<String, Identifier>();
-		_uninitializedIds = new HashMap<String, Identifier>();
+		_initializedIds = new TreeMap<String, Identifier>();
+		_uninitializedIds = new TreeMap<String, Identifier>();
 		_saved = false;
 		_fileName = "";
 	}
 
 	public Identifier checkIdentifier(String str) {
 		return _initializedIds.get(str);
+	}
+
+	public Map<String, Identifier> getInitializedIds(){
+		return _initializedIds;
 	}
 
 	/**

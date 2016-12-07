@@ -21,6 +21,6 @@ public class ShowUninitializedIdentifiers extends ProgramCommand {
     /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() {
-        //FIXME implement
+        
     }
 }
