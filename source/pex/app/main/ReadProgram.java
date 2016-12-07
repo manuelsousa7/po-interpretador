@@ -25,14 +25,12 @@ public class ReadProgram extends Command<Handler> {
      */
     @Override
     public final void execute() {
-        Form f = new Form();
-        InputString inS = new InputString(f, Message.programFileName());
-        f.parse();
+        String param_1 = entity().getAppIO().readString(Message.programFileName());
 
         try {
-            entity().readProgram(inS.toString());
+            entity().readProgram(param_1);
         } catch (Exception e) {
-            (new Display(title())).add(Message.fileNotFound(inS.toString())).display();
+            (new Display(title())).add(Message.fileNotFound(param_1)).display();
         }
     }
 }

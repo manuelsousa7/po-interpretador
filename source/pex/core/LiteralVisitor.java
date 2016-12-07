@@ -264,11 +264,11 @@ public class LiteralVisitor implements Visitor {
 	}
 
 	public Expression visit(ReadI readi) {
-		return new LiteralInt((readi.getProgram()).getInterpreter().getAppIO().readInteger());
+		return new LiteralInt((readi.getProgram()).getInterpreter().getAppIO().readInteger(""));
 	}
 
 	public Expression visit(ReadS reads) {
-		return new LiteralString((reads.getProgram()).getInterpreter().getAppIO().readString());
+		return new LiteralString((reads.getProgram()).getInterpreter().getAppIO().readString(""));
 	}
 
 	public Expression visit(Seq seq) {

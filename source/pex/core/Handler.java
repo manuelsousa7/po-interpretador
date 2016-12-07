@@ -20,7 +20,8 @@ import java.io.Serializable;
  *
  * @author Manuel e Goncalo
  */
-public class Handler implements AppIO, Serializable  {
+public class Handler implements Serializable  {
+	private AppIO _app;
 	private Interpreter _interpretador;
 	private boolean _changed;
 	private Parser _parser;
@@ -28,27 +29,11 @@ public class Handler implements AppIO, Serializable  {
 	/**
 	 * Contrutor: Inicia _interpretador com o interpretador recebido
 	 */
-	public Handler() {
+	public Handler(AppIO app) {
+		_app = app;
 		_interpretador = new Interpreter(this);
 		_changed = true;
 		_parser = new Parser();
-	}
-
-	@Override
-	public void println(String str) {
-		;
-	}
-
-	@Override
-	public String readString() {
-		//FIX ME
-		return "ola";
-	}
-
-	@Override
-	public int readInteger() {
-		//FIX ME
-		return -1;
 	}
 
 	/**
@@ -70,6 +55,15 @@ public class Handler implements AppIO, Serializable  {
 	 */
 	public Interpreter getInterperter() {
 		return _interpretador;
+	}
+
+	/**
+	 * Devolve o AppIO associado a este interpretador
+	 *
+	 * @return Devolve o AppIO associado a este interpretador
+	 */
+	public AppIO getAppIO() {
+		return _app;
 	}
 
 	/**

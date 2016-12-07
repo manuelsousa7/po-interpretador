@@ -27,22 +27,17 @@ public class WriteProgram extends Command<Handler> {
      */
     @Override
     public final void execute() throws InvalidOperation {
-        Form f = new Form();
-        InputString inS = new InputString(f, Message.requestProgramId());
-        f.parse();
+        String param_1 = entity().getAppIO().readString(Message.requestProgramId());
+        String param_2 = entity().getAppIO().readString(Message.programFileName());
 
-        Form g = new Form();
-        InputString inS_2 = new InputString(g, Message.programFileName());
-        g.parse();
-
-        if (entity().checkProgram(inS.toString())) {
+        if (entity().checkProgram(param_1)) {
             try {
-                entity().writeProgram(inS.toString(), inS_2.toString());
+                entity().writeProgram(param_1, param_2);
             } catch (Exception e) {
                 //FIX ME
             }
         } else {
-            (new Display(title())).add(Message.noSuchProgram(inS.toString())).display();
+            (new Display(title())).add(Message.noSuchProgram(param_1)).display();
         }
     }
 }

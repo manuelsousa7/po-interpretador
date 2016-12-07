@@ -25,19 +25,14 @@ public class ReplaceExpression extends ProgramCommand {
     /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() throws BadExpressionException, BadPositionException {
-        Form f = new Form();
-        InputInteger inI_1 = new InputInteger(f, Message.requestPosition());
-        f.parse();
+        int param_1 = entity().getAppIO().readInteger(Message.requestPosition());
+        String param_2 = entity().getAppIO().readString(Message.requestExpression());
 
-        Form g = new Form();
-        InputString inS_2 = new InputString(g, Message.requestExpression());
-        g.parse();
-
-        if (!(entity().checkReplace(inI_1.value()))) {
-            throw new BadPositionException(inI_1.value());
+        if (!(entity().checkReplace(param_1 - 1))) {
+            throw new BadPositionException(param_1);
         }
-        if (!(entity().replace(inI_1.value(), inS_2.toString()))) {
-            throw new BadExpressionException(inS_2.toString() + " : nao e valido");
+        if (!(entity().replace(param_1 - 1, param_2))) {
+            throw new BadExpressionException(param_2 + " : nao e valido");
         }
     }
 }

@@ -42,9 +42,9 @@ public class App implements AppIO {
      *
      * @return the string written by the user.
      **/
-    public String readString() {
+    public String readString(String str) {
         Form g = new Form();
-        InputString inputS = new InputString(g, Message.requestExpression());
+        InputString inputS = new InputString(g, str);
         g.parse();
         return inputS.toString();
     }
@@ -54,9 +54,9 @@ public class App implements AppIO {
      *
      * @return the number written by the user.
      **/
-    public int readInteger() {
+    public int readInteger(String str) {
         Form f = new Form();
-        InputInteger inputI = new InputInteger(f, Message.requestPosition());
+        InputInteger inputI = new InputInteger(f, str);
         f.parse();
         return inputI.value();
     }
@@ -66,7 +66,8 @@ public class App implements AppIO {
      */
     public static void main(String[] args) {
         Parser parser = new Parser();
-        Handler handler = new Handler();
+        App app = new App();
+        Handler handler = new Handler(app);
         String datafile = System.getProperty("import");
         if (datafile != null) {
             try {

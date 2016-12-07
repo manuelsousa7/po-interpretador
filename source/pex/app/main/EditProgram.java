@@ -31,16 +31,14 @@ public class EditProgram extends Command<Handler> {
      */
     @Override
     public final void execute() {
-        Form f = new Form();
-        InputString inS = new InputString(f, Message.requestProgramId());
-        f.parse();
+        String param_1 = entity().getAppIO().readString(Message.requestProgramId());
 
-        if (entity().checkProgram(inS.toString())) {
-            Program prog = entity().editProgram(inS.toString());
+        if (entity().checkProgram(param_1)) {
+            Program prog = entity().editProgram(param_1);
             EvaluatorMenu menu = new EvaluatorMenu(prog);
             menu.open();
         } else {
-            (new Display(title())).add(Message.noSuchProgram(inS.toString())).display();
+            (new Display(title())).add(Message.noSuchProgram(param_1)).display();
         }
     }
 

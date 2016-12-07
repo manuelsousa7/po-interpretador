@@ -25,7 +25,7 @@ import java.io.Serializable;
  * @author Manuel e Goncalo
  */
 public class Interpreter implements Serializable {
-	private AppIO _app;
+	private Handler _handler;
 	private Map<String, Program> _programs;
 	private Map<String, Identifier> _initializedIds;
 	private Map<String, Identifier> _uninitializedIds;
@@ -33,12 +33,12 @@ public class Interpreter implements Serializable {
 	private String _fileName;
 
 	/**
-	 * Construtor : Inicia os seus atributos e associa um AppIO
+	 * Construtor : Inicia os seus atributos
 	 *
-	 * @param app AppIO a associar a este interpretador
+	 * @param handler Handler a associar a este interpretador
 	 */
-	public Interpreter(AppIO app) {
-		_app = app;
+	public Interpreter(Handler handler) {
+		_handler = handler;
 		_programs = new HashMap<String, Program>();
 		_initializedIds = new HashMap<String, Identifier>();
 		_uninitializedIds = new HashMap<String, Identifier>();
@@ -118,7 +118,7 @@ public class Interpreter implements Serializable {
 	 * @return Devolve o AppIO associado a este interpretador
 	 */
 	public AppIO getAppIO() {
-		return _app;
+		return _handler.getAppIO();
 	}
 
 	/**

@@ -28,12 +28,10 @@ public class Save extends Command<Handler> {
     @Override
     public final void execute() throws InvalidOperation {
         if (!(entity().checkSaved())) {
-            Form f = new Form();
-            InputString inS = new InputString(f, Message.newSaveAs());
-            f.parse();
+            String param_1 = entity().getAppIO().readString(Message.newSaveAs());
 
             try {
-                entity().saveInterpreter(inS.toString());
+                entity().saveInterpreter(param_1);
             } catch (Exception e) {
                 (new Display(title())).add("Erro a guardar o interpretador").display();
             }

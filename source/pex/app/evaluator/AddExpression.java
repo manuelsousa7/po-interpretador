@@ -22,16 +22,15 @@ public class AddExpression extends ProgramCommand {
         super(Label.ADD_EXPRESSION, receiver);
     }
 
-    /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() throws BadExpressionException, BadPositionException {
-        int param_1 = entity().getInterpreter().getAppIO().readInteger();
-        String param_2 = entity().getInterpreter().getAppIO().readString();
+        int param_1 = entity().getAppIO().readInteger(Message.requestPosition());
+        String param_2 = entity().getAppIO().readString(Message.requestExpression());
 
-        if (!(entity().checkAdd(param_1))) {
+        if (!(entity().checkAdd(param_1 - 1))) {
             throw new BadPositionException(param_1);
         }
-        if (!(entity().add(param_1, param_2))) {
+        if (!(entity().add(param_1 - 1, param_2))) {
             throw new BadExpressionException(param_2 + " : nao e valido");
         }
     }

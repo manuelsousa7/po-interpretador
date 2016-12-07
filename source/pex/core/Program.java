@@ -7,6 +7,8 @@ import pex.core.Element;
 import pex.core.Visitor;
 import pex.core.LiteralVisitor;
 
+import pex.AppIO;
+
 import pex.support.app.main.*;
 
 import java.io.*;
@@ -45,11 +47,20 @@ public class Program implements Serializable {
 	}
 
 	public boolean checkAdd(int index) {
-		return (_expressions.size() >= index && index >= 0);
+		return (index <= _expressions.size() && index >= 0);
 	}
 
 	public boolean checkReplace(int index) {
-		return (_expressions.size() > index && index >= 0);
+		return (index < _expressions.size() && index >= 0);
+	}
+
+	/**
+	 * Devolve o AppIO associado a este interpretador
+	 *
+	 * @return Devolve o AppIO associado a este interpretador
+	 */
+	public AppIO getAppIO() {
+		return _interpreter.getAppIO();
 	}
 
 	public Interpreter getInterpreter() {

@@ -19,6 +19,11 @@ public class RunProgram extends ProgramCommand {
     /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() {
-        entity().execute();
+        try {
+            entity().execute();
+        }
+        catch (Exception e) {
+            //FIX ME -- CREATE EXCEPTION
+        }
     }
 }

@@ -20,12 +20,12 @@ public interface AppIO {
      *
      * @return the string written by the user.
      **/
-    String readString();
+    String readString(String str);
 
     /**
      * Reads an integer inputed by the user.
      *
      * @return the number written by the user.
      **/
-    int readInteger();
+    int readInteger(String str);
 }
