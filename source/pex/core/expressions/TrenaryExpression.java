@@ -1,6 +1,7 @@
 package pex.core.expressions;
 
 import pex.core.Visitor;
+import pex.core.WrongTypeException;
 
 import pex.core.expressions.CompositeExpression;
 
@@ -20,7 +21,13 @@ public abstract class TrenaryExpression extends CompositeExpression {
 	 * @return Expression Retorna uma expressao que representa o valor da primeira expressao
 	 */
 	public Expression getFirstArgument(Visitor v) {
-		return _expression_1.accept(v);
+		try {
+			return _expression_1.accept(v);			
+		}
+		catch (WrongTypeException wte) {
+			//Corrigir isto
+			return null;
+		}
 	}
 
 	public String getFirstArgumentText() {
@@ -33,7 +40,13 @@ public abstract class TrenaryExpression extends CompositeExpression {
 	 * @return Expression Retorna uma expressao que representa o valor da segunda expressao
 	 */
 	public Expression getSecondArgument(Visitor v) {
-		return _expression_2.accept(v);
+		try {
+			return _expression_2.accept(v);			
+		}
+		catch (WrongTypeException wte) {
+			//Corrigir isto
+			return null;
+		}
 	}
 
 	public String getSecondArgumentText() {
@@ -46,7 +59,13 @@ public abstract class TrenaryExpression extends CompositeExpression {
 	 * @return Expression Retorna uma expressao que representa o valor da terceira expressao
 	 */
 	public Expression getThirdArgument(Visitor v) {
-		return _expression_3.accept(v);
+		try {
+			return _expression_3.accept(v);			
+		}
+		catch (WrongTypeException wte) {
+			//Corrigir isto
+			return null;
+		}
 	}
 
 	public String getThirdArgument() {

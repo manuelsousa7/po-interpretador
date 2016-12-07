@@ -1,6 +1,7 @@
 package pex.core.expressions.operators;
 
 import pex.core.Visitor;
+import pex.core.WrongTypeException;
 
 import pex.core.Interpreter;
 import pex.core.expressions.UnaryExpression;
@@ -30,7 +31,7 @@ public class Call extends UnaryExpression {
 		return _interp;
 	}
 
-	public Expression accept(Visitor v) {
+	public Expression accept(Visitor v) throws WrongTypeException {
 		return v.visit(this);
 	}
 }

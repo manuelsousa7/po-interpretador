@@ -1,6 +1,7 @@
 package pex.core.expressions.operators;
 
 import pex.core.Visitor;
+import pex.core.WrongTypeException;
 
 import pex.core.expressions.UnaryExpression;
 import pex.core.expressions.Expression;
@@ -23,7 +24,7 @@ public class Neg extends UnaryExpression {
 		super.setArgument(exp);
 	}
 
-	public Expression accept(Visitor v) {
+	public Expression accept(Visitor v) throws WrongTypeException {
 		return v.visit(this);
 	}
 }

@@ -1,6 +1,7 @@
 package pex.core.expressions;
 
 import pex.core.Visitor;
+import pex.core.WrongTypeException;
 
 import pex.core.expressions.CompositeExpression;
 
@@ -18,7 +19,13 @@ public abstract class UnaryExpression extends CompositeExpression {
 	 * @return Expression Retorna uma expressao que representa o valor da expressao
 	 */
 	public Expression getArgument(Visitor v) {
-		return _expression.accept(v);
+		try {
+			return _expression.accept(v);			
+		}
+		catch (WrongTypeException wte) {
+			//Corrigir isto
+			return null;
+		}
 	}
 
 	public String getArgumentText() {

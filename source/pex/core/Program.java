@@ -6,6 +6,7 @@ import pex.core.Interpreter;
 import pex.core.Element;
 import pex.core.Visitor;
 import pex.core.LiteralVisitor;
+import pex.core.WrongTypeException;
 
 import pex.AppIO;
 
@@ -121,10 +122,16 @@ public class Program implements Serializable {
 	public Expression execute() {
 		if (_expressions.size() > 0) {
 			Expression expression = null;
-			for (Expression exp : _expressions) {
-				exp.accept(_visitor);
+			try {
+				for (Expression exp : _expressions) {
+					exp.accept(_visitor);
+				}				
+				return expression;
 			}
-			return expression;
+			catch (WrongTypeException wte) {
+				//Imprimir uma cena
+				return null;
+			}
 		}
 		return new LiteralInt(0);
 	}

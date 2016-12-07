@@ -1,6 +1,8 @@
 package pex.core.expressions.operators;
 
 import pex.core.Visitor;
+import pex.core.WrongTypeException;
+
 import pex.core.expressions.BinaryExpression;
 import pex.core.expressions.Expression;
 import pex.core.expressions.LiteralInt;
@@ -24,7 +26,7 @@ public class And extends BinaryExpression {
 		super.setOperatorName("and");
 	}
 
-	public Expression accept(Visitor v) {
+	public Expression accept(Visitor v) throws WrongTypeException {
 		return v.visit(this);
 	}
 }

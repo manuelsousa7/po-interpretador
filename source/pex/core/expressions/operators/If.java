@@ -1,6 +1,7 @@
 package pex.core.expressions.operators;
 
 import pex.core.Visitor;
+import pex.core.WrongTypeException;
 
 import pex.core.expressions.TrenaryExpression;
 import pex.core.expressions.Expression;
@@ -25,7 +26,7 @@ public class If extends TrenaryExpression {
 		super.setArguments(exp_1, exp_2, exp_3);
 	}
 
-	public Expression accept(Visitor v) {
+	public Expression accept(Visitor v) throws WrongTypeException {
 		return v.visit(this);
 	}
 }

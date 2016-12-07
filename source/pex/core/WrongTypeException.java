@@ -7,20 +7,27 @@ import pt.utl.ist.po.ui.InvalidOperation;
  */
 @SuppressWarnings("nls")
 public class WrongTypeException extends InvalidOperation {
-    private String _expected;
-
     /** Serial number for serialization. */
     private static final long serialVersionUID = 201608241029L;
 
-    /** Original leaf expression. */
-    String _description;
+    private String _description;
 
     /**
-    * @param description
+    * Constructor : Chamado quando nao se sabe o tipo da expressao dada
     */
-    public WrongTypeException(String wrong, String right) {
-        _description = description;
-        _expected = right;
+
+    public WrongTypeException() {
+        _description = "Tipo desconhecido.";
+    }
+
+    /**
+    * Constructor : Chamado quando uma expressao nao tem o tipo esperado
+    * @param received A versao em texto da expressao fornecida
+    * @param wrong O tipo da expressao recebida que esta errado
+    * @oaram right O tipo esperado da expressao para que fosse correta
+    */
+    public WrongTypeException(String received, String wrong, String right) {
+        _description = "Argumento: " + received + " de tipo " + wrong + ".\tEsperado : " + right + "\n";
     }
 
     /**
@@ -33,6 +40,6 @@ public class WrongTypeException extends InvalidOperation {
     /** @see pt.tecnico.po.ui.DialogException#getMessage() */
     @Override
     public String getMessage() {
-        return "Tipo de argumento: " + _description + "\tesperado : " + _expected + "\n";
+        return _description;
     }
 }

@@ -1,6 +1,7 @@
 package pex.core;
 
 import pex.core.Visitor;
+import pex.core.WrongTypeException;
 import pex.core.expressions.Expression;
 import pex.core.expressions.Identifier;
 import pex.core.expressions.LiteralInt;
@@ -8,9 +9,19 @@ import pex.core.expressions.LiteralString;
 import pex.core.expressions.operators.*;
 
 public class LiteralVisitor implements Visitor {
+	//String que representa um literal do tipo String
+	private String _string = "String";
+	//String que representa um literal do tipo Int
+	private String _int = "Integer";
 
 	public Expression visit(Identifier id) {
-		return (id.getExpression()).accept(this);
+		try {
+			return (id.getExpression()).accept(this);
+		}
+		catch (Exception e) {
+			//Isto nao devia ser assim
+			return null;
+		}
 	}
 
 	public Expression visit(LiteralInt litInt) {
@@ -21,19 +32,34 @@ public class LiteralVisitor implements Visitor {
 		return litStr;
 	}
 
-	public Expression visit(Add add) {
+	public Expression visit(Add add) throws WrongTypeException {
+		
 		try {
 			return (new LiteralInt(((LiteralInt)add.getFirstArgument(this)).getInt() + 
 									((LiteralInt)add.getSecondArgument(this)).getInt())
 									);
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
+			try {
+				LiteralString str = ((LiteralString)add.getFirstArgument(this));
+				throw new WrongTypeException(str.getAsText(), _string, _int);
+			}
+			catch (ClassCastException cce2) {
+				throw new WrongTypeException();
+			}
+			finally {
+				try {
+					LiteralString str = ((LiteralString)add.getSecondArgument(this));
+					throw new WrongTypeException(str.getAsText(), _string, _int);
+				}
+				catch (ClassCastException cce3) {
+					throw new WrongTypeException();
+				}
+			}
 		}
 	}
 
-	public Expression visit(And and) {
+	public Expression visit(And and) throws WrongTypeException {
 		try {
 			if (((LiteralInt)and.getFirstArgument(this)).getInt() > 0 &&
 				((LiteralInt)and.getSecondArgument(this)).getInt() > 0) {
@@ -44,22 +70,21 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
+			//throw new WrongTypeException("String", "Int");
 			return null;
 		}
 	}
 
-	public Expression visit(Call call) {
+	public Expression visit(Call call) throws WrongTypeException {
 		try {
 			return ((call.getInterp()).getProgram(((LiteralString)call.getArgument(this)).getString())).execute();
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
+			throw new WrongTypeException();
 		}
 	}
 
-	public Expression visit(Div div) {
+	public Expression visit(Div div) throws WrongTypeException {
 		try {
 			Expression exp = div.getSecondArgument(this);
 			if ((((LiteralInt)exp).getInt()) != 0) {
@@ -74,12 +99,12 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
+			//throw new WrongTypeException("String", "Int");
 			return null;
 		}
 	}
 
-	public Expression visit(Eq eq) {
+	public Expression visit(Eq eq) throws WrongTypeException {
 		try {
 			if (((LiteralInt)eq.getFirstArgument(this)).getInt() ==
 				((LiteralInt)eq.getSecondArgument(this)).getInt()) {
@@ -90,12 +115,11 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
+			throw new WrongTypeException();
 		}
 	}
 
-	public Expression visit(Ge ge) {
+	public Expression visit(Ge ge) throws WrongTypeException {
 		try {
 			if (((LiteralInt)ge.getFirstArgument(this)).getInt() >=
 				((LiteralInt)ge.getSecondArgument(this)).getInt()) {
@@ -106,12 +130,11 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
+			throw new WrongTypeException();
 		}
 	}
 
-	public Expression visit(Gt gt) {
+	public Expression visit(Gt gt) throws WrongTypeException {
 		try {
 			if (((LiteralInt)gt.getFirstArgument(this)).getInt() >
 				((LiteralInt)gt.getSecondArgument(this)).getInt()) {
@@ -122,12 +145,11 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
+			throw new WrongTypeException();
 		}
 	}
 
-	public Expression visit(If ife) {
+	public Expression visit(If ife) throws WrongTypeException {
 		try {
 			if ((((LiteralInt)ife.getFirstArgument(this)).getInt()) > 0) {
 				return ife.getSecondArgument(this);
@@ -137,12 +159,11 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
+			throw new WrongTypeException();
 		}
 	}
 
-	public Expression visit(Le le) {
+	public Expression visit(Le le) throws WrongTypeException {
 		try {
 			if (((LiteralInt)le.getFirstArgument(this)).getInt() <=
 				((LiteralInt)le.getSecondArgument(this)).getInt()) {
@@ -153,12 +174,11 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
+			throw new WrongTypeException();
 		}
 	}
 
-	public Expression visit(Lt lt) {
+	public Expression visit(Lt lt) throws WrongTypeException {
 		try {
 			if (((LiteralInt)lt.getFirstArgument(this)).getInt() <
 				((LiteralInt)lt.getSecondArgument(this)).getInt()) {
@@ -169,36 +189,33 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
+			throw new WrongTypeException();
 		}
 	}
 
-	public Expression visit(Mod mod) {
+	public Expression visit(Mod mod) throws WrongTypeException {
 		try {
 			return (new LiteralInt(((LiteralInt)mod.getFirstArgument(this)).getInt() % 
 									((LiteralInt)mod.getSecondArgument(this)).getInt())
 									);
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
+			throw new WrongTypeException();
 		}
 	}
 
-	public Expression visit(Mul mul) {
+	public Expression visit(Mul mul) throws WrongTypeException {
 		try {
 			return (new LiteralInt(((LiteralInt)mul.getFirstArgument(this)).getInt() * 
 									((LiteralInt)mul.getSecondArgument(this)).getInt())
 									);
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
+			throw new WrongTypeException();
 		}
 	}
 
-	public Expression visit(Ne ne) {
+	public Expression visit(Ne ne) throws WrongTypeException {
 		try {
 			if (((LiteralInt)ne.getFirstArgument(this)).getInt() !=
 				((LiteralInt)ne.getSecondArgument(this)).getInt()) {
@@ -209,22 +226,20 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
+			throw new WrongTypeException();
 		}
 	}
 
-	public Expression visit(Neg neg) {
+	public Expression visit(Neg neg) throws WrongTypeException {
 		try {
 			return new LiteralInt(-1 * ((LiteralInt)neg.getArgument(this)).getInt());
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
+			throw new WrongTypeException();
 		}
 	}
 
-	public Expression visit(Not not) {
+	public Expression visit(Not not) throws WrongTypeException {
 		try {
 			if (((LiteralInt)not.getArgument(this)).getInt() == 0) {
 				return new LiteralInt(1);
@@ -234,12 +249,11 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
+			throw new WrongTypeException();
 		}
 	}
 
-	public Expression visit(Or ore) {
+	public Expression visit(Or ore) throws WrongTypeException {
 		try {
 			if (((LiteralInt)ore.getFirstArgument(this)).getInt() > 0 ||
 				((LiteralInt)ore.getSecondArgument(this)).getInt() > 0) {
@@ -250,17 +264,22 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
+			throw new WrongTypeException();
 		}
 	}
 
 	public Expression visit(Print print) {
-		Expression express = null;
-		for (Expression exp : print.getArguments()) {
-			express = exp.accept(this);
+		Expression expression = null;
+		try {
+			for (Expression exp : print.getArguments()) {
+				exp.accept(this);
+			}				
+			return expression;
 		}
-		return express;
+		catch (WrongTypeException wte) {
+			//Imprimir uma cena
+			return null;
+		}
 	}
 
 	public Expression visit(ReadI readi) {
@@ -272,31 +291,36 @@ public class LiteralVisitor implements Visitor {
 	}
 
 	public Expression visit(Seq seq) {
-		Expression express = null;
-		for (Expression exp : seq.getArguments()) {
-			express = exp.accept(this);
+		Expression expression = null;
+		try {
+			for (Expression exp : seq.getArguments()) {
+				exp.accept(this);
+			}				
+			return expression;
 		}
-		return express;
+		catch (WrongTypeException wte) {
+			//Imprimir uma cena
+			return null;
+		}
 	}
 
-	public Expression visit(Set set) {
+	public Expression visit(Set set) throws WrongTypeException {
 		String id = (set.getIdent()).getAsText();
 		return (set.getProgram()).getInterpreter().setId(id, set.getSecondArgument(this));
 	}
 
-	public Expression visit(Sub sub) {
+	public Expression visit(Sub sub) throws WrongTypeException {
 		try {
 			return (new LiteralInt(((LiteralInt)sub.getFirstArgument(this)).getInt() - 
 									((LiteralInt)sub.getSecondArgument(this)).getInt())
 									);
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
+			throw new WrongTypeException();
 		}
 	}
 
-	public Expression visit(While whail) {
+	public Expression visit(While whail) throws WrongTypeException {
 		try {
 			while ((((LiteralInt)whail.getFirstArgument(this)).getInt()) > 0) {
 				whail.getSecondArgument(this);
@@ -304,8 +328,7 @@ public class LiteralVisitor implements Visitor {
 			return new LiteralInt(0);
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Erro a analizar os argumentos!");
-			return null;
+			throw new WrongTypeException();
 		}
 	}
 }

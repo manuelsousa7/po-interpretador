@@ -1,6 +1,7 @@
 package pex.core.expressions.operators;
 
 import pex.core.Visitor;
+import pex.core.WrongTypeException;
 
 import pex.core.expressions.BinaryExpression;
 import pex.core.expressions.Expression;
@@ -44,7 +45,7 @@ public class Set extends BinaryExpression {
 		return _ident;
 	}
 
-	public Expression accept(Visitor v) {
+	public Expression accept(Visitor v) throws WrongTypeException {
 		return v.visit(this);
 	}
 }
