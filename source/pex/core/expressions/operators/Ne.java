@@ -23,6 +23,7 @@ public class Ne extends BinaryExpression {
 	 */
 	public Ne(Expression exp_1, Expression exp_2) {
 		super.setArguments(exp_1, exp_2);
+		super.setOperatorName("ne");
 	}
 
 	public Expression accept(Visitor v) throws WrongTypeException {

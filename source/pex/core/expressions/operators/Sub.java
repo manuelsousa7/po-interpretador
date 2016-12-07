@@ -23,6 +23,7 @@ public class Sub extends BinaryExpression {
 	 */
 	public Sub(Expression exp_1, Expression exp_2) {
 		super.setArguments(exp_1, exp_2);
+		super.setOperatorName("sub");
 	}
 
 	public Expression accept(Visitor v) throws WrongTypeException {

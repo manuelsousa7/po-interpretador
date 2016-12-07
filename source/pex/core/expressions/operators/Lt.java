@@ -23,6 +23,7 @@ public class Lt extends BinaryExpression {
 	 */
 	public Lt(Expression exp_1, Expression exp_2) {
 		super.setArguments(exp_1, exp_2);
+		super.setOperatorName("lt");
 	}
 
 	public Expression accept(Visitor v) throws WrongTypeException {

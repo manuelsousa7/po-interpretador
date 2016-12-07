@@ -6,6 +6,8 @@ import pex.support.app.evaluator.Label;
 
 import pt.utl.ist.po.ui.Display;
 
+import java.util.List;
+
 /**
  * Show uninitialized identifiers.
  */
@@ -21,6 +23,12 @@ public class ShowUninitializedIdentifiers extends ProgramCommand {
     /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() {
-        
+        List<String> lista = entity().listUninitializedIds();
+
+        Display disp = new Display();
+        for (String str : lista) {
+            disp.addNewLine(str);
+        }
+        disp.display();
     }
 }

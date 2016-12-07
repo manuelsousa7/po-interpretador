@@ -27,7 +27,7 @@ public interface Visitor
 	public Expression visit(Neg neg) throws WrongTypeException;
 	public Expression visit(Not not) throws WrongTypeException;
 	public Expression visit(Or ore) throws WrongTypeException;
-	public Expression visit(Print print);
+	public Expression visit(Print print) throws WrongTypeException;
 	public Expression visit(ReadI readi);
 	public Expression visit(ReadS reads);
 	public Expression visit(Seq seq);

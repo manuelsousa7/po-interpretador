@@ -23,6 +23,7 @@ public class Mul extends BinaryExpression {
 	 */
 	public Mul(Expression exp_1, Expression exp_2) {
 		super.setArguments(exp_1, exp_2);
+		super.setOperatorName("mul");
 	}
 
 	public Expression accept(Visitor v) throws WrongTypeException {

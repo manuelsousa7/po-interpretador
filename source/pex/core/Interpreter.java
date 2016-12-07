@@ -50,8 +50,28 @@ public class Interpreter implements Serializable {
 		return _initializedIds.get(str);
 	}
 
-	public Map<String, Identifier> getInitializedIds(){
-		return _initializedIds;
+	public List<String> listIds() {
+		List<String> strings = new ArrayList<String>();
+		if (_initializedIds.size() > 0) {
+			for(Map.Entry<String,Identifier> entry : _initializedIds.entrySet()) {
+				strings.add(entry.getKey());
+			}
+			return strings;
+		}
+		strings.add("");
+		return strings;
+	}
+
+	public List<String> listUninitializedIds() {
+		List<String> strings = new ArrayList<String>();
+		if (_uninitializedIds.size() > 0) {
+			for(Map.Entry<String,Identifier> entry : _uninitializedIds.entrySet()) {
+				strings.add(entry.getKey());
+			}
+			return strings;
+		}
+		strings.add("");
+		return strings;
 	}
 
 	/**
@@ -124,6 +144,35 @@ public class Interpreter implements Serializable {
 	 */
 	public AppIO getAppIO() {
 		return _handler.getAppIO();
+	}
+
+	/**
+	 * Devolve uma int lida pela AppIO
+	 *
+	 * @param str A string a mostrar ao pedir a int
+	 * @return int A int lida pelo AppIO
+	 */
+	public int requestInt(String str) {
+		return _handler.requestInt(str);
+	}
+
+	/**
+	 * Devolve uma string lida pela AppIO
+	 *
+     * @param str A string a mostrar ao pedir a string
+	 * @return String A string lida pelo AppIO
+	 */
+	public String requestString(String str) {
+		return _handler.requestString(str);
+	}
+
+	/**
+	 * Pede que a AppIO imprima a string dada
+	 *
+	 * @param str A string a imprimir pela AppIO
+	 */
+	public void requestPrint(String str) {
+		_handler.requestPrint(str);
 	}
 
 	/**

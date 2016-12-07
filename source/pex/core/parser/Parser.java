@@ -218,7 +218,7 @@ public class Parser {
             if (operatorName.equals("seq"))
                 return new Seq(args);
             else
-                return new Print(args);
+                return new Print(args, _program);
 
         default:
             throw new UnknownOperationException(_tokenizer.sval);

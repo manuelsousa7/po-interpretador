@@ -24,6 +24,7 @@ public class If extends TrenaryExpression {
 	 */
 	public If(Expression exp_1, Expression exp_2, Expression exp_3) {
 		super.setArguments(exp_1, exp_2, exp_3);
+		super.setOperatorName("if");
 	}
 
 	public Expression accept(Visitor v) throws WrongTypeException {

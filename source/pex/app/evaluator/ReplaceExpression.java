@@ -25,8 +25,8 @@ public class ReplaceExpression extends ProgramCommand {
     /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() throws BadExpressionException, BadPositionException {
-        int param_1 = entity().getAppIO().readInteger(Message.requestPosition());
-        String param_2 = entity().getAppIO().readString(Message.requestExpression());
+        int param_1 = entity().requestInt(Message.requestPosition());
+        String param_2 = entity().requestString(Message.requestExpression());
 
         if (!(entity().checkReplace(param_1 - 1))) {
             throw new BadPositionException(param_1);

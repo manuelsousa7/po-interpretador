@@ -11,7 +11,7 @@ import pex.core.expressions.LiteralInt;
 import pex.core.expressions.LiteralString;
 import pex.core.expressions.operators.*;
 
-public class LiteralVisitor implements Visitor {
+public class Teste implements Visitor {
 
 	public void throwWrongType(UnaryExpression unary) throws WrongTypeException {
 		try {
@@ -398,26 +398,26 @@ public class LiteralVisitor implements Visitor {
 		}
 	}
 
-	public Expression visit(Print print) throws WrongTypeException {
+	public Expression visit(Print print) {
 		Expression expression = null;
 		try {
 			for (Expression exp : print.getArguments()) {
-				expression = exp.accept(this);
-				print.getProgram().requestPrint(expression.getAsText());
+				exp.accept(this);
 			}				
 			return expression;
 		}
 		catch (WrongTypeException wte) {
-			throw wte;
+			//Imprimir uma cena
+			return null;
 		}
 	}
 
 	public Expression visit(ReadI readi) {
-		return new LiteralInt(readi.getProgram().requestInt(""));
+		return new LiteralInt((readi.getProgram()).getInterpreter().getAppIO().readInteger(""));
 	}
 
 	public Expression visit(ReadS reads) {
-		return new LiteralInt(reads.getProgram().requestInt(""));
+		return new LiteralString((reads.getProgram()).getInterpreter().getAppIO().readString(""));
 	}
 
 	public Expression visit(Seq seq) {

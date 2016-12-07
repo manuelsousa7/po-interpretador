@@ -6,7 +6,7 @@ import pex.support.app.evaluator.Label;
 
 import pt.utl.ist.po.ui.Display;
 
-import java.util.*;
+import java.util.List;
 
 import pex.core.expressions.*;
 
@@ -25,18 +25,11 @@ public class ShowAllIdentifiers extends ProgramCommand {
     /** @see pt.utl.ist.po.ui.Command#execute() */
     @Override
     public final void execute() {
-        TreeMap<String, Identifier> tree = (entity().getInterpreter().getInitializedIds());
+        List<String> lista = entity().listIds();
 
-        // Get a set of the entries
-        Set set = tree.entrySet();
-
-        // Get an iterator
-        Iterator i = set.iterator();
         Display disp = new Display();
-        while (tree.hasNext()) {
-            Map.Entry me = (Map.Entry)tree.next();
-            System.out.print(me.getKey() + ": ");
-            System.out.println(me.getValue());
+        for (String str : lista) {
+            disp.addNewLine(str);
         }
         disp.display();
     }

@@ -23,6 +23,7 @@ public class Mod extends BinaryExpression {
 	 */
 	public Mod(Expression exp_1, Expression exp_2) {
 		super.setArguments(exp_1, exp_2);
+		super.setOperatorName("mod");
 	}
 
 	public Expression accept(Visitor v) throws WrongTypeException {

@@ -28,7 +28,7 @@ public class Save extends Command<Handler> {
     @Override
     public final void execute() throws InvalidOperation {
         if (!(entity().checkSaved())) {
-            String param_1 = entity().getAppIO().readString(Message.newSaveAs());
+            String param_1 = entity().requestString(Message.newSaveAs());
 
             try {
                 entity().saveInterpreter(param_1);

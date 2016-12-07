@@ -23,6 +23,7 @@ public class Gt extends BinaryExpression {
 	 */
 	public Gt(Expression exp_1, Expression exp_2) {
 		super.setArguments(exp_1, exp_2);
+		super.setOperatorName("gt");
 	}
 
 	public Expression accept(Visitor v) throws WrongTypeException {

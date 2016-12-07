@@ -23,6 +23,7 @@ public class Eq extends BinaryExpression {
 	 */
 	public Eq(Expression exp_1, Expression exp_2) {
 		super.setArguments(exp_1, exp_2);
+		super.setOperatorName("eq");
 	}
 
 	public Expression accept(Visitor v) throws WrongTypeException {

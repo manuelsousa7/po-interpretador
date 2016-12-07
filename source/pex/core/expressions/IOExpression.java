@@ -11,10 +11,20 @@ import pex.core.Program;
 public abstract class IOExpression extends CompositeExpression {
 	private Program _program;
 
+	/**
+	 * Associa um novo programa
+	 *
+	 * @param prog O programa a associar
+	 */
 	public void setProgram(Program prog) {
 		_program = prog;
 	}
 
+	/**
+	 * Devolve o programa
+	 *
+	 * @return Program O programa associado
+	 */
 	public Program getProgram() {
 		return _program;
 	}

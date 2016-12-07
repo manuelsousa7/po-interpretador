@@ -27,8 +27,8 @@ public class WriteProgram extends Command<Handler> {
      */
     @Override
     public final void execute() throws InvalidOperation {
-        String param_1 = entity().getAppIO().readString(Message.requestProgramId());
-        String param_2 = entity().getAppIO().readString(Message.programFileName());
+        String param_1 = entity().requestString(Message.requestProgramId());
+        String param_2 = entity().requestString(Message.programFileName());
 
         if (entity().checkProgram(param_1)) {
             try {

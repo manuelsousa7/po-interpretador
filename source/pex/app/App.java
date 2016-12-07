@@ -79,5 +79,8 @@ public class App implements AppIO {
         }
         MainMenu menu = new MainMenu(handler);
         menu.open();
+        /*
+        System.out.println("Parabens Manecas! XD");
+        */
     }
 }

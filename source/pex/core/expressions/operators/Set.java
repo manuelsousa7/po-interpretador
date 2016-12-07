@@ -14,8 +14,8 @@ import pex.core.Program;
  * @author Manuel e Goncalo
  */
 public class Set extends BinaryExpression {
-	private Program _programa;
 	private Identifier _ident;
+	private Program _program;
 
 	/**
 	 * Contrutor: Inicia as expressoes como as expressoes recebidas
@@ -26,19 +26,18 @@ public class Set extends BinaryExpression {
 	public Set(Expression exp_1, Expression exp_2, Program prog) {
 		try {
 			_ident = (Identifier)exp_1;
+			_program = prog;
+			super.setArguments(exp_1, exp_2);
+			super.setOperatorName("set");
 		}
 		catch (ClassCastException cce) {
 			//Bad expression
 			;
 		}
-		finally {
-			super.setArguments(exp_1, exp_2);
-			_programa = prog;
-		}
 	}
 
 	public Program getProgram() {
-		return _programa;
+		return _program;
 	}
 
 	public Identifier getIdent() {

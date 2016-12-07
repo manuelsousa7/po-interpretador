@@ -22,6 +22,7 @@ public class Neg extends UnaryExpression {
 	 */
 	public Neg(Expression exp) {
 		super.setArgument(exp);
+		super.setOperatorName("neg");
 	}
 
 	public Expression accept(Visitor v) throws WrongTypeException {

@@ -67,6 +67,35 @@ public class Handler implements Serializable  {
 	}
 
 	/**
+	 * Devolve uma int lida pela AppIO
+	 *
+	 * @param str A string a mostrar ao pedir a int
+	 * @return int A int lida pelo AppIO
+	 */
+	public int requestInt(String str) {
+		return _app.readInteger(str);
+	}
+
+	/**
+	 * Devolve uma string lida pela AppIO
+	 *
+     * @param str A string a mostrar ao pedir a string
+	 * @return String A string lida pelo AppIO
+	 */
+	public String requestString(String str) {
+		return _app.readString(str);
+	}
+
+	/**
+	 * Pede que a AppIO imprima a string dada
+	 *
+	 * @param str A string a imprimir pela AppIO
+	 */
+	public void requestPrint(String str) {
+		_app.println(str);
+	}
+
+	/**
 	 * Associa um interpretador localizado num ficheiro atraves da serializacao
 	 *
 	 * @param file O nome do ficheiro no qual esta guardado o interpretador

@@ -23,6 +23,7 @@ public class While extends BinaryExpression {
 	 */
 	public While(Expression exp_1, Expression exp_2) {
 		super.setArguments(exp_1, exp_2);
+		super.setOperatorName("while");
 	}
 
 	public Expression accept(Visitor v) throws WrongTypeException {

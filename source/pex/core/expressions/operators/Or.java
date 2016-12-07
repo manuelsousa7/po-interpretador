@@ -23,6 +23,7 @@ public class Or extends BinaryExpression {
 	 */
 	public Or(Expression exp_1, Expression exp_2) {
 		super.setArguments(exp_1, exp_2);
+		super.setOperatorName("or");
 	}
 
 	public Expression accept(Visitor v) throws WrongTypeException {

@@ -25,7 +25,7 @@ public class NewProgram extends Command<Handler> {
      */
     @Override
     public final void execute() {
-        String param_1 = entity().getAppIO().readString(Message.requestProgramId());
+        String param_1 = entity().requestString(Message.requestProgramId());
 
         entity().createProgram(param_1);
     }

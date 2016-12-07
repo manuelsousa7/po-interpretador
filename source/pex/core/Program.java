@@ -67,11 +67,8 @@ public class Program implements Serializable {
 	public boolean add(int index, String expressao) {
 		try {
 			Expression exp = _parser.parseString(expressao, this);
-			if (exp.accept(_visitor) != null) {
-				_expressions.add(index, exp);
-				return true;
-			}
-			return false;
+			_expressions.add(index, exp);
+			return true;
 		} catch (Exception e) {
 			return false;
 		}
@@ -115,12 +112,13 @@ public class Program implements Serializable {
 			Expression expression = null;
 			try {
 				for (Expression exp : _expressions) {
-					exp.accept(_visitor);
+					expression = exp.accept(_visitor);
 				}				
 				return expression;
 			}
 			catch (WrongTypeException wte) {
 				//Imprimir uma cena
+				//Nova excecao ExecutionFailureException
 				return null;
 			}
 		}
@@ -137,7 +135,36 @@ public class Program implements Serializable {
 	}
 
 	public AppIO getAppIO() {
-		return getInterpreter().getAppIO();
+		return _interpreter.getAppIO();
+	}
+
+	/**
+	 * Devolve uma int lida pela AppIO
+	 *
+	 * @param str A string a mostrar ao pedir a int
+	 * @return int A int lida pelo AppIO
+	 */
+	public int requestInt(String str) {
+		return _interpreter.requestInt(str);
+	}
+
+	/**
+	 * Devolve uma string lida pela AppIO
+	 *
+     * @param str A string a mostrar ao pedir a string
+	 * @return String A string lida pelo AppIO
+	 */
+	public String requestString(String str) {
+		return _interpreter.requestString(str);
+	}
+
+	/**
+	 * Pede que a AppIO imprima a string dada
+	 *
+	 * @param str A string a imprimir pela AppIO
+	 */
+	public void requestPrint(String str) {
+		_interpreter.requestPrint(str);
 	}
 
 	/**
@@ -151,6 +178,14 @@ public class Program implements Serializable {
 			_expressoes.add(exp.getAsText());
 		}
 		return _expressoes;
+	}
+
+	public List<String> listIds() {
+		return _interpreter.listIds();
+	}
+
+	public List<String> listUninitializedIds() {
+		return _interpreter.listUninitializedIds();
 	}
 
 	/**

@@ -1,8 +1,5 @@
 package pex.core;
 
-import pex.core.expressions.UnaryExpression;
-import pex.core.expressions.BinaryExpression;
-import pex.core.expressions.TrenaryExpression;
 import pex.core.Visitor;
 import pex.core.WrongTypeException;
 import pex.core.expressions.Expression;
@@ -11,56 +8,7 @@ import pex.core.expressions.LiteralInt;
 import pex.core.expressions.LiteralString;
 import pex.core.expressions.operators.*;
 
-public class LiteralVisitor implements Visitor {
-
-	public void throwWrongType(UnaryExpression unary) throws WrongTypeException {
-		try {
-			LiteralString str = ((LiteralString)unary.getArgument(this));
-			throw new WrongTypeException(str.getAsText(), _string, _int);
-		}
-		catch (ClassCastException cce2) {
-			throw new WrongTypeException();
-		}
-	}
-
-	public void throwWrongType(BinaryExpression binary) throws WrongTypeException  {
-		try {
-			LiteralString str = ((LiteralString)binary.getFirstArgument(this));
-			throw new WrongTypeException(str.getAsText(), _string, _int);
-		}
-		catch (ClassCastException cce2) {
-			try {
-				LiteralString str = ((LiteralString)binary.getSecondArgument(this));
-				throw new WrongTypeException(str.getAsText(), _string, _int);
-			}
-			catch (ClassCastException cce3) {
-				throw new WrongTypeException();
-			}
-		}
-	}
-
-	public void throwWrongType(TrenaryExpression trenary) throws WrongTypeException  {
-		try {
-			LiteralString str = ((LiteralString)trenary.getFirstArgument(this));
-			throw new WrongTypeException(str.getAsText(), _string, _int);
-		}
-		catch (ClassCastException cce2) {
-			try {
-				LiteralString str = ((LiteralString)trenary.getSecondArgument(this));
-				throw new WrongTypeException(str.getAsText(), _string, _int);
-			}
-			catch (ClassCastException cce3) {
-				try {
-					LiteralString str = ((LiteralString)trenary.getThirdArgument(this));
-				throw new WrongTypeException(str.getAsText(), _string, _int);
-				}
-				catch (ClassCastException cce4) {
-					throw new WrongTypeException();
-				}
-			}
-		}
-	}
-
+public class Original implements Visitor {
 	//String que representa um literal do tipo String
 	private String _string = "String";
 	//String que representa um literal do tipo Int
@@ -86,18 +34,12 @@ public class LiteralVisitor implements Visitor {
 
 	public Expression visit(Add add) throws WrongTypeException {
 		try {
-			return (new LiteralInt(((LiteralInt)add.getFirstArgument(this)).getInt() + 
+			return (new LiteralInt(((LiteralInt)add.getFirstArgument(this)).getInt() * 
 									((LiteralInt)add.getSecondArgument(this)).getInt())
 									);
 		}
 		catch (ClassCastException cce) {
-			try{
-				throwWrongType(add);
-				return null;
-			}
-			catch (WrongTypeException wte) {
-				throw wte;
-			}
+			throw new WrongTypeException();
 		}
 	}
 
@@ -112,13 +54,8 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			try{
-				throwWrongType(and);
-				return null;
-			}
-			catch (WrongTypeException wte) {
-				throw wte;
-			}
+			//throw new WrongTypeException("String", "Int");
+			return null;
 		}
 	}
 
@@ -127,13 +64,7 @@ public class LiteralVisitor implements Visitor {
 			return ((call.getInterp()).getProgram(((LiteralString)call.getArgument(this)).getString())).execute();
 		}
 		catch (ClassCastException cce) {
-			try{
-				throwWrongType(call);
-				return null;
-			}
-			catch (WrongTypeException wte) {
-				throw wte;
-			}
+			throw new WrongTypeException();
 		}
 	}
 
@@ -152,13 +83,8 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			try{
-				throwWrongType(div);
-				return null;
-			}
-			catch (WrongTypeException wte) {
-				throw wte;
-			}
+			//throw new WrongTypeException("String", "Int");
+			return null;
 		}
 	}
 
@@ -173,13 +99,7 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			try{
-				throwWrongType(eq);
-				return null;
-			}
-			catch (WrongTypeException wte) {
-				throw wte;
-			}
+			throw new WrongTypeException();
 		}
 	}
 
@@ -194,13 +114,7 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			try{
-				throwWrongType(ge);
-				return null;
-			}
-			catch (WrongTypeException wte) {
-				throw wte;
-			}
+			throw new WrongTypeException();
 		}
 	}
 
@@ -215,13 +129,7 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			try{
-				throwWrongType(gt);
-				return null;
-			}
-			catch (WrongTypeException wte) {
-				throw wte;
-			}
+			throw new WrongTypeException();
 		}
 	}
 
@@ -235,13 +143,7 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			try{
-				throwWrongType(ife);
-				return null;
-			}
-			catch (WrongTypeException wte) {
-				throw wte;
-			}
+			throw new WrongTypeException();
 		}
 	}
 
@@ -256,13 +158,7 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			try{
-				throwWrongType(le);
-				return null;
-			}
-			catch (WrongTypeException wte) {
-				throw wte;
-			}
+			throw new WrongTypeException();
 		}
 	}
 
@@ -277,13 +173,7 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			try{
-				throwWrongType(lt);
-				return null;
-			}
-			catch (WrongTypeException wte) {
-				throw wte;
-			}
+			throw new WrongTypeException();
 		}
 	}
 
@@ -294,13 +184,7 @@ public class LiteralVisitor implements Visitor {
 									);
 		}
 		catch (ClassCastException cce) {
-			try{
-				throwWrongType(mod);
-				return null;
-			}
-			catch (WrongTypeException wte) {
-				throw wte;
-			}
+			throw new WrongTypeException();
 		}
 	}
 
@@ -311,13 +195,7 @@ public class LiteralVisitor implements Visitor {
 									);
 		}
 		catch (ClassCastException cce) {
-			try{
-				throwWrongType(mul);
-				return null;
-			}
-			catch (WrongTypeException wte) {
-				throw wte;
-			}
+			throw new WrongTypeException();
 		}
 	}
 
@@ -332,13 +210,7 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			try{
-				throwWrongType(ne);
-				return null;
-			}
-			catch (WrongTypeException wte) {
-				throw wte;
-			}
+			throw new WrongTypeException();
 		}
 	}
 
@@ -347,13 +219,7 @@ public class LiteralVisitor implements Visitor {
 			return new LiteralInt(-1 * ((LiteralInt)neg.getArgument(this)).getInt());
 		}
 		catch (ClassCastException cce) {
-			try{
-				throwWrongType(neg);
-				return null;
-			}
-			catch (WrongTypeException wte) {
-				throw wte;
-			}
+			throw new WrongTypeException();
 		}
 	}
 
@@ -367,13 +233,7 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			try{
-				throwWrongType(not);
-				return null;
-			}
-			catch (WrongTypeException wte) {
-				throw wte;
-			}
+			throw new WrongTypeException();
 		}
 	}
 
@@ -388,43 +248,37 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 		catch (ClassCastException cce) {
-			try{
-				throwWrongType(ore);
-				return null;
-			}
-			catch (WrongTypeException wte) {
-				throw wte;
-			}
+			throw new WrongTypeException();
 		}
 	}
 
-	public Expression visit(Print print) throws WrongTypeException {
+	public Expression visit(Print print) {
 		Expression expression = null;
 		try {
 			for (Expression exp : print.getArguments()) {
-				expression = exp.accept(this);
-				print.getProgram().requestPrint(expression.getAsText());
+				exp.accept(this);
 			}				
 			return expression;
 		}
 		catch (WrongTypeException wte) {
-			throw wte;
+			//Imprimir uma cena
+			return null;
 		}
 	}
 
 	public Expression visit(ReadI readi) {
-		return new LiteralInt(readi.getProgram().requestInt(""));
+		return new LiteralInt((readi.getProgram()).getInterpreter().getAppIO().readInteger(""));
 	}
 
 	public Expression visit(ReadS reads) {
-		return new LiteralInt(reads.getProgram().requestInt(""));
+		return new LiteralString((reads.getProgram()).getInterpreter().getAppIO().readString(""));
 	}
 
 	public Expression visit(Seq seq) {
 		Expression expression = null;
 		try {
 			for (Expression exp : seq.getArguments()) {
-				expression = exp.accept(this);
+				exp.accept(this);
 			}				
 			return expression;
 		}
@@ -446,13 +300,7 @@ public class LiteralVisitor implements Visitor {
 									);
 		}
 		catch (ClassCastException cce) {
-			try{
-				throwWrongType(sub);
-				return null;
-			}
-			catch (WrongTypeException wte) {
-				throw wte;
-			}
+			throw new WrongTypeException();
 		}
 	}
 
@@ -464,13 +312,7 @@ public class LiteralVisitor implements Visitor {
 			return new LiteralInt(0);
 		}
 		catch (ClassCastException cce) {
-			try{
-				throwWrongType(whail);
-				return null;
-			}
-			catch (WrongTypeException wte) {
-				throw wte;
-			}
+			throw new WrongTypeException();
 		}
 	}
 }

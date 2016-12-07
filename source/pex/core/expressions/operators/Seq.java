@@ -22,6 +22,7 @@ public class Seq extends VariadicExpression {
 	 */
 	public Seq(ArrayList<Expression> expressions) {
 		super.setArguments(expressions);
+		super.setOperatorName("seq");
 	}
 
 	public Expression accept(Visitor v) {

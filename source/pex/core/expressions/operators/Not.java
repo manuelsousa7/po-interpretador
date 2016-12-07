@@ -22,6 +22,7 @@ public class Not extends UnaryExpression {
 	 */
 	public Not(Expression exp) {
 		super.setArgument(exp);
+		super.setOperatorName("not");
 	}
 
 	public Expression accept(Visitor v) throws WrongTypeException {

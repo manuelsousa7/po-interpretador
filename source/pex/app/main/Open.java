@@ -30,7 +30,7 @@ public class Open extends Command<Handler> {
      */
     @Override
     public final void execute() throws InvalidOperation {
-        String param_1 = entity().getAppIO().readString(Message.openFile());
+        String param_1 = entity().requestString(Message.openFile());
 
         try {
             entity().openInterpreter(param_1);

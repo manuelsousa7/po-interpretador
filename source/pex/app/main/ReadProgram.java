@@ -25,7 +25,7 @@ public class ReadProgram extends Command<Handler> {
      */
     @Override
     public final void execute() {
-        String param_1 = entity().getAppIO().readString(Message.programFileName());
+        String param_1 = entity().requestString(Message.programFileName());
 
         try {
             entity().readProgram(param_1);
