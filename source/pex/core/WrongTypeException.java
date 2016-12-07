@@ -1,4 +1,4 @@
-package pex.app;
+package pex.core;
 
 import pt.utl.ist.po.ui.InvalidOperation;
 
@@ -6,7 +6,8 @@ import pt.utl.ist.po.ui.InvalidOperation;
  * Exception for representing format errors when parsing a single expression.
  */
 @SuppressWarnings("nls")
-public class BadExpressionException extends InvalidOperation {
+public class WrongTypeException extends InvalidOperation {
+    private String _expected;
 
     /** Serial number for serialization. */
     private static final long serialVersionUID = 201608241029L;
@@ -17,8 +18,9 @@ public class BadExpressionException extends InvalidOperation {
     /**
     * @param description
     */
-    public BadExpressionException(String description) {
+    public WrongTypeException(String wrong, String right) {
         _description = description;
+        _expected = right;
     }
 
     /**
@@ -31,6 +33,6 @@ public class BadExpressionException extends InvalidOperation {
     /** @see pt.tecnico.po.ui.DialogException#getMessage() */
     @Override
     public String getMessage() {
-        return "Problemas na expressão: " + _description;
+        return "Tipo de argumento: " + _description + "\tesperado : " + _expected + "\n";
     }
 }

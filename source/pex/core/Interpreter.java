@@ -85,6 +85,7 @@ public class Interpreter implements Serializable {
 			return _initializedIds.get(id);
 		} else {
 			Identifier ident = new Identifier(id, new LiteralInt(0));
+			_initializedIds.put(id, ident);
 			_uninitializedIds.put(id, ident);
 			return ident;
 		}
