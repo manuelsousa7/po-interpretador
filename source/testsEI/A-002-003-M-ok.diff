@@ -1,0 +1,35 @@
+*** testsEI/A-002-003-M-ok.out	Wed Dec  7 12:41:06 2016
+--- testsEI/A-002-003-M-ok.outhyp	Wed Dec  7 12:43:05 2016
+***************
+*** 15,29 ****
+  5 - Mostrar os identificadores presentes no programa
+  6 - Mostrar os identificadores do programa sem inicialização explícita
+  0 - Sair
+! Escolha uma opção: (eq 1 1)
+! (ne 1 2)
+! (lt 1 2)
+! (gt 1 2)
+! (le 1 2)
+! (ge 1 2)
+! (not 1)
+  (and 1 0)
+! (or 0 aa)
+  Menu de Edição
+  1 - Listar programa
+  2 - Executar programa
+--- 15,29 ----
+  5 - Mostrar os identificadores presentes no programa
+  6 - Mostrar os identificadores do programa sem inicialização explícita
+  0 - Sair
+! Escolha uma opção: (null 1 1)
+! (null 1 2)
+! (null 1 2)
+! (null 1 2)
+! (null 1 2)
+! (null 1 2)
+! (null 1)
+  (and 1 0)
+! (null 0 aa)
+  Menu de Edição
+  1 - Listar programa
+  2 - Executar programa

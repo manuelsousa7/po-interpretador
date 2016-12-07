@@ -19,7 +19,7 @@ public class WrongTypeException extends InvalidOperation {
     * @param description
     */
     public WrongTypeException(String wrong, String right) {
-        _description = description;
+        _description = wrong;
         _expected = right;
     }
 

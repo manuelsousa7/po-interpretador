@@ -7,8 +7,6 @@ import pex.core.Element;
 import pex.core.Visitor;
 import pex.core.LiteralVisitor;
 
-import pex.AppIO;
-
 import pex.support.app.main.*;
 
 import java.io.*;
@@ -19,6 +17,8 @@ import java.util.Comparator;
 import java.util.Collections;
 import java.util.Collection;
 import java.io.Serializable;
+
+import pex.AppIO;
 
 /**
  * Classe usada para representar um programa que vai avaliar expressoes
@@ -47,20 +47,11 @@ public class Program implements Serializable {
 	}
 
 	public boolean checkAdd(int index) {
-		return (index <= _expressions.size() && index >= 0);
+		return (_expressions.size() >= index && index >= 0);
 	}
 
 	public boolean checkReplace(int index) {
-		return (index < _expressions.size() && index >= 0);
-	}
-
-	/**
-	 * Devolve o AppIO associado a este interpretador
-	 *
-	 * @return Devolve o AppIO associado a este interpretador
-	 */
-	public AppIO getAppIO() {
-		return _interpreter.getAppIO();
+		return (_expressions.size() > index && index >= 0);
 	}
 
 	public Interpreter getInterpreter() {
@@ -136,6 +127,10 @@ public class Program implements Serializable {
 	 */
 	public String getAsText() {
 		return _name;
+	}
+
+	public AppIO getAppIO() {
+		return getInterpreter().getAppIO();
 	}
 
 	/**

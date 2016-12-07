@@ -15,26 +15,15 @@ Escolha uma opção: Nome do program: Menu de Edição
 5 - Mostrar os identificadores presentes no programa
 6 - Mostrar os identificadores do programa sem inicialização explícita
 0 - Sair
-Escolha uma opção: (null (add 2 3))
-(add 1 (add 20 eee))
-(null (null 2 (add 2 3)) 2)
-(null (null aa ee) 2)
-(div 1 (null 2 (null 3 4)))
-(null 1 (null a 23))
-(null (add 2 3) (add 4 1))
-(null (null aa 3) 2)
-(null (null 2 3) (add 4 1))
-(null (add 2 3) (add 4 1))
-(null (add 2 3) (add 4 1))
-(null (add 2 3) (null aaa 1))
-(null (null aa 1))
-(and (add 2 3) (add e 1))
-(null (null 2 3) (null 4 1))
-(null aa (readi))
-(null "wer" 23 (add a 5) (reads) (readi))
-(null 1 2 3 4 5 6 7 (add e 6) "asd")
-(null (and aa (add b 2)) (add aa 1) (null b 1))
-(null (null aa 10) (null aa (add aa 1)))
+Escolha uma opção: (null 1 1)
+(null 1 2)
+(null 1 2)
+(null 1 2)
+(null 1 2)
+(null 1 2)
+(null 1)
+(and 1 0)
+(null 0 aa)
 Menu de Edição
 1 - Listar programa
 2 - Executar programa
