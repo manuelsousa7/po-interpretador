@@ -207,6 +207,8 @@ public class Program implements Serializable {
 			for (Expression exp : _expressions) {
 				p.println(exp.getAsText());
 			}
+			p.flush();
+			p.close();
 		} catch (IOException ioe) {
 			//Deveria apresentar erro?
 		}

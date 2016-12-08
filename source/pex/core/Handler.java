@@ -109,7 +109,7 @@ public class Handler implements Serializable {
 			fileIn.close();
 		}
 
-		catch (Exception e) {
+		catch (FileNotFoundException e) {
 			throw e;
 		}
 	}
@@ -199,7 +199,7 @@ public class Handler implements Serializable {
 			_interpretador.addProgram(_parser.parseFile(file, file, _interpretador), _parser);
 			_changed = true;
 		} catch (Exception e) {
-			throw new FileNotFoundException();
+			throw new FileNotFoundException(file);
 		}
 	}
 
@@ -214,7 +214,7 @@ public class Handler implements Serializable {
 		Program prog = _interpretador.getProgram(name);
 		if (prog != null) {
 			try {
-				prog.saveProgram(file);
+				prog.saveProgram(file);				
 				_changed = true;
 			} catch (Exception e) {
 				throw new IOException();

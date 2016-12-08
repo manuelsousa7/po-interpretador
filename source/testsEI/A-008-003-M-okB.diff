@@ -1,0 +1,19 @@
+*** testsEI/A-008-003-M-okB.out	2016-12-07 17:56:58.665156913 +0000
+--- testsEI/A-008-003-M-okB.outhyp	2016-12-08 22:38:33.291256554 +0000
+***************
+*** 7,13 ****
+  6 - Escrever Programa
+  7 - Manipular Programa
+  0 - Sair
+! Escolha uma opção: Ficheiro a abrir: O ficheiro 'awerty' não existe.
+  Menu Principal
+  1 - Criar
+  2 - Abrir
+--- 7,13 ----
+  6 - Escrever Programa
+  7 - Manipular Programa
+  0 - Sair
+! Escolha uma opção: Ficheiro a abrir: O ficheiro não existe.
+  Menu Principal
+  1 - Criar
+  2 - Abrir

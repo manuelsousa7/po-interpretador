@@ -159,7 +159,12 @@ public class Interpreter implements Serializable {
 	 * @return Program programa a devolver
 	 */
 	public Program getProgram(String name) {
-		return _programs.get(name);
+		if (_programs.containsKey(name)) {
+			return _programs.get(name);
+		}
+		else {
+			return null;
+		}
 	}
 
 	/**
