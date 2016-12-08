@@ -31,6 +31,16 @@ public class Print extends VariadicExpression {
 		super.setOperatorName("print");
 	}
 
+	public String formatPrint(Expression exp) {
+		try {
+			LiteralString str = (LiteralString)exp;
+			return str.getAsText2();
+		}
+		catch (ClassCastException cce) {
+			return exp.getAsText();
+		}
+	}
+
 	/**
 	 * Pede que a AppIO imprima a string dada
 	 *

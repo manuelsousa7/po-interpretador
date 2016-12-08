@@ -28,7 +28,16 @@ public class LiteralString extends Expression {
 	 */
 	@Override
 	public String getAsText() {
-		return '"' + _value + '"';
+		return ('"' + _value + '"');
+	}
+
+	/**
+	 * Retorna uma string que representa a expressao (sem aspas)
+	 *
+	 * @return String Retorna uma string que representa a expressao
+	 */
+	public String getAsText2() {
+		return (_value);
 	}
 
 	/**

@@ -28,10 +28,10 @@ public class ReplaceExpression extends ProgramCommand {
         int param_1 = entity().requestInt(Message.requestPosition());
         String param_2 = entity().requestString(Message.requestExpression());
 
-        if (!(entity().checkReplace(param_1 - 1))) {
+        if (!(entity().checkReplace(param_1))) {
             throw new BadPositionException(param_1);
         }
-        if (!(entity().replace(param_1 - 1, param_2))) {
+        if (!(entity().replace(param_1, param_2))) {
             throw new BadExpressionException(param_2 + " : nao e valido");
         }
     }

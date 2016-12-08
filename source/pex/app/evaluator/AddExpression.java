@@ -27,10 +27,10 @@ public class AddExpression extends ProgramCommand {
         int param_1 = entity().requestInt(Message.requestPosition());
         String param_2 = entity().requestString(Message.requestExpression());
 
-        if (!(entity().checkAdd(param_1 - 1))) {
+        if (!(entity().checkAdd(param_1))) {
             throw new BadPositionException(param_1);
         }
-        if (!(entity().add(param_1 - 1, param_2))) {
+        if (!(entity().add(param_1, param_2))) {
             throw new BadExpressionException(param_2);
         }
     }

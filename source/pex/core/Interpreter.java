@@ -102,17 +102,23 @@ public class Interpreter implements Serializable {
 	 * @param id Nome do identificador
 	 * @return Identifier O identificador com o nome dado
 	 */
-	public Identifier fetchId(String id) {
-		if (_initializedIds.containsKey(id)) {
+	public Identifier fetchId(String id, boolean toInit) {
+		if (_uninitializedIds.containsKey(id) && !toInit) {
+			return (_uninitializedIds.get(id));
+		}
+		else if (_uninitializedIds.containsKey(id) && toInit) {
+			_uninitializedIds.remove(id);
 			return (_initializedIds.get(id));
 		}
-		else if (_uninitializedIds.containsKey(id)) {
-			return (_uninitializedIds.get(id));
+		else if (_initializedIds.containsKey(id)) {
+			return (_initializedIds.get(id));
 		}
 		else {
 			Identifier ident = new Identifier(id, new LiteralInt(0), this);
 			_initializedIds.put(id, ident);
-			_uninitializedIds.put(id, ident);
+			if (!toInit){
+				_uninitializedIds.put(id, ident);
+			}
 			return ident;
 		}
 	}

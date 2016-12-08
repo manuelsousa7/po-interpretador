@@ -109,12 +109,14 @@ public class LiteralVisitor implements Visitor, Serializable {
 
 	public Expression visit(And and) throws WrongTypeException {
 		try {
-			if (((LiteralInt)and.getFirstArgument(this)).getInt() > 0 &&
-				((LiteralInt)and.getSecondArgument(this)).getInt() > 0) {
-				return new LiteralInt(1);
+			if (!(((LiteralInt)and.getFirstArgument(this)).getInt() > 0)) {
+				return new LiteralInt(0);
+			}
+			else if (!(((LiteralInt)and.getSecondArgument(this)).getInt() > 0)) {
+				return new LiteralInt(0);
 			}
 			else {
-				return new LiteralInt(0);
+				return new LiteralInt(1);
 			}
 		}
 		catch (ClassCastException cce) {
@@ -145,17 +147,9 @@ public class LiteralVisitor implements Visitor, Serializable {
 
 	public Expression visit(Div div) throws WrongTypeException {
 		try {
-			Expression exp = div.getSecondArgument(this);
-			if ((((LiteralInt)exp).getInt()) != 0) {
-				return (new LiteralInt(((LiteralInt)div.getFirstArgument(this)).getInt() /
-										((LiteralInt)exp).getInt())
-										);
-			}
-			else {
-				/*O que acontece se dividir por 0?*/
-				//throw new ArithmeticExpression();
-				return null;
-			}
+			return (new LiteralInt(((LiteralInt)div.getFirstArgument(this)).getInt() /
+									((LiteralInt)div.getSecondArgument(this)).getInt())
+									);
 		}
 		catch (ClassCastException cce) {
 			try{
@@ -165,6 +159,10 @@ public class LiteralVisitor implements Visitor, Serializable {
 			catch (WrongTypeException wte) {
 				throw wte;
 			}
+		}
+		catch (Exception e) {
+			//O que fazer se dividir por 0?
+			return null;
 		}
 	}
 
@@ -233,7 +231,7 @@ public class LiteralVisitor implements Visitor, Serializable {
 
 	public Expression visit(If ife) throws WrongTypeException {
 		try {
-			if ((((LiteralInt)ife.getFirstArgument(this)).getInt()) > 0) {
+			if ((((LiteralInt)ife.getFirstArgument(this)).getInt()) != 0) {
 				return ife.getSecondArgument(this);
 			}
 			else {
@@ -385,8 +383,10 @@ public class LiteralVisitor implements Visitor, Serializable {
 
 	public Expression visit(Or ore) throws WrongTypeException {
 		try {
-			if (((LiteralInt)ore.getFirstArgument(this)).getInt() > 0 ||
-				((LiteralInt)ore.getSecondArgument(this)).getInt() > 0) {
+			if (((LiteralInt)ore.getFirstArgument(this)).getInt() > 0) {
+				return new LiteralInt(1);
+			}
+			else if (((LiteralInt)ore.getSecondArgument(this)).getInt() > 0) {
 				return new LiteralInt(1);
 			}
 			else {
@@ -407,10 +407,12 @@ public class LiteralVisitor implements Visitor, Serializable {
 	public Expression visit(Print print) throws WrongTypeException {
 		try {
 			Expression expression = null;
+			StringBuilder sb = new StringBuilder();
 			for (Expression exp : print.getArguments()) {
 				expression = exp.accept(this);
-				print.requestPrint(expression.getAsText());
-			}				
+				sb.append(print.formatPrint(expression) + " ");
+			}
+			print.requestPrint(sb.toString());
 			return expression;
 		}
 		catch (WrongTypeException wte) {

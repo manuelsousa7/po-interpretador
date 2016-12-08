@@ -86,16 +86,13 @@ public class Parser implements Serializable  {
             return new LiteralString(_tokenizer.sval);
 
         case StreamTokenizer.TT_WORD:
-            /*
             if (_toSet) {
                 _toSet = false;
-                return _interp.fetchId(_tokenizer.sval);
+                return _interp.fetchId(_tokenizer.sval, true);
             }
             else {
-                return (_interp.fetchId(_tokenizer.sval)).getExpression();
+                return _interp.fetchId(_tokenizer.sval, false);
             }
-            */
-            return _interp.fetchId(_tokenizer.sval);
 
         case '(':
             Expression exp = parseCompositeExpression();
