@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class Parser implements Serializable  {
 
     private Program _program;
-    private StreamTokenizer _tokenizer;
+    private transient StreamTokenizer _tokenizer;
     private Interpreter _interp;
     private boolean _toSet;
 
