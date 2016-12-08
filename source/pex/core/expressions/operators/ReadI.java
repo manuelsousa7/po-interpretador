@@ -21,6 +21,16 @@ public class ReadI extends IOExpression {
 		super.setOperatorName("readi");
 	}
 
+	/**
+	 * Devolve uma int lida pela AppIO
+	 *
+	 * @param str A string a mostrar ao pedir a int
+	 * @return int A int lida pelo AppIO
+	 */
+	public int requestInt(String str) {
+		return getProgram().requestInt(str);
+	}
+
 	public Expression accept(Visitor v) {
 		return v.visit(this);
 	}

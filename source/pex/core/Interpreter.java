@@ -80,22 +80,22 @@ public class Interpreter implements Serializable {
 	 * @param id Nome do identificador
 	 * @param value Valor do identificador
 	 */
-	public Identifier setId(String id, Expression value) {
+	public void setId(Identifier id, Expression value) {
 
 		/*Adiciona nos identificadores initializados*/
-		Identifier newId = new Identifier(id, value);
-		if (_initializedIds.containsKey(id)) {
-			_initializedIds.replace(id, newId);
+		String ident = id.getAsText();
+		Identifier newId = new Identifier(ident, value);
+		if (_initializedIds.containsKey(ident)) {
+			_initializedIds.replace(ident, newId);
 		}
 		else {
-			_initializedIds.put(id, newId);
+			_initializedIds.put(ident, newId);
 		}
 
 		/*Remove dos identificadores nao inicializados*/
-		if (_uninitializedIds.containsKey(id)) {
-			_uninitializedIds.remove(id);
+		if (_uninitializedIds.containsKey(ident)) {
+			_uninitializedIds.remove(ident);
 		}
-		return newId;
 	}
 
 	/**
@@ -106,8 +106,12 @@ public class Interpreter implements Serializable {
 	 */
 	public Identifier fetchId(String id) {
 		if (_initializedIds.containsKey(id)) {
-			return _initializedIds.get(id);
-		} else {
+			return (_initializedIds.get(id));
+		}
+		else if (_uninitializedIds.containsKey(id)) {
+			return (_uninitializedIds.get(id));
+		}
+		else {
 			Identifier ident = new Identifier(id, new LiteralInt(0));
 			_initializedIds.put(id, ident);
 			_uninitializedIds.put(id, ident);

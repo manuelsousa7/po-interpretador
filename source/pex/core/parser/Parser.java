@@ -11,18 +11,21 @@ import java.io.StreamTokenizer;
 import java.io.FileReader;
 import java.io.StringReader;
 import java.io.Reader;
+import java.io.Serializable;
 
 import java.util.Collection;
 import java.util.ArrayList;
 
-public class Parser {
+public class Parser implements Serializable  {
 
     private Program _program;
     private StreamTokenizer _tokenizer;
     private Interpreter _interp;
+    private boolean _toSet;
 
     public Parser() {
         _interp = null;
+        _toSet = false;
     }
 
     private void initTokenizer(Reader reader) {
@@ -59,7 +62,6 @@ public class Parser {
 
         try (StringReader reader = new StringReader(expression)) {
             initTokenizer(reader);
-
             return parseExpression();
         } catch (IOException ioe) {
             throw new BadSourceException(expression, ioe);
@@ -84,6 +86,15 @@ public class Parser {
             return new LiteralString(_tokenizer.sval);
 
         case StreamTokenizer.TT_WORD:
+            /*
+            if (_toSet) {
+                _toSet = false;
+                return _interp.fetchId(_tokenizer.sval);
+            }
+            else {
+                return (_interp.fetchId(_tokenizer.sval)).getExpression();
+            }
+            */
             return _interp.fetchId(_tokenizer.sval);
 
         case '(':
@@ -187,6 +198,7 @@ public class Parser {
             return new Or(parseArgument(), parseArgument());
 
         case "set":
+            _toSet = true;
             return new Set(parseArgument(), parseArgument(), _program);
 
         case "while":
@@ -216,7 +228,7 @@ public class Parser {
             }
 
             if (operatorName.equals("seq"))
-                return new Seq(args);
+                return new Seq(args, _program);
             else
                 return new Print(args, _program);
 

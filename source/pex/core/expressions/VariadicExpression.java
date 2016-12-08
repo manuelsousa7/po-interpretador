@@ -9,6 +9,7 @@ import java.util.Collections;
 
 public abstract class VariadicExpression extends CompositeExpression {
 	private List<Expression> _expressions;
+	private Program _prog;
 
 	/**
 	 * Retorna a expressao de indice indicado
@@ -27,6 +28,24 @@ public abstract class VariadicExpression extends CompositeExpression {
 	public void setArguments(ArrayList<Expression> expressions) {
 		_expressions = new ArrayList<Expression>();
 		_expressions.addAll(expressions);
+	}
+
+	/**
+	 * Associa um novo programa
+	 *
+	 * @param prog O programa a associar
+	 */
+	public void setProgram(Program prog) {
+		_prog = prog;
+	}
+
+	/**
+	 * Devolve o programa
+	 *
+	 * @return Program O programa associado
+	 */
+	public Program getProgram() {
+		return _prog;
 	}
 
 	/**

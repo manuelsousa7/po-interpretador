@@ -10,6 +10,8 @@ import pex.core.Program;
 
 import pex.support.app.evaluator.*;
 
+import java.io.Serializable;
+
 import pt.utl.ist.po.ui.Form;
 import pt.utl.ist.po.ui.InputString;
 import pt.utl.ist.po.ui.InputInteger;
@@ -19,7 +21,7 @@ import pt.utl.ist.po.ui.Display;
  * This is a sample client for the expression evaluator.
  * It uses a text-based user interface.
  */
-public class App implements AppIO {
+public class App implements AppIO, Serializable {
     // Add fileds here if needed
 
 

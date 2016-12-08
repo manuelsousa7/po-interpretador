@@ -30,7 +30,7 @@ public interface Visitor
 	public Expression visit(Print print) throws WrongTypeException;
 	public Expression visit(ReadI readi);
 	public Expression visit(ReadS reads);
-	public Expression visit(Seq seq);
+	public Expression visit(Seq seq) throws WrongTypeException ;
 	public Expression visit(Set set) throws WrongTypeException;
 	public Expression visit(Sub sub) throws WrongTypeException;
 	public Expression visit(While whail) throws WrongTypeException;

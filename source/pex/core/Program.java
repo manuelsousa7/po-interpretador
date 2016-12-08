@@ -103,6 +103,17 @@ public class Program implements Serializable {
 	}
 
 	/**
+	 * Adiciona um identificador ao interpretador com um valor associado
+	 *
+	 * @param id Nome do identificador
+	 * @param value Valor do identificador
+	 */
+	public void setId(Identifier id, Expression value) {
+		_interpreter.setId(id, value);
+	}
+
+
+	/**
 	 * Avalia as expressoes e retorna o seu valor
 	 *
 	 * @return Expression Valor das expressoes avaliadas

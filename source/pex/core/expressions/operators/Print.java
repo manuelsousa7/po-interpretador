@@ -19,7 +19,6 @@ import java.util.Collections;
  * @author Manuel e Goncalo
  */
 public class Print extends VariadicExpression {
-	Program _prog;
 
 	/**
 	 * Contrutor: Inicia as expressoes como as expressoes recebidas
@@ -27,18 +26,18 @@ public class Print extends VariadicExpression {
 	 * @param expressions Expressoes a associar
 	 */
 	public Print(ArrayList<Expression> expressions, Program prog) {
-		_prog = prog;
+		super.setProgram(prog);
 		super.setArguments(expressions);
 		super.setOperatorName("print");
 	}
 
 	/**
-	 * Devolve o programa
+	 * Pede que a AppIO imprima a string dada
 	 *
-	 * @return Program O programa associado
+	 * @param str A string a imprimir pela AppIO
 	 */
-	public Program getProgram() {
-		return _prog;
+	public void requestPrint(String str) {
+		getProgram().requestPrint(str);
 	}
 
 	public Expression accept(Visitor v) throws WrongTypeException  {

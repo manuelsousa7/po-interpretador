@@ -31,7 +31,7 @@ public class AddExpression extends ProgramCommand {
             throw new BadPositionException(param_1);
         }
         if (!(entity().add(param_1 - 1, param_2))) {
-            throw new BadExpressionException(param_2 + " : nao e valido");
+            throw new BadExpressionException(param_2);
         }
     }
 }

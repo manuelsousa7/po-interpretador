@@ -1,6 +1,7 @@
 package pex.core.expressions.operators;
 
 import pex.core.Visitor;
+import pex.core.Program;
 import pex.core.WrongTypeException;
 
 import pex.core.expressions.BinaryExpression;
@@ -15,7 +16,7 @@ import pex.core.Program;
  */
 public class Set extends BinaryExpression {
 	private Identifier _ident;
-	private Program _program;
+	private Program _prog;
 
 	/**
 	 * Contrutor: Inicia as expressoes como as expressoes recebidas
@@ -26,18 +27,24 @@ public class Set extends BinaryExpression {
 	public Set(Expression exp_1, Expression exp_2, Program prog) {
 		try {
 			_ident = (Identifier)exp_1;
-			_program = prog;
-			super.setArguments(exp_1, exp_2);
-			super.setOperatorName("set");
+			_prog = prog;
+			setArguments(exp_1, exp_2);
+			setOperatorName("set");
+			//Sera que esta correto?
+			//_prog.setId(_ident, getSecondArgument());
 		}
 		catch (ClassCastException cce) {
-			//Bad expression
+			System.out.println("Deu erro");
 			;
 		}
 	}
 
+	public Expression setId(Identifier id, Expression value) {
+		return null;
+	}
+
 	public Program getProgram() {
-		return _program;
+		return _prog;
 	}
 
 	public Identifier getIdent() {

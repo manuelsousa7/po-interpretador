@@ -20,7 +20,7 @@ import java.io.Serializable;
  *
  * @author Manuel e Goncalo
  */
-public class Handler implements Serializable  {
+public class Handler implements Serializable {
 	private AppIO _app;
 	private Interpreter _interpretador;
 	private boolean _changed;

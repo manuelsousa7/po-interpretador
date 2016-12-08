@@ -20,6 +20,16 @@ public class ReadS extends IOExpression {
 		super.setOperatorName("reads");
 	}
 
+	/**
+	 * Devolve uma string lida pela AppIO
+	 *
+     * @param str A string a mostrar ao pedir a string
+	 * @return String A string lida pelo AppIO
+	 */
+	public String requestString(String str) {
+		return getProgram().requestString(str);
+	}
+
 	public Expression accept(Visitor v) {
 		return v.visit(this);
 	}

@@ -11,7 +11,14 @@ import pex.core.expressions.LiteralInt;
 import pex.core.expressions.LiteralString;
 import pex.core.expressions.operators.*;
 
-public class LiteralVisitor implements Visitor {
+import java.io.Serializable;
+
+public class LiteralVisitor implements Visitor, Serializable {
+
+	//String que representa um literal do tipo String
+	private String _string = "String";
+	//String que representa um literal do tipo Int
+	private String _int = "Integer";
 
 	public void throwWrongType(UnaryExpression unary) throws WrongTypeException {
 		try {
@@ -60,11 +67,6 @@ public class LiteralVisitor implements Visitor {
 			}
 		}
 	}
-
-	//String que representa um literal do tipo String
-	private String _string = "String";
-	//String que representa um literal do tipo Int
-	private String _int = "Integer";
 
 	public Expression visit(Identifier id) {
 		try {
@@ -399,11 +401,11 @@ public class LiteralVisitor implements Visitor {
 	}
 
 	public Expression visit(Print print) throws WrongTypeException {
-		Expression expression = null;
 		try {
+			Expression expression = null;
 			for (Expression exp : print.getArguments()) {
 				expression = exp.accept(this);
-				print.getProgram().requestPrint(expression.getAsText());
+				print.requestPrint(expression.getAsText());
 			}				
 			return expression;
 		}
@@ -420,23 +422,22 @@ public class LiteralVisitor implements Visitor {
 		return new LiteralInt(reads.getProgram().requestInt(""));
 	}
 
-	public Expression visit(Seq seq) {
+	public Expression visit(Seq seq) throws WrongTypeException {
 		Expression expression = null;
 		try {
 			for (Expression exp : seq.getArguments()) {
 				expression = exp.accept(this);
-			}				
+			}
 			return expression;
 		}
 		catch (WrongTypeException wte) {
-			//Imprimir uma cena
-			return null;
+			//seq.requestPrint(wte.getMessage());
+			throw wte;
 		}
 	}
 
 	public Expression visit(Set set) throws WrongTypeException {
-		String id = (set.getIdent()).getAsText();
-		return (set.getProgram()).getInterpreter().setId(id, set.getSecondArgument(this));
+		return set.getSecondArgument(this);
 	}
 
 	public Expression visit(Sub sub) throws WrongTypeException {

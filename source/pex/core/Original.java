@@ -289,8 +289,11 @@ public class Original implements Visitor {
 	}
 
 	public Expression visit(Set set) throws WrongTypeException {
+		/*
 		String id = (set.getIdent()).getAsText();
 		return (set.getProgram()).getInterpreter().setId(id, set.getSecondArgument(this));
+		*/
+		return null;
 	}
 
 	public Expression visit(Sub sub) throws WrongTypeException {

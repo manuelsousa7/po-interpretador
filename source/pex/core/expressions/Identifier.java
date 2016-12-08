@@ -9,9 +9,10 @@ import java.io.Serializable;
  *
  * @author Manuel e Goncalo
  */
-public class Identifier extends Expression{
+public class Identifier extends Expression {
 	private String _name;
 	private Expression _expression;
+	//private Program _prog;
 
 	/**
 	 * Contrutor: Inicia _name com o nome recebido e _expression com a expressao recebida
@@ -19,14 +20,15 @@ public class Identifier extends Expression{
 	 * @param name Nome a associar a variavel _name
 	 * @param expression Expressao a associar a variavel _expression
 	 */
-	public Identifier(String name, Expression expression) {
+	public Identifier(String name, Expression expression/*, Program prog*/) {
 		_name = name;
 		_expression = expression;
+		//_prog = prog;
 	}
 
-	public Identifier(String name) {
-		_name = name;
-		_expression = new LiteralInt(0);
+	public Expression fetchId() {
+		//return _prog.checkId();
+		return null;
 	}
 
 	/**
