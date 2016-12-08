@@ -144,10 +144,12 @@ public class Interpreter implements Serializable {
 	 * @param program Programa a adicionar
 	 */
 	public void addProgram(Program program, Parser parser) {
-		if (getProgram(program.getAsText()) == null) {
+		if (_programs.containsKey(program.getAsText())) {
+			_programs.replace(program.getAsText(), program);
+		}
+		else {
 			_programs.put(program.getAsText(), program);
 		}
-		//Se o programa ja existir faz o que?
 	}
 
 	/**
