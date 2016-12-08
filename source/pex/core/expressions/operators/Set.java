@@ -30,17 +30,15 @@ public class Set extends BinaryExpression {
 			_prog = prog;
 			setArguments(exp_1, exp_2);
 			setOperatorName("set");
-			//Sera que esta correto?
-			//_prog.setId(_ident, getSecondArgument());
 		}
 		catch (ClassCastException cce) {
-			System.out.println("Deu erro");
+			//System.out.println("Deu erro");
 			;
 		}
 	}
 
 	public Expression setId(Identifier id, Expression value) {
-		return null;
+		return _prog.setId(id, value);
 	}
 
 	public Program getProgram() {

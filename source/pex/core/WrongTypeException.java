@@ -27,7 +27,7 @@ public class WrongTypeException extends InvalidOperation {
     * @oaram right O tipo esperado da expressao para que fosse correta
     */
     public WrongTypeException(String received, String wrong, String right) {
-        _description = "Argumento: " + received + " de tipo " + wrong + ".\tEsperado : " + right + "\n";
+        _description = "Argumento: " + received + " : " + wrong + ".\tEsperado : " + right + "\n";
     }
 
     /**

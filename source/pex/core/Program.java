@@ -92,11 +92,8 @@ public class Program implements Serializable {
 	public boolean replace(int index, String expressao) {
 		try {
 			Expression exp = _parser.parseString(expressao, this);
-			if (exp.accept(_visitor) != null) {
-				_expressions.set(index, exp);
-				return true;
-			}
-			return false;
+			_expressions.set(index, exp);
+			return true;
 		} catch (Exception e) {
 			return false;
 		}
@@ -108,8 +105,8 @@ public class Program implements Serializable {
 	 * @param id Nome do identificador
 	 * @param value Valor do identificador
 	 */
-	public void setId(Identifier id, Expression value) {
-		_interpreter.setId(id, value);
+	public Expression setId(Identifier id, Expression value) {
+		return _interpreter.setId(id, value);
 	}
 
 
@@ -128,8 +125,7 @@ public class Program implements Serializable {
 				return expression;
 			}
 			catch (WrongTypeException wte) {
-				//Imprimir uma cena
-				//Nova excecao ExecutionFailureException
+				requestPrint(wte.getMessage());
 				return null;
 			}
 		}

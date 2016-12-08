@@ -30,6 +30,16 @@ public class LiteralVisitor implements Visitor, Serializable {
 		}
 	}
 
+	public void throwWrongType2(UnaryExpression unary) throws WrongTypeException {
+		try {
+			LiteralInt str = ((LiteralInt)unary.getArgument(this));
+			throw new WrongTypeException(str.getAsText(), _int, _string);
+		}
+		catch (ClassCastException cce2) {
+			throw new WrongTypeException();
+		}
+	}
+
 	public void throwWrongType(BinaryExpression binary) throws WrongTypeException  {
 		try {
 			LiteralString str = ((LiteralString)binary.getFirstArgument(this));
@@ -69,13 +79,7 @@ public class LiteralVisitor implements Visitor, Serializable {
 	}
 
 	public Expression visit(Identifier id) {
-		try {
-			return (id.getExpression()).accept(this);
-		}
-		catch (Exception e) {
-			//Isto nao devia ser assim
-			return null;
-		}
+		return id.updateId(id.getAsText());
 	}
 
 	public Expression visit(LiteralInt litInt) {
@@ -130,7 +134,7 @@ public class LiteralVisitor implements Visitor, Serializable {
 		}
 		catch (ClassCastException cce) {
 			try{
-				throwWrongType(call);
+				throwWrongType2(call);
 				return null;
 			}
 			catch (WrongTypeException wte) {
@@ -437,7 +441,7 @@ public class LiteralVisitor implements Visitor, Serializable {
 	}
 
 	public Expression visit(Set set) throws WrongTypeException {
-		return set.getSecondArgument(this);
+		return set.setId(set.getIdent(), set.getSecondArgument(this));
 	}
 
 	public Expression visit(Sub sub) throws WrongTypeException {

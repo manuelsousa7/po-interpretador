@@ -46,10 +46,6 @@ public class Interpreter implements Serializable {
 		_fileName = "";
 	}
 
-	public Identifier checkIdentifier(String str) {
-		return _initializedIds.get(str);
-	}
-
 	public List<String> listIds() {
 		List<String> strings = new ArrayList<String>();
 		if (_initializedIds.size() > 0) {
@@ -80,11 +76,11 @@ public class Interpreter implements Serializable {
 	 * @param id Nome do identificador
 	 * @param value Valor do identificador
 	 */
-	public void setId(Identifier id, Expression value) {
+	public Expression setId(Identifier id, Expression value) {
 
 		/*Adiciona nos identificadores initializados*/
 		String ident = id.getAsText();
-		Identifier newId = new Identifier(ident, value);
+		Identifier newId = new Identifier(ident, value, this);
 		if (_initializedIds.containsKey(ident)) {
 			_initializedIds.replace(ident, newId);
 		}
@@ -96,6 +92,7 @@ public class Interpreter implements Serializable {
 		if (_uninitializedIds.containsKey(ident)) {
 			_uninitializedIds.remove(ident);
 		}
+		return newId.getExpression();
 	}
 
 	/**
@@ -103,6 +100,7 @@ public class Interpreter implements Serializable {
 	 * houver nenhum, adiciona um novo identificador inicializado a 0
 	 *
 	 * @param id Nome do identificador
+	 * @return Identifier O identificador com o nome dado
 	 */
 	public Identifier fetchId(String id) {
 		if (_initializedIds.containsKey(id)) {
@@ -112,10 +110,25 @@ public class Interpreter implements Serializable {
 			return (_uninitializedIds.get(id));
 		}
 		else {
-			Identifier ident = new Identifier(id, new LiteralInt(0));
+			Identifier ident = new Identifier(id, new LiteralInt(0), this);
 			_initializedIds.put(id, ident);
 			_uninitializedIds.put(id, ident);
 			return ident;
+		}
+	}
+
+	/**
+	 * Retorna o valor atual do identificador com o nome dado
+	 *
+	 * @param id Nome do identificador
+	 * @return Expression A expressao associada ao identificador com o nome dado
+	 */
+	public Expression updateId(String id) {
+		if (_initializedIds.containsKey(id)) {
+			return (_initializedIds.get(id)).getExpression();
+		}
+		else {
+			return null;
 		}
 	}
 

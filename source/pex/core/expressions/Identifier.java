@@ -1,6 +1,7 @@
 package pex.core.expressions;
 
 import pex.core.Visitor;
+import pex.core.Interpreter;
 
 import java.io.Serializable;
 
@@ -12,7 +13,7 @@ import java.io.Serializable;
 public class Identifier extends Expression {
 	private String _name;
 	private Expression _expression;
-	//private Program _prog;
+	private Interpreter _interp;
 
 	/**
 	 * Contrutor: Inicia _name com o nome recebido e _expression com a expressao recebida
@@ -20,15 +21,14 @@ public class Identifier extends Expression {
 	 * @param name Nome a associar a variavel _name
 	 * @param expression Expressao a associar a variavel _expression
 	 */
-	public Identifier(String name, Expression expression/*, Program prog*/) {
+	public Identifier(String name, Expression expression, Interpreter interp) {
 		_name = name;
 		_expression = expression;
-		//_prog = prog;
+		_interp = interp;
 	}
 
-	public Expression fetchId() {
-		//return _prog.checkId();
-		return null;
+	public Expression updateId(String id) {
+		return _interp.updateId(id);
 	}
 
 	/**
