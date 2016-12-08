@@ -110,7 +110,7 @@ public class Handler implements Serializable {
 		}
 
 		catch (Exception e) {
-			throw new FileNotFoundException();
+			throw e;
 		}
 	}
 
@@ -134,7 +134,7 @@ public class Handler implements Serializable {
 			}
 
 			catch (Exception e) {
-				throw new IOException();
+				throw e;
 			}
 		}
 	}
@@ -154,7 +154,7 @@ public class Handler implements Serializable {
 			}
 
 			catch (Exception e) {
-				throw new IOException();
+				throw e;
 			}
 		}
 	}
