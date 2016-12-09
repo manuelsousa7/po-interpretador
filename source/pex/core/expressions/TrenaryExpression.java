@@ -22,9 +22,8 @@ public abstract class TrenaryExpression extends CompositeExpression {
 	 */
 	public Expression getFirstArgument(Visitor v) {
 		try {
-			return _expression_1.accept(v);			
-		}
-		catch (WrongTypeException wte) {
+			return _expression_1.accept(v);
+		} catch (WrongTypeException wte) {
 			//Corrigir isto
 			return null;
 		}
@@ -41,9 +40,8 @@ public abstract class TrenaryExpression extends CompositeExpression {
 	 */
 	public Expression getSecondArgument(Visitor v) {
 		try {
-			return _expression_2.accept(v);			
-		}
-		catch (WrongTypeException wte) {
+			return _expression_2.accept(v);
+		} catch (WrongTypeException wte) {
 			//Corrigir isto
 			return null;
 		}
@@ -60,9 +58,8 @@ public abstract class TrenaryExpression extends CompositeExpression {
 	 */
 	public Expression getThirdArgument(Visitor v) {
 		try {
-			return _expression_3.accept(v);			
-		}
-		catch (WrongTypeException wte) {
+			return _expression_3.accept(v);
+		} catch (WrongTypeException wte) {
 			//Corrigir isto
 			return null;
 		}

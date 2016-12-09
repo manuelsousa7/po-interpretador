@@ -20,9 +20,8 @@ public abstract class UnaryExpression extends CompositeExpression {
 	 */
 	public Expression getArgument(Visitor v) {
 		try {
-			return _expression.accept(v);			
-		}
-		catch (WrongTypeException wte) {
+			return _expression.accept(v);
+		} catch (WrongTypeException wte) {
 			//Corrigir isto
 			return null;
 		}

@@ -6,13 +6,12 @@ import pex.core.expressions.LiteralInt;
 import pex.core.expressions.LiteralString;
 import pex.core.expressions.operators.*;
 
-public interface Visitor
-{
+public interface Visitor {
 	public Expression visit(Identifier id);
 	public Expression visit(LiteralInt litInt);
 	public Expression visit(LiteralString litStr);
 	public Expression visit(Add add) throws WrongTypeException;
-	public Expression visit(And and) throws WrongTypeException;
+	public Expression visit(And and ) throws WrongTypeException;
 	public Expression visit(Call call) throws WrongTypeException;
 	public Expression visit(Div div) throws WrongTypeException;
 	public Expression visit(Eq eq) throws WrongTypeException;

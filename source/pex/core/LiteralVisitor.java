@@ -24,8 +24,7 @@ public class LiteralVisitor implements Visitor, Serializable {
 		try {
 			LiteralString str = ((LiteralString)unary.getArgument(this));
 			throw new WrongTypeException(str.getAsText(), _string, _int);
-		}
-		catch (ClassCastException cce2) {
+		} catch (ClassCastException cce2) {
 			throw new WrongTypeException();
 		}
 	}
@@ -34,8 +33,7 @@ public class LiteralVisitor implements Visitor, Serializable {
 		try {
 			LiteralInt str = ((LiteralInt)unary.getArgument(this));
 			throw new WrongTypeException(str.getAsText(), _int, _string);
-		}
-		catch (ClassCastException cce2) {
+		} catch (ClassCastException cce2) {
 			throw new WrongTypeException();
 		}
 	}
@@ -44,13 +42,11 @@ public class LiteralVisitor implements Visitor, Serializable {
 		try {
 			LiteralString str = ((LiteralString)binary.getFirstArgument(this));
 			throw new WrongTypeException(str.getAsText(), _string, _int);
-		}
-		catch (ClassCastException cce2) {
+		} catch (ClassCastException cce2) {
 			try {
 				LiteralString str = ((LiteralString)binary.getSecondArgument(this));
 				throw new WrongTypeException(str.getAsText(), _string, _int);
-			}
-			catch (ClassCastException cce3) {
+			} catch (ClassCastException cce3) {
 				throw new WrongTypeException();
 			}
 		}
@@ -60,18 +56,15 @@ public class LiteralVisitor implements Visitor, Serializable {
 		try {
 			LiteralString str = ((LiteralString)trenary.getFirstArgument(this));
 			throw new WrongTypeException(str.getAsText(), _string, _int);
-		}
-		catch (ClassCastException cce2) {
+		} catch (ClassCastException cce2) {
 			try {
 				LiteralString str = ((LiteralString)trenary.getSecondArgument(this));
 				throw new WrongTypeException(str.getAsText(), _string, _int);
-			}
-			catch (ClassCastException cce3) {
+			} catch (ClassCastException cce3) {
 				try {
 					LiteralString str = ((LiteralString)trenary.getThirdArgument(this));
-				throw new WrongTypeException(str.getAsText(), _string, _int);
-				}
-				catch (ClassCastException cce4) {
+					throw new WrongTypeException(str.getAsText(), _string, _int);
+				} catch (ClassCastException cce4) {
 					throw new WrongTypeException();
 				}
 			}
@@ -92,39 +85,33 @@ public class LiteralVisitor implements Visitor, Serializable {
 
 	public Expression visit(Add add) throws WrongTypeException {
 		try {
-			return (new LiteralInt(((LiteralInt)add.getFirstArgument(this)).getInt() + 
-									((LiteralInt)add.getSecondArgument(this)).getInt())
-									);
-		}
-		catch (ClassCastException cce) {
-			try{
+			return (new LiteralInt(((LiteralInt)add.getFirstArgument(this)).getInt() +
+			                       ((LiteralInt)add.getSecondArgument(this)).getInt())
+			       );
+		} catch (ClassCastException cce) {
+			try {
 				throwWrongType(add);
 				return null;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				throw wte;
 			}
 		}
 	}
 
-	public Expression visit(And and) throws WrongTypeException {
+	public Expression visit(And and ) throws WrongTypeException {
 		try {
 			if (!(((LiteralInt)and.getFirstArgument(this)).getInt() > 0)) {
 				return new LiteralInt(0);
-			}
-			else if (!(((LiteralInt)and.getSecondArgument(this)).getInt() > 0)) {
+			} else if (!(((LiteralInt)and.getSecondArgument(this)).getInt() > 0)) {
 				return new LiteralInt(0);
-			}
-			else {
+			} else {
 				return new LiteralInt(1);
 			}
-		}
-		catch (ClassCastException cce) {
-			try{
-				throwWrongType(and);
+		} catch (ClassCastException cce) {
+			try {
+				throwWrongType( and );
 				return null;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				throw wte;
 			}
 		}
@@ -133,13 +120,11 @@ public class LiteralVisitor implements Visitor, Serializable {
 	public Expression visit(Call call) throws WrongTypeException {
 		try {
 			return ((call.getInterp()).getProgram(((LiteralString)call.getArgument(this)).getString())).execute();
-		}
-		catch (ClassCastException cce) {
-			try{
+		} catch (ClassCastException cce) {
+			try {
 				throwWrongType2(call);
 				return null;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				throw wte;
 			}
 		}
@@ -148,19 +133,16 @@ public class LiteralVisitor implements Visitor, Serializable {
 	public Expression visit(Div div) throws WrongTypeException {
 		try {
 			return (new LiteralInt(((LiteralInt)div.getFirstArgument(this)).getInt() /
-									((LiteralInt)div.getSecondArgument(this)).getInt())
-									);
-		}
-		catch (ClassCastException cce) {
-			try{
+			                       ((LiteralInt)div.getSecondArgument(this)).getInt())
+			       );
+		} catch (ClassCastException cce) {
+			try {
 				throwWrongType(div);
 				return null;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				throw wte;
 			}
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			//O que fazer se dividir por 0?
 			return null;
 		}
@@ -169,19 +151,16 @@ public class LiteralVisitor implements Visitor, Serializable {
 	public Expression visit(Eq eq) throws WrongTypeException {
 		try {
 			if (((LiteralInt)eq.getFirstArgument(this)).getInt() ==
-				((LiteralInt)eq.getSecondArgument(this)).getInt()) {
+			        ((LiteralInt)eq.getSecondArgument(this)).getInt()) {
 				return new LiteralInt(1);
-			}
-			else {
+			} else {
 				return new LiteralInt(0);
 			}
-		}
-		catch (ClassCastException cce) {
-			try{
+		} catch (ClassCastException cce) {
+			try {
 				throwWrongType(eq);
 				return null;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				throw wte;
 			}
 		}
@@ -190,19 +169,16 @@ public class LiteralVisitor implements Visitor, Serializable {
 	public Expression visit(Ge ge) throws WrongTypeException {
 		try {
 			if (((LiteralInt)ge.getFirstArgument(this)).getInt() >=
-				((LiteralInt)ge.getSecondArgument(this)).getInt()) {
+			        ((LiteralInt)ge.getSecondArgument(this)).getInt()) {
 				return new LiteralInt(1);
-			}
-			else {
+			} else {
 				return new LiteralInt(0);
 			}
-		}
-		catch (ClassCastException cce) {
-			try{
+		} catch (ClassCastException cce) {
+			try {
 				throwWrongType(ge);
 				return null;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				throw wte;
 			}
 		}
@@ -211,19 +187,16 @@ public class LiteralVisitor implements Visitor, Serializable {
 	public Expression visit(Gt gt) throws WrongTypeException {
 		try {
 			if (((LiteralInt)gt.getFirstArgument(this)).getInt() >
-				((LiteralInt)gt.getSecondArgument(this)).getInt()) {
+			        ((LiteralInt)gt.getSecondArgument(this)).getInt()) {
 				return new LiteralInt(1);
-			}
-			else {
+			} else {
 				return new LiteralInt(0);
 			}
-		}
-		catch (ClassCastException cce) {
-			try{
+		} catch (ClassCastException cce) {
+			try {
 				throwWrongType(gt);
 				return null;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				throw wte;
 			}
 		}
@@ -233,17 +206,14 @@ public class LiteralVisitor implements Visitor, Serializable {
 		try {
 			if ((((LiteralInt)ife.getFirstArgument(this)).getInt()) != 0) {
 				return ife.getSecondArgument(this);
-			}
-			else {
+			} else {
 				return ife.getThirdArgument(this);
 			}
-		}
-		catch (ClassCastException cce) {
-			try{
+		} catch (ClassCastException cce) {
+			try {
 				throwWrongType(ife);
 				return null;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				throw wte;
 			}
 		}
@@ -252,19 +222,16 @@ public class LiteralVisitor implements Visitor, Serializable {
 	public Expression visit(Le le) throws WrongTypeException {
 		try {
 			if (((LiteralInt)le.getFirstArgument(this)).getInt() <=
-				((LiteralInt)le.getSecondArgument(this)).getInt()) {
+			        ((LiteralInt)le.getSecondArgument(this)).getInt()) {
 				return new LiteralInt(1);
-			}
-			else {
+			} else {
 				return new LiteralInt(0);
 			}
-		}
-		catch (ClassCastException cce) {
-			try{
+		} catch (ClassCastException cce) {
+			try {
 				throwWrongType(le);
 				return null;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				throw wte;
 			}
 		}
@@ -273,19 +240,16 @@ public class LiteralVisitor implements Visitor, Serializable {
 	public Expression visit(Lt lt) throws WrongTypeException {
 		try {
 			if (((LiteralInt)lt.getFirstArgument(this)).getInt() <
-				((LiteralInt)lt.getSecondArgument(this)).getInt()) {
+			        ((LiteralInt)lt.getSecondArgument(this)).getInt()) {
 				return new LiteralInt(1);
-			}
-			else {
+			} else {
 				return new LiteralInt(0);
 			}
-		}
-		catch (ClassCastException cce) {
-			try{
+		} catch (ClassCastException cce) {
+			try {
 				throwWrongType(lt);
 				return null;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				throw wte;
 			}
 		}
@@ -293,16 +257,14 @@ public class LiteralVisitor implements Visitor, Serializable {
 
 	public Expression visit(Mod mod) throws WrongTypeException {
 		try {
-			return (new LiteralInt(((LiteralInt)mod.getFirstArgument(this)).getInt() % 
-									((LiteralInt)mod.getSecondArgument(this)).getInt())
-									);
-		}
-		catch (ClassCastException cce) {
-			try{
+			return (new LiteralInt(((LiteralInt)mod.getFirstArgument(this)).getInt() %
+			                       ((LiteralInt)mod.getSecondArgument(this)).getInt())
+			       );
+		} catch (ClassCastException cce) {
+			try {
 				throwWrongType(mod);
 				return null;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				throw wte;
 			}
 		}
@@ -310,16 +272,14 @@ public class LiteralVisitor implements Visitor, Serializable {
 
 	public Expression visit(Mul mul) throws WrongTypeException {
 		try {
-			return (new LiteralInt(((LiteralInt)mul.getFirstArgument(this)).getInt() * 
-									((LiteralInt)mul.getSecondArgument(this)).getInt())
-									);
-		}
-		catch (ClassCastException cce) {
-			try{
+			return (new LiteralInt(((LiteralInt)mul.getFirstArgument(this)).getInt() *
+			                       ((LiteralInt)mul.getSecondArgument(this)).getInt())
+			       );
+		} catch (ClassCastException cce) {
+			try {
 				throwWrongType(mul);
 				return null;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				throw wte;
 			}
 		}
@@ -328,19 +288,16 @@ public class LiteralVisitor implements Visitor, Serializable {
 	public Expression visit(Ne ne) throws WrongTypeException {
 		try {
 			if (((LiteralInt)ne.getFirstArgument(this)).getInt() !=
-				((LiteralInt)ne.getSecondArgument(this)).getInt()) {
+			        ((LiteralInt)ne.getSecondArgument(this)).getInt()) {
 				return new LiteralInt(1);
-			}
-			else {
+			} else {
 				return new LiteralInt(0);
 			}
-		}
-		catch (ClassCastException cce) {
-			try{
+		} catch (ClassCastException cce) {
+			try {
 				throwWrongType(ne);
 				return null;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				throw wte;
 			}
 		}
@@ -349,13 +306,11 @@ public class LiteralVisitor implements Visitor, Serializable {
 	public Expression visit(Neg neg) throws WrongTypeException {
 		try {
 			return new LiteralInt(-1 * ((LiteralInt)neg.getArgument(this)).getInt());
-		}
-		catch (ClassCastException cce) {
-			try{
+		} catch (ClassCastException cce) {
+			try {
 				throwWrongType(neg);
 				return null;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				throw wte;
 			}
 		}
@@ -365,17 +320,14 @@ public class LiteralVisitor implements Visitor, Serializable {
 		try {
 			if (((LiteralInt)not.getArgument(this)).getInt() == 0) {
 				return new LiteralInt(1);
-			}
-			else {
+			} else {
 				return new LiteralInt(0);
 			}
-		}
-		catch (ClassCastException cce) {
-			try{
+		} catch (ClassCastException cce) {
+			try {
 				throwWrongType(not);
 				return null;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				throw wte;
 			}
 		}
@@ -385,20 +337,16 @@ public class LiteralVisitor implements Visitor, Serializable {
 		try {
 			if (((LiteralInt)ore.getFirstArgument(this)).getInt() > 0) {
 				return new LiteralInt(1);
-			}
-			else if (((LiteralInt)ore.getSecondArgument(this)).getInt() > 0) {
+			} else if (((LiteralInt)ore.getSecondArgument(this)).getInt() > 0) {
 				return new LiteralInt(1);
-			}
-			else {
+			} else {
 				return new LiteralInt(0);
 			}
-		}
-		catch (ClassCastException cce) {
-			try{
+		} catch (ClassCastException cce) {
+			try {
 				throwWrongType(ore);
 				return null;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				throw wte;
 			}
 		}
@@ -414,8 +362,7 @@ public class LiteralVisitor implements Visitor, Serializable {
 			}
 			print.requestPrint(sb.toString());
 			return expression;
-		}
-		catch (WrongTypeException wte) {
+		} catch (WrongTypeException wte) {
 			throw wte;
 		}
 	}
@@ -435,8 +382,7 @@ public class LiteralVisitor implements Visitor, Serializable {
 				expression = exp.accept(this);
 			}
 			return expression;
-		}
-		catch (WrongTypeException wte) {
+		} catch (WrongTypeException wte) {
 			//seq.requestPrint(wte.getMessage());
 			throw wte;
 		}
@@ -448,16 +394,14 @@ public class LiteralVisitor implements Visitor, Serializable {
 
 	public Expression visit(Sub sub) throws WrongTypeException {
 		try {
-			return (new LiteralInt(((LiteralInt)sub.getFirstArgument(this)).getInt() - 
-									((LiteralInt)sub.getSecondArgument(this)).getInt())
-									);
-		}
-		catch (ClassCastException cce) {
-			try{
+			return (new LiteralInt(((LiteralInt)sub.getFirstArgument(this)).getInt() -
+			                       ((LiteralInt)sub.getSecondArgument(this)).getInt())
+			       );
+		} catch (ClassCastException cce) {
+			try {
 				throwWrongType(sub);
 				return null;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				throw wte;
 			}
 		}
@@ -469,13 +413,11 @@ public class LiteralVisitor implements Visitor, Serializable {
 				whail.getSecondArgument(this);
 			}
 			return new LiteralInt(0);
-		}
-		catch (ClassCastException cce) {
-			try{
+		} catch (ClassCastException cce) {
+			try {
 				throwWrongType(whail);
 				return null;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				throw wte;
 			}
 		}

@@ -121,10 +121,9 @@ public class Program implements Serializable {
 			try {
 				for (Expression exp : _expressions) {
 					expression = exp.accept(_visitor);
-				}				
+				}
 				return expression;
-			}
-			catch (WrongTypeException wte) {
+			} catch (WrongTypeException wte) {
 				requestPrint(wte.getMessage());
 				return null;
 			}
@@ -158,7 +157,7 @@ public class Program implements Serializable {
 	/**
 	 * Devolve uma string lida pela AppIO
 	 *
-     * @param str A string a mostrar ao pedir a string
+	 * @param str A string a mostrar ao pedir a string
 	 * @return String A string lida pelo AppIO
 	 */
 	public String requestString(String str) {

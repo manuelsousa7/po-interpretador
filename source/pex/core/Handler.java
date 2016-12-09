@@ -79,7 +79,7 @@ public class Handler implements Serializable {
 	/**
 	 * Devolve uma string lida pela AppIO
 	 *
-     * @param str A string a mostrar ao pedir a string
+	 * @param str A string a mostrar ao pedir a string
 	 * @return String A string lida pelo AppIO
 	 */
 	public String requestString(String str) {
@@ -214,7 +214,7 @@ public class Handler implements Serializable {
 		Program prog = _interpretador.getProgram(name);
 		if (prog != null) {
 			try {
-				prog.saveProgram(file);				
+				prog.saveProgram(file);
 				_changed = true;
 			} catch (Exception e) {
 				throw new IOException();

@@ -11,10 +11,10 @@ import java.io.Serializable;
  */
 public abstract class Expression implements Serializable, Element {
 
-     /**
-      * Retorna uma string que representa a expressao
-      *
-      * @return String Retorna uma string que representa a expressao
-      */
-     public abstract String getAsText();
+	/**
+	 * Retorna uma string que representa a expressao
+	 *
+	 * @return String Retorna uma string que representa a expressao
+	 */
+	public abstract String getAsText();
 }

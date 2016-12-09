@@ -49,7 +49,7 @@ public class Interpreter implements Serializable {
 	public List<String> listIds() {
 		List<String> strings = new ArrayList<String>();
 		if (_initializedIds.size() > 0) {
-			for(Map.Entry<String,Identifier> entry : _initializedIds.entrySet()) {
+			for (Map.Entry<String, Identifier> entry : _initializedIds.entrySet()) {
 				strings.add(entry.getKey());
 			}
 			return strings;
@@ -61,7 +61,7 @@ public class Interpreter implements Serializable {
 	public List<String> listUninitializedIds() {
 		List<String> strings = new ArrayList<String>();
 		if (_uninitializedIds.size() > 0) {
-			for(Map.Entry<String,Identifier> entry : _uninitializedIds.entrySet()) {
+			for (Map.Entry<String, Identifier> entry : _uninitializedIds.entrySet()) {
 				strings.add(entry.getKey());
 			}
 			return strings;
@@ -83,8 +83,7 @@ public class Interpreter implements Serializable {
 		Identifier newId = new Identifier(ident, value, this);
 		if (_initializedIds.containsKey(ident)) {
 			_initializedIds.replace(ident, newId);
-		}
-		else {
+		} else {
 			_initializedIds.put(ident, newId);
 		}
 
@@ -105,18 +104,15 @@ public class Interpreter implements Serializable {
 	public Identifier fetchId(String id, boolean toInit) {
 		if (_uninitializedIds.containsKey(id) && !toInit) {
 			return (_uninitializedIds.get(id));
-		}
-		else if (_uninitializedIds.containsKey(id) && toInit) {
+		} else if (_uninitializedIds.containsKey(id) && toInit) {
 			_uninitializedIds.remove(id);
 			return (_initializedIds.get(id));
-		}
-		else if (_initializedIds.containsKey(id)) {
+		} else if (_initializedIds.containsKey(id)) {
 			return (_initializedIds.get(id));
-		}
-		else {
+		} else {
 			Identifier ident = new Identifier(id, new LiteralInt(0), this);
 			_initializedIds.put(id, ident);
-			if (!toInit){
+			if (!toInit) {
 				_uninitializedIds.put(id, ident);
 			}
 			return ident;
@@ -132,8 +128,7 @@ public class Interpreter implements Serializable {
 	public Expression updateId(String id) {
 		if (_initializedIds.containsKey(id)) {
 			return (_initializedIds.get(id)).getExpression();
-		}
-		else {
+		} else {
 			return null;
 		}
 	}
@@ -146,8 +141,7 @@ public class Interpreter implements Serializable {
 	public void addProgram(Program program, Parser parser) {
 		if (_programs.containsKey(program.getAsText())) {
 			_programs.replace(program.getAsText(), program);
-		}
-		else {
+		} else {
 			_programs.put(program.getAsText(), program);
 		}
 	}
@@ -161,8 +155,7 @@ public class Interpreter implements Serializable {
 	public Program getProgram(String name) {
 		if (_programs.containsKey(name)) {
 			return _programs.get(name);
-		}
-		else {
+		} else {
 			return null;
 		}
 	}
@@ -189,7 +182,7 @@ public class Interpreter implements Serializable {
 	/**
 	 * Devolve uma string lida pela AppIO
 	 *
-     * @param str A string a mostrar ao pedir a string
+	 * @param str A string a mostrar ao pedir a string
 	 * @return String A string lida pelo AppIO
 	 */
 	public String requestString(String str) {

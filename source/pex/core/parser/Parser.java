@@ -89,8 +89,7 @@ public class Parser implements Serializable  {
             if (_toSet) {
                 _toSet = false;
                 return _interp.fetchId(_tokenizer.sval, true);
-            }
-            else {
+            } else {
                 return _interp.fetchId(_tokenizer.sval, false);
             }
 
