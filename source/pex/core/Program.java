@@ -118,14 +118,17 @@ public class Program implements Serializable {
 	public Expression execute() {
 		if (_expressions.size() > 0) {
 			Expression expression = null;
+			int num = 0;
 			try {
 				for (Expression exp : _expressions) {
 					expression = exp.accept(_visitor);
+					num++;
 				}
 				return expression;
 			} catch (WrongTypeException wte) {
+				wte.setExpressionNum(num);
 				requestPrint(wte.getMessage());
-				return null;
+				return expression;
 			}
 		}
 		return new LiteralInt(0);
