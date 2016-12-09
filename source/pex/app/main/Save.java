@@ -32,14 +32,14 @@ public class Save extends Command<Handler> {
 
             try {
                 entity().saveInterpreter(param_1);
-            } catch (Exception e) {
-                (new Display(title())).display();
+            } catch (IOException e) {
+                (new Display(title())).add("Nao foi possivel guardar o interpretador no ficheiro indicado.").display();
             }
         } else {
             try {
                 entity().saveInterpreter();
-            } catch (Exception e) {
-                (new Display(title())).display();
+            } catch (IOException e) {
+                (new Display(title())).add("Nao foi possivel guardar o ficheiro.").display();
             }
         }
     }

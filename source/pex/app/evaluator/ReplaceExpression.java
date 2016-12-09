@@ -32,7 +32,7 @@ public class ReplaceExpression extends ProgramCommand {
             throw new BadPositionException(param_1);
         }
         if (!(entity().replace(param_1, param_2))) {
-            throw new BadExpressionException(param_2 + " : nao e valido");
+            throw new BadExpressionException(param_2);
         }
     }
 }

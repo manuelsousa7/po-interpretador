@@ -47,14 +47,33 @@ public class Program implements Serializable {
 		_visitor = new LiteralVisitor();
 	}
 
+	/**
+	 * Verifica se pode ser adicionada uma expressao
+	 * no indice indicado
+	 *
+	 * @param index Indice da expressao a adicionar
+	 * @return boolean Devolve true se poder ser adicionado
+	 */
 	public boolean checkAdd(int index) {
 		return (_expressions.size() >= index && index >= 0);
 	}
 
+	/**
+	 * Verifica se pode ser substituida uma expressao
+	 * no indice indicado
+	 *
+	 * @param index Indice da expressao a adicionar
+	 * @return boolean Devolve true se poder ser adicionado
+	 */
 	public boolean checkReplace(int index) {
 		return (_expressions.size() > index && index >= 0);
 	}
 
+	/**
+	 * Devolve o interpretador associado a este programa
+	 *
+	 * @return Interpreter O interpretador associado a este programa
+	 */
 	public Interpreter getInterpreter() {
 		return _interpreter;
 	}
@@ -189,10 +208,22 @@ public class Program implements Serializable {
 		return _expressoes;
 	}
 
+	/**
+	 * Devolve uma lista de strings com os nomes dos identificadores
+	 * por ordem alfabetica.
+	 *
+	 * @return List<String> Lista de nomes de identificadores
+	 */
 	public List<String> listIds() {
 		return _interpreter.listIds();
 	}
 
+	/**
+	 * Devolve uma lista de strings com os nomes dos identificadores
+	 * nao inicializados por ordem alfabetica.
+	 *
+	 * @return List<String> Lista de nomes de identificadores nao inicializados
+	 */
 	public List<String> listUninitializedIds() {
 		return _interpreter.listUninitializedIds();
 	}
@@ -203,7 +234,7 @@ public class Program implements Serializable {
 	 *
 	 * @param file Nome do ficheiro onde guardar as expressoes
 	 */
-	public void saveProgram(String file) {
+	public void saveProgram(String file) throws IOException {
 		try {
 			PrintWriter p = new PrintWriter(new BufferedWriter(new FileWriter(file)));
 			for (Expression exp : _expressions) {
@@ -211,8 +242,8 @@ public class Program implements Serializable {
 			}
 			p.flush();
 			p.close();
-		} catch (IOException ioe) {
-			//Deveria apresentar erro?
+		} catch (IOException e) {
+			throw e;
 		}
 	}
 }

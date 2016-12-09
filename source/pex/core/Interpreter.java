@@ -46,6 +46,12 @@ public class Interpreter implements Serializable {
 		_fileName = "";
 	}
 
+	/**
+	 * Devolve uma lista de strings com os nomes dos identificadores
+	 * por ordem alfabetica.
+	 *
+	 * @return List<String> Lista de nomes de identificadores
+	 */
 	public List<String> listIds() {
 		List<String> strings = new ArrayList<String>();
 		if (_initializedIds.size() > 0) {
@@ -58,6 +64,12 @@ public class Interpreter implements Serializable {
 		return strings;
 	}
 
+	/**
+	 * Devolve uma lista de strings com os nomes dos identificadores
+	 * nao inicializados por ordem alfabetica.
+	 *
+	 * @return List<String> Lista de nomes de identificadores nao inicializados
+	 */
 	public List<String> listUninitializedIds() {
 		List<String> strings = new ArrayList<String>();
 		if (_uninitializedIds.size() > 0) {

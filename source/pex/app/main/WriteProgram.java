@@ -34,7 +34,7 @@ public class WriteProgram extends Command<Handler> {
             try {
                 entity().writeProgram(param_1, param_2);
             } catch (Exception e) {
-                //FIX ME
+                (new Display(title())).add("Nao foi possivel guardar o programa no ficheiro indicado.").display();
             }
         } else {
             (new Display(title())).add(Message.noSuchProgram(param_1)).display();
