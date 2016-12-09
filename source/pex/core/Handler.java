@@ -21,6 +21,8 @@ import java.io.Serializable;
  * @author Manuel e Goncalo
  */
 public class Handler implements Serializable {
+	/** Serial number for serialization. */
+	private static final long serialVersionUID = 201608241029L;
 	private AppIO _app;
 	private Interpreter _interpretador;
 	private boolean _changed;
@@ -101,16 +103,26 @@ public class Handler implements Serializable {
 	 * @param file O nome do ficheiro no qual esta guardado o interpretador
 	 */
 	public void openInterpreter(String file) throws WriteAbortedException, IOException, ClassNotFoundException {
+		FileInputStream fileIn = null;
+		ObjectInputStream in = null;
 		try {
-			FileInputStream fileIn = new FileInputStream(file);
-			ObjectInputStream in = new ObjectInputStream(fileIn);
+			fileIn = new FileInputStream(file);
+			in = new ObjectInputStream(fileIn);
 			_interpretador = (Interpreter)in.readObject();
-			in.close();
-			fileIn.close();
-		}
-
-		catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 			throw e;
+		} finally {
+			try {
+				if (in != null) {
+					in.close();
+				}
+				if (fileIn != null) {
+					fileIn.close();
+				}
+			} catch (Exception e) {
+				throw e;
+			}
+
 		}
 	}
 
@@ -121,20 +133,30 @@ public class Handler implements Serializable {
 	 */
 	public void saveInterpreter(String file) throws IOException {
 		if (_changed) {
+			FileOutputStream fileOut = null;
+			ObjectOutputStream out = null;
 			try {
-				FileOutputStream fileOut = new FileOutputStream(file);
-				ObjectOutputStream out = new ObjectOutputStream(fileOut);
+				fileOut = new FileOutputStream(file);
+				out = new ObjectOutputStream(fileOut);
 				_interpretador.setSaved();
 				_interpretador.setFileName(file);
 				_changed = false;
 				out.writeObject(_interpretador);
 				out.flush();
-				out.close();
-				fileOut.close();
-			}
-
-			catch (Exception e) {
+			} catch (Exception e) {
 				throw e;
+			} finally {
+				try {
+					if (out != null) {
+						out.close();
+					}
+					if (fileOut != null) {
+						fileOut.close();
+					}
+				} catch (Exception e) {
+					throw e;
+				}
+
 			}
 		}
 	}
@@ -144,17 +166,27 @@ public class Handler implements Serializable {
 	 */
 	public void saveInterpreter() throws IOException {
 		if (_changed) {
+			FileOutputStream fileOut = null;
+			ObjectOutputStream out = null;
 			try {
-				FileOutputStream fileOut = new FileOutputStream(_interpretador.getFileName());
-				ObjectOutputStream out = new ObjectOutputStream(fileOut);
+				fileOut = new FileOutputStream(_interpretador.getFileName());
+				out = new ObjectOutputStream(fileOut);
 				_changed = false;
 				out.writeObject(_interpretador);
-				out.close();
-				fileOut.close();
-			}
-
-			catch (Exception e) {
+			} catch (Exception e) {
 				throw e;
+			} finally {
+				try {
+					if (out != null) {
+						out.close();
+					}
+					if (fileOut != null) {
+						fileOut.close();
+					}
+				} catch (Exception e) {
+					throw e;
+				}
+
 			}
 		}
 	}

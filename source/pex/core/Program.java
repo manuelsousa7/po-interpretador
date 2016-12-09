@@ -19,6 +19,8 @@ import java.util.Collections;
 import java.util.Collection;
 import java.io.Serializable;
 
+
+
 import pex.AppIO;
 
 /**
@@ -27,11 +29,14 @@ import pex.AppIO;
  * @author Grupo 28 - Goncalo Marques (84719) - Manuel Sousa (84740)
  */
 public class Program implements Serializable {
+	/** Serial number for serialization. */
+	private static final long serialVersionUID = 201608241029L;
 	private String _name;
 	private List<Expression> _expressions;
 	private Interpreter _interpreter;
 	private Parser _parser;
 	private LiteralVisitor _visitor;
+	private String _encoding = "UTF-8";
 
 	/**
 	 * Construtor : Associa um nome do programa e o seu interpretador correspondente
@@ -235,15 +240,26 @@ public class Program implements Serializable {
 	 * @param file Nome do ficheiro onde guardar as expressoes
 	 */
 	public void saveProgram(String file) throws IOException {
+		OutputStreamWriter p = null;
 		try {
-			PrintWriter p = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+			p = new OutputStreamWriter(new FileOutputStream(new File(file)), "UTF-8");
 			for (Expression exp : _expressions) {
-				p.println(exp.getAsText());
+				p.write(exp.getAsText());
+				p.write(System.getProperty("line.separator"));
 			}
 			p.flush();
-			p.close();
 		} catch (IOException e) {
 			throw e;
+		} finally {
+			try {
+				if (p != null) {
+					p.close();
+				}
+
+			} catch (Exception e) {
+				throw e;
+			}
+
 		}
 	}
 }

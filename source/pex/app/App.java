@@ -22,8 +22,7 @@ import pt.utl.ist.po.ui.Display;
  * It uses a text-based user interface.
  */
 public class App implements AppIO, Serializable {
-    // Add fileds here if needed
-
+    private static final long serialVersionUID = 201608241029L;
 
     public App() {
 

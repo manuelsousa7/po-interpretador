@@ -11,6 +11,8 @@ import java.io.Serializable;
  * @author Manuel e Goncalo
  */
 public class Identifier extends Expression {
+	/** Serial number for serialization. */
+	private static final long serialVersionUID = 201608241029L;
 	private String _name;
 	private Expression _expression;
 	private Interpreter _interp;

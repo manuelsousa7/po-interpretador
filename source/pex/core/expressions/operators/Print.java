@@ -19,7 +19,8 @@ import java.util.Collections;
  * @author Manuel e Goncalo
  */
 public class Print extends VariadicExpression {
-
+	/** Serial number for serialization. */
+	private static final long serialVersionUID = 201608241029L;
 	/**
 	 * Contrutor: Inicia as expressoes como as expressoes recebidas
 	 *

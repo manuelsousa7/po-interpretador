@@ -14,6 +14,8 @@ import pex.core.expressions.LiteralString;
  * @author Manuel e Goncalo
  */
 public class Call extends UnaryExpression {
+	/** Serial number for serialization. */
+	private static final long serialVersionUID = 201608241029L;
 	private Interpreter _interp;
 
 	/**

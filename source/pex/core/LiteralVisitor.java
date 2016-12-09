@@ -14,7 +14,8 @@ import pex.core.expressions.operators.*;
 import java.io.Serializable;
 
 public class LiteralVisitor implements Visitor, Serializable {
-
+	/** Serial number for serialization. */
+	private static final long serialVersionUID = 201608241029L;
 	//String que representa um literal do tipo String
 	private String _string = "String";
 	//String que representa um literal do tipo Int

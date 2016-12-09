@@ -15,6 +15,8 @@ import pex.core.Program;
  * @author Manuel e Goncalo
  */
 public class Set extends BinaryExpression {
+	/** Serial number for serialization. */
+	private static final long serialVersionUID = 201608241029L;
 	private Identifier _ident;
 	private Program _prog;
 

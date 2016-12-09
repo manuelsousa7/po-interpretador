@@ -25,6 +25,8 @@ import java.io.Serializable;
  * @author Manuel e Goncalo
  */
 public class Interpreter implements Serializable {
+	/** Serial number for serialization. */
+	private static final long serialVersionUID = 201608241029L;
 	private Handler _handler;
 	private Map<String, Program> _programs;
 	private Map<String, Identifier> _initializedIds;

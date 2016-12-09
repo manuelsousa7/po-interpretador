@@ -6,9 +6,12 @@ import pex.core.expressions.*;
 import pex.core.expressions.operators.*;
 import pex.core.parser.*;
 
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
 import java.io.IOException;
 import java.io.StreamTokenizer;
-import java.io.FileReader;
+
 import java.io.StringReader;
 import java.io.Reader;
 import java.io.Serializable;
@@ -17,11 +20,14 @@ import java.util.Collection;
 import java.util.ArrayList;
 
 public class Parser implements Serializable  {
+    /** Serial number for serialization. */
+    private static final long serialVersionUID = 201608241029L;
 
     private Program _program;
     private transient StreamTokenizer _tokenizer;
     private Interpreter _interp;
     private boolean _toSet;
+    private String _encoding = "UTF-8";
 
     public Parser() {
         _interp = null;
@@ -37,8 +43,8 @@ public class Parser implements Serializable  {
         MissingClosingParenthesisException, UnknownOperationException, EndOfInputException  {
         _program = new Program(programName, interpreter, this);
         _interp = interpreter;
+        try (InputStreamReader reader = new InputStreamReader(new FileInputStream(fileName), _encoding)) {
 
-        try (FileReader reader = new FileReader(fileName)) {
             initTokenizer(reader);
 
             Collection<Expression> expressions = new ArrayList<>();

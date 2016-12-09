@@ -10,6 +10,8 @@ import pex.core.Visitor;
  * @author Manuel e Goncalo
  */
 public class LiteralString extends Expression {
+	/** Serial number for serialization. */
+	private static final long serialVersionUID = 201608241029L;
 	private String _value;
 
 	/**

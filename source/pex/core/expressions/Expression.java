@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @author Manuel e Goncalo
  */
 public abstract class Expression implements Serializable, Element {
-
+	private static final long serialVersionUID = 201608241029L;
 	/**
 	 * Retorna uma string que representa a expressao
 	 *

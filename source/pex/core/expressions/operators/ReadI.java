@@ -14,6 +14,8 @@ import pex.core.Program;
  * @author Manuel e Goncalo
  */
 public class ReadI extends IOExpression {
+	/** Serial number for serialization. */
+	private static final long serialVersionUID = 201608241029L;
 	Program _prog;
 
 	public ReadI(Program prog) {

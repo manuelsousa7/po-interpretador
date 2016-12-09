@@ -13,6 +13,8 @@ import pex.core.Program;
  * @author Manuel e Goncalo
  */
 public class ReadS extends IOExpression {
+	/** Serial number for serialization. */
+	private static final long serialVersionUID = 201608241029L;
 	Program _prog;
 
 	public ReadS(Program prog) {
