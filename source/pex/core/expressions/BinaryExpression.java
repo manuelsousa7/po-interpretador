@@ -19,11 +19,11 @@ public abstract class BinaryExpression extends CompositeExpression {
 	 *
 	 * @return Expression Retorna uma expressao que representa o valor da primeira expressao
 	 */
-	public Expression getFirstArgument(Visitor v) {
+	public Expression getFirstArgument(Visitor v) throws WrongTypeException {
 		try {
 			return _expression_1.accept(v);
 		} catch (WrongTypeException wte) {
-			return wte;
+			throw wte;
 		}
 	}
 
@@ -36,11 +36,11 @@ public abstract class BinaryExpression extends CompositeExpression {
 	 *
 	 * @return Expression Retorna uma expressao que representa o valor da segunda expressao
 	 */
-	public Expression getSecondArgument(Visitor v) {
+	public Expression getSecondArgument(Visitor v) throws WrongTypeException {
 		try {
 			return _expression_2.accept(v);
 		} catch (WrongTypeException wte) {
-			return wte;
+			throw wte;
 		}
 	}
 

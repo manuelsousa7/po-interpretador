@@ -18,11 +18,11 @@ public abstract class UnaryExpression extends CompositeExpression {
 	 *
 	 * @return Expression Retorna uma expressao que representa o valor da expressao
 	 */
-	public Expression getArgument(Visitor v) {
+	public Expression getArgument(Visitor v) throws WrongTypeException {
 		try {
 			return _expression.accept(v);
 		} catch (WrongTypeException wte) {
-			return wte;
+			throw wte;
 		}
 	}
 
