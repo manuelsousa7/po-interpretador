@@ -10,7 +10,7 @@ public class WrongTypeException extends InvalidOperation {
     /** Serial number for serialization. */
     private static final long serialVersionUID = 201608241029L;
 
-    private String _description;
+    private String _description, _received, _wrong, _right, _expressionNum;
 
     /**
     * Constructor : Chamado quando nao se sabe o tipo da expressao dada
@@ -27,7 +27,16 @@ public class WrongTypeException extends InvalidOperation {
     * @oaram right O tipo esperado da expressao para que fosse correta
     */
     public WrongTypeException(String received, String wrong, String right) {
-        _description = "Argumento: " + received + " : " + wrong + ".\tEsperado : " + right + "\n";
+        _received = received;
+        _wrong = wrong;
+        _right = right;
+        _expressionNum = "desconhecido";
+        _description = "Argumento: " + _received + ": " + _wrong + ".\tEsperado: " + _right + "\tNº Expressao: " + _expressionNum + ".\n";
+    }
+
+    public void setExpressionNum(int num) {
+        _expressionNum = ("" + num);
+        _description = "Argumento " + _received + ": " + _wrong + " --> Esperado: " + _right + " --> Nº Expressao: " + _expressionNum + ".\n";
     }
 
     /**

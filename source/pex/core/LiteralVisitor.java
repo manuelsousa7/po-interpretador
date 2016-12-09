@@ -20,6 +20,11 @@ public class LiteralVisitor implements Visitor, Serializable {
 	//String que representa um literal do tipo Int
 	private String _int = "Integer";
 
+	/**
+	 * Manda uma excecao consoante o erro encontrado
+	 *
+	 * @param unary Operador a avaliar
+	 */
 	public void throwWrongType(UnaryExpression unary) throws WrongTypeException {
 		try {
 			LiteralString str = ((LiteralString)unary.getArgument(this));
@@ -29,6 +34,11 @@ public class LiteralVisitor implements Visitor, Serializable {
 		}
 	}
 
+	/**
+	 * Manda uma excecao consoante o erro encontrado
+	 *
+	 * @param unary Operador a avaliar
+	 */
 	public void throwWrongType2(UnaryExpression unary) throws WrongTypeException {
 		try {
 			LiteralInt str = ((LiteralInt)unary.getArgument(this));
@@ -38,6 +48,11 @@ public class LiteralVisitor implements Visitor, Serializable {
 		}
 	}
 
+	/**
+	 * Manda uma excecao consoante o erro encontrado
+	 *
+	 * @param unary Operador a avaliar
+	 */
 	public void throwWrongType(BinaryExpression binary) throws WrongTypeException  {
 		try {
 			LiteralString str = ((LiteralString)binary.getFirstArgument(this));
@@ -52,6 +67,11 @@ public class LiteralVisitor implements Visitor, Serializable {
 		}
 	}
 
+	/**
+	 * Manda uma excecao consoante o erro encontrado
+	 *
+	 * @param unary Operador a avaliar
+	 */
 	public void throwWrongType(TrenaryExpression trenary) throws WrongTypeException  {
 		try {
 			LiteralString str = ((LiteralString)trenary.getFirstArgument(this));
@@ -143,8 +163,7 @@ public class LiteralVisitor implements Visitor, Serializable {
 				throw wte;
 			}
 		} catch (Exception e) {
-			//O que fazer se dividir por 0?
-			return null;
+			throw e;
 		}
 	}
 
@@ -383,7 +402,6 @@ public class LiteralVisitor implements Visitor, Serializable {
 			}
 			return expression;
 		} catch (WrongTypeException wte) {
-			//seq.requestPrint(wte.getMessage());
 			throw wte;
 		}
 	}

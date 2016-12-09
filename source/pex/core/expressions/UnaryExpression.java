@@ -22,8 +22,7 @@ public abstract class UnaryExpression extends CompositeExpression {
 		try {
 			return _expression.accept(v);
 		} catch (WrongTypeException wte) {
-			//Corrigir isto
-			return null;
+			return wte;
 		}
 	}
 

@@ -23,8 +23,7 @@ public abstract class BinaryExpression extends CompositeExpression {
 		try {
 			return _expression_1.accept(v);
 		} catch (WrongTypeException wte) {
-			//Corrigir isto
-			return null;
+			return wte;
 		}
 	}
 
@@ -41,8 +40,7 @@ public abstract class BinaryExpression extends CompositeExpression {
 		try {
 			return _expression_2.accept(v);
 		} catch (WrongTypeException wte) {
-			//Corrigir isto
-			return null;
+			return wte;
 		}
 	}
 

@@ -81,8 +81,5 @@ public class App implements AppIO, Serializable {
         }
         MainMenu menu = new MainMenu(handler);
         menu.open();
-        /*
-        System.out.println("Parabens Manecas! XD");
-        */
     }
 }
