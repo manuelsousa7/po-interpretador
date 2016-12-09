@@ -387,11 +387,11 @@ public class LiteralVisitor implements Visitor, Serializable {
 	}
 
 	public Expression visit(ReadI readi) {
-		return new LiteralInt(readi.getProgram().requestInt(""));
+		return new LiteralString(readi.getProgram().requestString(""));
 	}
 
 	public Expression visit(ReadS reads) {
-		return new LiteralInt(reads.getProgram().requestInt(""));
+		return new LiteralString(reads.getProgram().requestString(""));
 	}
 
 	public Expression visit(Seq seq) throws WrongTypeException {
