@@ -1,0 +1,6 @@
+(print (readi))
+(print (readi))
+(print (readi))
+(print "string lida: " (reads))
+(print "string lida: " (reads))
+(print "string lida: " (reads))

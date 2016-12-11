@@ -1,0 +1,4 @@
+(print "Testar call")
+(call "ex33.pex")
+(print (call "ex33.pex"))
+(print "fim")

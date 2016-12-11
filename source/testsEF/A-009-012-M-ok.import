@@ -1,0 +1,8 @@
+(set b 0)
+(set a 1)
+(if (or a (set b 1) ) (print "true") (print "false"))
+(print a " " b)
+(set b 1)
+(if (or 1 (set b 0) ) (print "true") (print "false"))
+(print a " " b)
+

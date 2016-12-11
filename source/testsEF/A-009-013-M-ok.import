@@ -1,0 +1,6 @@
+(set b 5)
+(set a (sub 2 3))
+(if (not b) (print "true") (print "false"))
+(if (not a) (print "true") (print "false"))
+
+

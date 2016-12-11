@@ -62,7 +62,6 @@ public class Interpreter implements Serializable {
 			}
 			return strings;
 		}
-		strings.add("Nao existem identificadores.");
 		return strings;
 	}
 
@@ -80,7 +79,6 @@ public class Interpreter implements Serializable {
 			}
 			return strings;
 		}
-		strings.add("Nao existem identificadores nao inicializados.");
 		return strings;
 	}
 

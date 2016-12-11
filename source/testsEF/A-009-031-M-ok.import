@@ -1,0 +1,6 @@
+(print "primeiro ciclo")
+(set a 3)
+(while a (seq (print a) (set a (sub a 1))))
+(set a 4)
+(print (while a (seq (print a) (set a (sub a 1)))))
+(print "fim")

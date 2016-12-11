@@ -1,0 +1,2 @@
+(set a (sub 0 1))
+(if a (print "True") (print "false"))

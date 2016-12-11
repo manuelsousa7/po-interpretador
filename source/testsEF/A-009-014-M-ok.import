@@ -1,0 +1,4 @@
+(set b 0)
+(if (not b) (print "true") (print "false"))
+
+

@@ -1,0 +1,3 @@
+(print "primeiro ciclo")
+(set a (sub 0 3))
+(while a (seq (print a) (set a (add a 1))))

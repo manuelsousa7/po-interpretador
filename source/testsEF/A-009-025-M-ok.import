@@ -1,0 +1,7 @@
+(set a 1)
+(set b 1)
+(set c 2)
+(if (ne a b) (print "diferentes") (print "iguais"))
+(if (ne 1 b) (print "diferentes") (print "iguais"))
+(if (ne a c) (print "diferentes") (print "iguais"))
+(if (ne c 1) (print "diferentes") (print "iguais"))

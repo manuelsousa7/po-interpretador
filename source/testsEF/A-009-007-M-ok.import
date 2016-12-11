@@ -1,0 +1,6 @@
+(set a (sub 0 1))
+(print (div a a))
+(print (div 0 a))
+(print (div a 1))
+(print (div 6 3))
+(print (div 7 3))

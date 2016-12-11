@@ -1,0 +1,6 @@
+(print "primeiro ciclo")
+(set a 0)
+(while a (print "dentro do ciclo"))
+(print "segundo ciclo")
+(print (while a (print "dentro do segundo ciclo")))
+(print "fim")

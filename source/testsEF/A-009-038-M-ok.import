@@ -1,0 +1,4 @@
+(print (add a 1) " " (sub s 1) " " (mul 10 d))
+(print f x g)
+(set a (add a 1))
+(print a)

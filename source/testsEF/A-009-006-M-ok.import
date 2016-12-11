@@ -1,0 +1,5 @@
+(set a (sub 0 1))
+(print (mul a a))
+(print (mul 0 a))
+(print (mul a 3))
+(print (mul 4 3))

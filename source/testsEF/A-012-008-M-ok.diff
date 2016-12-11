@@ -1,0 +1,33 @@
+*** testsEF/A-012-008-M-ok.out	Sat Dec 10 10:37:52 2016
+--- testsEF/A-012-008-M-ok.outhyp	Sun Dec 11 10:52:25 2016
+***************
+*** 28,33 ****
+--- 28,35 ----
+  d
+  g
+  x
++ xx
++ y
+  Menu de Edição
+  1 - Listar programa
+  2 - Executar programa
+***************
+*** 53,59 ****
+  5 - Mostrar os identificadores presentes no programa
+  6 - Mostrar os identificadores do programa sem inicialização explícita
+  0 - Sair
+! Escolha uma opção: x
+  xx
+  y
+  Menu de Edição
+--- 55,64 ----
+  5 - Mostrar os identificadores presentes no programa
+  6 - Mostrar os identificadores do programa sem inicialização explícita
+  0 - Sair
+! Escolha uma opção: a
+! d
+! g
+! x
+  xx
+  y
+  Menu de Edição

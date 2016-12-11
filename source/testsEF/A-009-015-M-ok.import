@@ -1,0 +1,6 @@
+(set b 9)
+(set a (sub 3 10))
+(print (neg b))
+(print (neg a))
+
+
