@@ -140,8 +140,12 @@ public class LiteralVisitor implements Visitor, Serializable {
 
 	public Expression visit(Call call) throws WrongTypeException {
 		try {
-			if ((call.getInterp()).getProgram(((LiteralString)call.getArgument(this)).getString()) != null) {
-				return ((call.getInterp()).getProgram(((LiteralString)call.getArgument(this)).getString())).execute();
+			Program prog = (call.getInterp()).getProgram(((LiteralString)call.getArgument(this)).getString());
+			if (prog != null) {
+				prog.addIds(call.getIdentifiers());
+				Expression exp = prog.execute();
+				call.getProgram().addIds(prog.getIdentifiers());
+				return exp;
 			}
 			return new LiteralInt(0);
 		} catch (ClassCastException cce) {
@@ -381,7 +385,7 @@ public class LiteralVisitor implements Visitor, Serializable {
 			StringBuilder sb = new StringBuilder();
 			for (Expression exp : print.getArguments()) {
 				expression = exp.accept(this);
-				sb.append(print.formatPrint(expression) + " ");
+				sb.append(print.formatPrint(expression));
 			}
 			print.requestPrint(sb.toString());
 			return expression;

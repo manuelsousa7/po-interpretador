@@ -58,6 +58,16 @@ public class Program implements Serializable {
 		_visitor = new LiteralVisitor();
 	}
 
+	public Map<String, Identifier> getIdentifiers() {
+		return _initializedIds;
+	}
+
+	public void addIds(Map<String, Identifier> ids) {
+		for (Map.Entry<String, Identifier> entry : ids.entrySet()) {
+			setId(entry.getValue(), entry.getValue().getExpression());
+		}
+	}
+
 	/**
 	 * Devolve uma lista de strings com os nomes dos identificadores
 	 * por ordem alfabetica.

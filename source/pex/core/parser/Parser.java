@@ -154,7 +154,7 @@ public class Parser implements Serializable  {
 
         case "call":
             try {
-                return new Call((LiteralString)parseArgument(), _program.getInterpreter());
+                return new Call((LiteralString)parseArgument(), _program.getInterpreter(), _program);
             } catch (ClassCastException cce) { // it is not a LiteralString
                 throw new InvalidExpressionException(_tokenizer.lineno());
             }
