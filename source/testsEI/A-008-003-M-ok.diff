@@ -1,5 +1,5 @@
-*** testsEI/A-008-003-M-ok.out	Sat Dec 10 12:59:05 2016
---- testsEI/A-008-003-M-ok.outhyp	Sat Dec 10 12:59:34 2016
+*** testsEI/A-008-003-M-ok.out	2016-12-11 10:58:52.702676364 +0000
+--- testsEI/A-008-003-M-ok.outhyp	2016-12-18 16:54:10.873134585 +0000
 ***************
 *** 7,13 ****
   6 - Escrever Programa

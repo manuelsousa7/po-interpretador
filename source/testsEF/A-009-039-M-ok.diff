@@ -1,5 +1,5 @@
-*** testsEF/A-009-039-M-ok.out	Sat Dec 10 10:37:52 2016
---- testsEF/A-009-039-M-ok.outhyp	Sun Dec 11 10:52:21 2016
+*** testsEF/A-009-039-M-ok.out	2016-12-11 10:58:52.698676914 +0000
+--- testsEF/A-009-039-M-ok.outhyp	2016-12-18 17:08:43.213582238 +0000
 ***************
 *** 18,32 ****
   Escolha uma opção: Introduza as dimensões do 1º lado do triângulo: 
@@ -17,11 +17,10 @@
   Menu de Edição
   1 - Listar programa
   2 - Executar programa
---- 18,59 ----
+--- 18,58 ----
   Escolha uma opção: Introduza as dimensões do 1º lado do triângulo:  
   Introduza as dimensões do 2º lado do triângulo:  
   Introduza as dimensões do 3º lado do triângulo:  
-! Argumento "5": String --> Esperado: Integer --> Nº Expressao: 1.
 ! Menu de Edição
 ! 1 - Listar programa
 ! 2 - Executar programa

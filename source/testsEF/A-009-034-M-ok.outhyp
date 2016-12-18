@@ -7,6 +7,15 @@ Menu Principal
 6 - Escrever Programa
 7 - Manipular Programa
 0 - Sair
+Escolha uma opção: Nome do ficheiro do program: Menu Principal
+1 - Criar
+2 - Abrir
+3 - Guardar
+4 - Criar Programa
+5 - Ler Programa
+6 - Escrever Programa
+7 - Manipular Programa
+0 - Sair
 Escolha uma opção: Nome do program: Menu de Edição
 1 - Listar programa
 2 - Executar programa
@@ -15,7 +24,18 @@ Escolha uma opção: Nome do program: Menu de Edição
 5 - Mostrar os identificadores presentes no programa
 6 - Mostrar os identificadores do programa sem inicialização explícita
 0 - Sair
-Escolha uma opção: primeiro ciclo 
+Escolha uma opção: Testar partilha de variáveis 
+antes do call 
+10 
+1   4 
+depois do primeiro call 
+10 
+0 
+2   5 
+depois do segundo call 
+10 
+0 
+fim 
 Menu de Edição
 1 - Listar programa
 2 - Executar programa

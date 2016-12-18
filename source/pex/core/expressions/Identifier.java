@@ -1,7 +1,7 @@
 package pex.core.expressions;
 
 import pex.core.Visitor;
-import pex.core.Interpreter;
+import pex.core.Program;
 
 import java.io.Serializable;
 
@@ -15,7 +15,7 @@ public class Identifier extends Expression {
 	private static final long serialVersionUID = 201608241029L;
 	private String _name;
 	private Expression _expression;
-	private Interpreter _interp;
+	private Program _program;
 
 	/**
 	 * Contrutor: Inicia _name com o nome recebido e _expression com a expressao recebida
@@ -23,14 +23,14 @@ public class Identifier extends Expression {
 	 * @param name Nome a associar a variavel _name
 	 * @param expression Expressao a associar a variavel _expression
 	 */
-	public Identifier(String name, Expression expression, Interpreter interp) {
+	public Identifier(String name, Expression expression, Program prog) {
 		_name = name;
 		_expression = expression;
-		_interp = interp;
+		_program = prog;
 	}
 
 	public Expression updateId(String id) {
-		return _interp.updateId(id);
+		return _program.updateId(id);
 	}
 
 	/**

@@ -18,7 +18,6 @@ Escolha uma opção: Nome do program: Menu de Edição
 Escolha uma opção: Introduza as dimensões do 1º lado do triângulo:  
 Introduza as dimensões do 2º lado do triângulo:  
 Introduza as dimensões do 3º lado do triângulo:  
-Argumento "5": String --> Esperado: Integer --> Nº Expressao: 1.
 Menu de Edição
 1 - Listar programa
 2 - Executar programa
