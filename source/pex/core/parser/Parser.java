@@ -94,9 +94,9 @@ public class Parser implements Serializable  {
         case StreamTokenizer.TT_WORD:
             if (_toSet) {
                 _toSet = false;
-                return _program.fetchId(_tokenizer.sval, true);
+                return _interp.fetchId(_tokenizer.sval, true);
             } else {
-                return _program.fetchId(_tokenizer.sval, false);
+                return _interp.fetchId(_tokenizer.sval, false);
             }
 
         case '(':

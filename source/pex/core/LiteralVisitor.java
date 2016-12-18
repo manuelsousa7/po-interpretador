@@ -391,7 +391,7 @@ public class LiteralVisitor implements Visitor, Serializable {
 	}
 
 	public Expression visit(ReadI readi) {
-		return new LiteralString(readi.getProgram().requestString(""));
+		return new LiteralInt(readi.getProgram().requestInt(""));
 	}
 
 	public Expression visit(ReadS reads) {
