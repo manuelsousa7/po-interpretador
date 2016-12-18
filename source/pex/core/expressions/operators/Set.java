@@ -34,7 +34,6 @@ public class Set extends BinaryExpression {
 			setOperatorName("set");
 		}
 		catch (ClassCastException cce) {
-			//System.out.println("Deu erro");
 			;
 		}
 	}
